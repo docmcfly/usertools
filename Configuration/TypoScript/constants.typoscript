@@ -1,0 +1,76 @@
+
+plugin.tx_usertools_editprofile {
+    view {
+        # cat=plugin.tx_usertools_editprofile/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:usertools/Resources/Private/Templates/
+        # cat=plugin.tx_usertools_editprofile/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:usertools/Resources/Private/Partials/
+        # cat=plugin.tx_usertools_editprofile/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:usertools/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_usertools_editprofile//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}
+
+plugin.tx_usertools_listusers {
+    view {
+        # cat=plugin.tx_usertools_listusers/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:usertools/Resources/Private/Templates/
+        # cat=plugin.tx_usertools_listusers/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:usertools/Resources/Private/Partials/
+        # cat=plugin.tx_usertools_listusers/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:usertools/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_usertools_listusers//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}
+
+plugin.tx_usertools_changeemailform {
+    view {
+        # cat=plugin.tx_usertools_changeemailform/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:usertools/Resources/Private/Templates/
+        # cat=plugin.tx_usertools_changeemailform/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:usertools/Resources/Private/Partials/
+        # cat=plugin.tx_usertools_changeemailform/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:usertools/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_usertools_changeemailform//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}
+
+plugin.tx_usertools_confirmnewemail {
+    view {
+        # cat=plugin.tx_usertools_confirmnewemail/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:usertools/Resources/Private/Templates/
+        # cat=plugin.tx_usertools_confirmnewemail/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:usertools/Resources/Private/Partials/
+        # cat=plugin.tx_usertools_confirmnewemail/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:usertools/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_usertools_confirmnewemail//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}
+
+plugin.tx_usertools_changeuserpassword {
+    view {
+        # cat=plugin.tx_usertools_changeuserpassword/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:usertools/Resources/Private/Templates/
+        # cat=plugin.tx_usertools_changeuserpassword/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:usertools/Resources/Private/Partials/
+        # cat=plugin.tx_usertools_changeuserpassword/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:usertools/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_usertools_changeuserpassword//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}
+

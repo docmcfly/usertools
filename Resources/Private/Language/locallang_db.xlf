@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-01-09T21:28:55Z" product-name="usertools">
+		<header />
+		<body>
+
+			<!-- FRONTEND USER -->
+			<trans-unit id="tx_usertools_domain_model_frontendUser.tab.user_preferences">
+				<source>Private user preferences</source>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.allow_display_email">
+				<source>Allow Display Email</source>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.allow_display_image_internal">
+				<source>Allow Display Image Internal</source>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.allow_display_image_public">
+				<source>Allow Display Image Public</source>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.allow_display_phone">
+				<source>Allow Display Phone</source>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.currently_off_duty">
+				<source>Currently off duty</source>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.currently_off_duty_until">
+				<source>Currently off duty until</source>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.new_email">
+				<source>New Email</source>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.new_email_token">
+				<source>New Email Token</source>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.newsletter_setting">
+				<source>Newsletter setting</source>
+			</trans-unit>
+
+			<!-- frontend user extenstion tab -->
+			<trans-unit id="fe_users.tx_extbase_type.Tx_Usertools_User">
+				<source>User tools</source>
+			</trans-unit>
+
+			<!-- NEWSLETTER LOG -->
+			<trans-unit id="tx_usertools_domain_model_newsletter_log.news">
+				<source>News</source>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_newsletter_log.title">
+				<source>Newsletter log</source>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_newsletter_log.description">
+				<source>Contains the history of transmitted newsletters</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

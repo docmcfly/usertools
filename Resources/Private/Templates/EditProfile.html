@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//WC//DTD XHTML . Strict//EN"
+	"http://www.w.org/TR/xhtml/DTD/xhtml-strict.dtd">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true" xmlns="http://www.w.org//xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+<body>
+	{namespace c=Cylancer\Usertools\ViewHelpers}
+	<f:layout name="Default" />
+	<f:section name="main">
+		<f:asset.css identifier="tx_usertools_custom.css" href="EXT:usertools/Resources/Public/Css/tx_usertools_custom.css" />
+		<div class="card profile">
+			<f:render partial="validationResults" arguments="{prefix:'editProfile.form', validationResults: validationResults}" />
+			<f:security.ifAuthenticated>
+				<f:then>
+					<f:render section="authenticated" arguments="{_all}" />
+				</f:then>
+				<f:else>
+					<f:render section="nonauthenticated" arguments="{_all}" />
+				</f:else>
+			</f:security.ifAuthenticated>
+		</div>
+	</f:section>
+	<f:section name="authenticated">
+		<f:form action="doEditProfile" object="{currentUser}" class="form" name="currentUser" enctype="multipart/form-data">
+			<div class="card-body">
+				<div class="card-text">
+					<div class="form">
+						<h5>
+							<label> <f:translate key="editProfile.form.name" />
+							</label>
+						</h5>
+						<p>{currentUser.name}</p>
+					</div>
+					<p></p>
+					<!-- phone number -->
+					<div class="form">
+						<h5>
+							<label for="telephone"> <f:translate key="editProfile.form.phoneNumber" />
+							</label>
+						</h5>
+						<f:form.textfield property="telephone" class="form-control" value="{currentUser.telephone}" />
+					</div>
+					<p></p>
+					<!-- User image  -->
+					<div class="form">
+						<h5>
+							<f:translate key="editProfile.form.yourImage" />
+						</h5>
+					</div>
+					<div class="form">
+						<div class="row">
+							<div class="col">
+								<f:if condition="{currentUser.image.0}">
+									<f:then>
+										<f:image class="border border-white rounded m-3" image="{currentUser.image.0}" id="image"
+											title="{currentUser.image.0.originalResource.originalFile.name}" alt="{currentUser.image.0.originalResource.originalFile.name}" maxWidth="150"
+											maxHeight="150"
+										/>
+										<f:link.action action="deleteCurrentUserImages">
+											<f:translate key="editProfile.form.deleteCurrentUserImages" />
+										</f:link.action>
+									</f:then>
+									<f:else>
+										<f:image class="border border-white rounded m-3" src="EXT:usertools/Resources/Public/NoPhoto.png"
+											alt="{f:translate(key:'editProfile.form.noneUserImage')}" title="{f:translate(key:'editProfile.form.noneUserImage')}" maxWidth="150" maxHeight="150"
+										/>
+										<label for="image"><f:translate key="editProfile.form.noneUserImage" /></label>
+									</f:else>
+								</f:if>
+								<p>
+									<f:translate key="editProfile.form.imageNote" />
+								</p>
+								<label for="uploadedImage" id="uploadedImageLabel"><f:translate key="editProfile.form.switchUserImage" /> </label>
+								<f:form.upload property="uploadedImage" additionalAttributes="{accept:'image/*'}" class="form-input" id="uploadedImage" />
+							</div>
+						</div>
+					</div>
+					<div class="form mt-4">
+						<h5>
+							<f:translate key="editProfile.form.privacyPolicies" />
+						</h5>
+					</div>
+					<!-- Allow display phone number -->
+					<div class="form-check">
+						<f:form.checkbox property="allowDisplayPhone" class="form-check-input" value="1" />
+						<label for="allowDisplayPhone"> <f:translate key="editProfile.form.allowDisplayPhone" />
+						</label>
+					</div>
+					<!-- Allow display email -->
+					<div class="form-check">
+						<f:form.checkbox property="allowDisplayEmail" class="form-check-input" value="1" />
+						<label for="allowDisplayEmail"> <f:translate key="editProfile.form.allowDisplayEmail" />
+						</label>
+					</div>
+					<!-- Allow display image internal -->
+					<div class="form-check">
+						<f:form.checkbox property="allowDisplayImageInternal" class="form-check-input" value="1" />
+						<label for="allowDisplayEmail"> <f:translate key="editProfile.form.allowDisplayImageInternal" />
+						</label>
+					</div>
+					<!-- newsletter settings -->
+					<div class="form">
+						<label for="newsletterSetting"> <f:translate key="editProfile.form.newsletterSettings" />
+						</label>
+						<f:form.select property="newsletterSetting" options="{newsletterOptions}" />
+					</div>
+				</div>
+				<div class="form">
+					<!-- SUBMIT BUTTON -->
+					<f:form.submit class="btn btn-primary btn-lg" disabled="{existsErrors}" value="{f:translate(key: 'editProfile.form.submit')}" />
+					<!-- SUBMIT BUTTON -->
+				</div>
+			</div>
+		</f:form>
+		<hr />
+		<div class="profile userGroupList">
+			<div class="card-body">
+				<h4 class="card-title">
+					<f:translate key="editProfile.form.userAssignment" />
+				</h4>
+				<ul class="userGroupList">
+					<f:for each="{currentUser.allSortedUserGroups}" as="group">
+						<f:if condition="{c:inArray(value:group.uid, array:visibleFeGroups)}">
+							<li class="userGroupTitle">{group.title}</li>
+						</f:if>
+					</f:for>
+					<f:if condition="{currentUser.currentlyOffDuty}">
+						<li class="text-primary"><f:translate key="editProfile.form.currentlyOffDuty" /></li>
+					</f:if>
+				</ul>
+			</div>
+		</div>
+	</f:section>
+	<f:section name="nonauthenticated">
+		<div class="card-body">
+			<h4 class="card-title">
+				<f:translate key="editProfile.form.title" />
+			</h4>
+		</div>
+	</f:section>
+</body>
+</html>

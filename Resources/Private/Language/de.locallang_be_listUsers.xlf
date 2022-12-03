@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-11-29T21:51:04Z" product-name="usertools">
+		<header/>
+		<body>
+		
+			<trans-unit id="plugin.name">
+				<source>User listing</source>
+				<target state="tanslated">Nutzerliste</target>
+			</trans-unit>
+			<trans-unit id="plugin.description">
+				<source>This plugin lists the frontend users.</source>
+				<target state="tanslated">Mit dieser Erweiterung werden Nutzer aufgelistet.</target>
+			</trans-unit>
+		
+			<trans-unit id="flexforms_general.settings.canViewPhoneNumbers">
+				<source>Can always view the phone numbers</source>
+				<target state="tanslated">Kann die immer die Telefonnummern sehen</target>
+			</trans-unit>
+			<trans-unit id="flexforms_general.settings.canViewCurrentlyOffDuty">
+				<source>Can view the currently off duty flag</source>
+				<target state="tanslated">Kann "Derzeit außer Dienst"-Marker sehen</target>
+			</trans-unit>
+			<trans-unit id="flexforms_general.settings.visbleFeGroups">
+				<source>Visbible frontend user groups </source>
+				<target state="tanslated">Sichtbare Webnutzergruppen</target>
+			</trans-unit>
+			<trans-unit id="flexforms_general.settings.alternativEmailLink">
+				<source>Alternative link if the user has not public his email address </source>
+				<target state="tanslated">Alternativer Link, wenn der Nutzer seine E-Mail-Adresse nicht veröffentlicht hat</target>
+			</trans-unit>
+			
+			<trans-unit id="flexforms_general.title">
+				<source>Common settings</source>
+				<target state="tanslated">Einstellungen</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

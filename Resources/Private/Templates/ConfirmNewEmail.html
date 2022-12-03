@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//WC//DTD XHTML . Strict//EN"
+	"http://www.w.org/TR/xhtml/DTD/xhtml-strict.dtd">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true" xmlns="http://www.w.org//xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+<body>
+	<f:layout name="Default" />
+	<f:section name="main">
+		<f:asset.css identifier="tx_usertools_custom.css" href="EXT:usertools/Resources/Public/Css/tx_usertools_custom.css" />
+		<f:if condition="{validationResults.hasErrors}">
+			<f:then>
+				<f:render section="unsuccessful" arguments="{_all}" />
+			</f:then>
+			<f:else>
+				<f:render section="successful" arguments="{_all}" />
+			</f:else>
+		</f:if>
+	</f:section>
+	<f:section name="unsuccessful">
+		<div class="card confirmNewEmail">
+			<div class="card-body">
+				<h4 class="card-title">
+					<f:translate key="changeEmail.unsuccessful.title" />
+				</h4>
+				<div class="card-text">
+					<f:render partial="validationResults" arguments="{prefix:'changeEmail.unsuccessful', validationResults: validationResults}" />
+				</div>
+			</div>
+		</div>
+	</f:section>
+	<f:section name="successful">
+		<div class="card confirmNewEmail">
+			<div class="card-body">
+				<h4 class="card-title">
+					<f:translate key="changeEmail.successful.title" />
+				</h4>
+				<div class="card-text">
+					<f:translate key="changEmail.successful.message" arguments="{0:currentUser.email}" />
+				</div>
+			</div>
+		</div>
+	</f:section>
+</body>
+</html>

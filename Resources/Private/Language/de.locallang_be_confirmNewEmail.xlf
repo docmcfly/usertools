@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-11-29T21:51:04Z" product-name="usertools">
+		<header />
+		<body>
+			<trans-unit id="plugin.name">
+				<source>Confirm new email</source>
+				<target state="tanslated">Bestätigen der neuen E-Mail-Adresse</target>
+			</trans-unit>
+			<trans-unit id="plugin.description">
+				<source>Confirms the new email of the fe user</source>
+				<target state="tanslated">Bestätigen der neuen E-Mail-Adresse</target>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>

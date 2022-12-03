@@ -20,7 +20,7 @@
 	],
 	"support" : {
 		"issues" : "https://github.com/docmcfly/usertools/issues",
-		"source" : "https://github.com/docmcfly/usertoolstree/master/loginViaEmail"
+		"source" : "https://github.com/docmcfly/usertools"
 	},
 	"extra" : {
 		"typo3/cms" : {

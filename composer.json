@@ -1,31 +1,32 @@
 {
 	"name" : "cylancer/usertools",
 	"type" : "typo3-cms-extension",
-	"description" : "edit profile\nchange email",
-	"authors" : [{
-			"name" : "Clemens Gogolin",
-			"role" : "Product Manager"
-		}, {
-			"name" : "Clemens Gogolin",
-			"role" : "Developer"
-		}
-	],
+	"description" : "A tool box for a fe user managemnet.",
+	"license": "GPL-2.0-or-later",
 	"require" : {
-		"typo3/cms-core" : "11.5.15"
+		"typo3/cms-core" : "11.5
 	},
 	"autoload" : {
 		"psr-4" : {
 			"Cylancer\\Usertools\\" : "Classes"
 		}
 	},
-	"autoload-dev" : {
-		"psr-4" : {
-			"Cylancer\\Usertools\\Tests\\" : "Tests"
-		}
-	},
-	"replace" : {
-		"cylancer/usertools" : "self.version",
-		"typo3-ter/usertools" : "self.version"
-	},
-	"minimum-stability" : "stable"
+	"authors": [
+        {
+            "name": "Clemens Gogolin",
+            "email": "service@cylancer.net",
+            "role": "developer",
+            "homepage": "https://github.com/docmcfly/usertools"
+        }
+    ],
+	 "support": {
+        "issues": "https://github.com/docmcfly/usertools/issues",
+        "source": "https://github.com/docmcfly/usertoolstree/master/loginViaEmail"
+    },
+        "extra": {
+        "typo3/cms": {
+            "extension-key": "usertools"
+        }
+    }
+    
 }

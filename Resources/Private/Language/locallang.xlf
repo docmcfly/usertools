@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-03-12T08:01:36Z" product-name="usertools">
+		<header/>
+		<body>
+			<!-- Login - form -->
+			<trans-unit id="login.form.title">
+				<source>Login</source>
+			</trans-unit>
+			<trans-unit id="login.form.titleLogged">
+				<source>Logged as</source>
+			</trans-unit>
+			<trans-unit id="login.form.username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="login.form.password">
+				<source>password</source>
+			</trans-unit>
+			<trans-unit id="login.form.stayLoggedIn">
+				<source>Stay logged in (one month) </source>
+			</trans-unit>
+			<trans-unit id="login.form.submit">
+				<source>submit</source>
+			</trans-unit>
+			<trans-unit id="login.link.forgottenPassword">
+				<source>You forget the password?</source>
+			</trans-unit>
+			
+		
+			
+			<!-- login errors -->
+			<trans-unit id="login.form.error.passwordWrong">
+				<source>Your password is wrong.</source>
+			</trans-unit>
+			<trans-unit id="login.form.error.tooManyAccountsfoundByEMail">
+				<source>Too many accounts were found with your email address.</source>
+			</trans-unit>
+			<trans-unit id="login.form.error.accountNotfoundByUsernameAndEmail">
+				<source>Account not found.</source>
+			</trans-unit>
+			<trans-unit id="login.form.error.tooManyAccountsfoundByUsername">
+				<source>Too many accounts were found with your username.</source>
+			</trans-unit>
+			<trans-unit id="login.form.error.accountNotfoundByUsername">
+				<source>Account not found.</source>
+			</trans-unit>
+			
+			<!-- forgotten password -->
+			<trans-unit id="forgottenPassword.form.title">
+				<source>Forgot your Passwort?</source>
+			</trans-unit>
+			<trans-unit id="forgottenPassword.form.description">
+				<source>If an e-mail address has been entered in the account, an e-mail with a link to is sent. The link allows you to reset the password.
+							If no mail arrives, the user name is not correct or the deposited e-mail address is wrong. For security reasons, no error message is thrown whether the username was correct or not.</source>
+				<target state="tanslated">Wenn eine E-Mail-Adresse im Account hinterlegt worden ist, wird eine Mail mit einem Link zu gesandt. Der Link ermöglicht es, das Passwort neu zusetzen.
+				Wenn keine Mail ankommt, ist der Nutzername nicht korrekt oder die hinterlegte E-Mail-Adresse falsch. Aus Sicherheitsgründen wird keine Fehlermeldung geworfen, ob der Nutzername korrekt war oder nicht.</target>
+			</trans-unit>
+			<trans-unit id="forgottenPassword.form.username">
+				<source>Username</source>
+			</trans-unit>
+			<trans-unit id="forgottenPassword.form.submit">
+				<source>Send</source>
+			</trans-unit>
+			
+			<!-- forgotten password email -->
+			<trans-unit id="forgottenPassword.mail.subject">
+				<source>Link to change your password</source>
+			</trans-unit>
+		  <trans-unit id="forgottenPassword.mail.salutation">
+				<source>Hello %s,</source>
+			</trans-unit>
+			<trans-unit id="forgottenPassword.mail.beforeLink">
+				<source>If you click on the link, you can reset your password: </source>
+			</trans-unit>
+      <trans-unit id="forgottenPassword.mail.link">
+				<source>Reset the passwort...</source>
+			</trans-unit>
+			
+			<trans-unit id="forgottenPassword.mail.afterLink">
+				<source>
+With kind regards
+
+your administrator</source>
+				<target state="tanslated">
+Mit freundlichem Gruß
+
+Ihr Administrator</target>
+			</trans-unit>
+	
+			<!-- changeForgottenPassword form -->
+			
+			<trans-unit id="changeForgottenPassword.form.title">
+				<source>Change the password</source>
+			</trans-unit>
+			<trans-unit id="changeForgottenPassword.form.password">
+				<source>New password</source>
+			</trans-unit>
+			<trans-unit id="changeForgottenPassword.form.confirmPassword">
+				<source>Repeat of the password</source>
+			</trans-unit>
+			<trans-unit id="changeForgottenPassword.form.submitChange">
+				<source>Change</source>
+			</trans-unit>
+			<trans-unit id="changeForgottenPassword.form.note">
+				<source>A password is valid if it is at least 8 characters long. It must contain upper and lower case letters, as well as numbers and special characters ( !#+-_"/§$%&amp;()[]{} )</source>
+			</trans-unit>
+			
+			<!-- changeForgottenPassword errors $ infos-->
+			<trans-unit id="changeForgottenPassword.form.error.newPasswordIsOldPassword">
+				<source>Your new password is the same as your old password. </source>
+			</trans-unit>
+			<trans-unit id="changeForgottenPassword.form.error.confirmPasswordIsNotEquals">
+				<source>The repeated password is not identical with the new password. </source>
+			</trans-unit>
+			<trans-unit id="changeForgottenPassword.form.error.passwordInvalid">
+				<source>The new password does not meet the security requirements: A password is valid if it is at least 8 characters long. It must contain upper and lower case letters, numbers and special characters ( !#+-_"/§$%&amp;()[]{} )</source>
+			</trans-unit>
+			<trans-unit id="changeForgottenPassword.form.error.tokenWrong">
+				<source>The password change token is wrong.</source>
+			</trans-unit>
+			<trans-unit id="changeForgottenPassword.form.info.passwordChangeSuccessful">
+				<source>The password change was successful. </source>
+			</trans-unit>
+			<trans-unit id="login.form.info.passwordChangeMailSuccessful">
+				<source>The mail to change the password has been sent successfull.</source>
+			</trans-unit>
+			<trans-unit id="login.form.info.passwordChangeMailFailed">
+				<source>Mail transmission to change the password failed. Contact the administrator.</source>
+			</trans-unit>
+			
+			<trans-unit id="changeForgottenPassword.link.toLogin">
+				<source>Login</source>
+			</trans-unit>
+			
+			<!-- edit profile (user settings) -->
+			<trans-unit id="editProfile.form.title">
+				<source>User settings</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.phoneNumber">
+				<source>Phone number</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.allowDisplayPhone">
+				<source>I allow my phone number to be displayed in the internal area.</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.allowDisplayEmail">
+				<source>I allow my email address to be displayed in the internal area.</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.allowDisplayImagePublic">
+				<source>I allow my picture to be displayed in the public area.</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.allowDisplayImageInternal">
+				<source>I allow my picture to be displayed in the internal area.</source>
+			</trans-unit>
+            <trans-unit id="editProfile.form.newsletterSettings">
+				<source>Newsletter settings:</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.submit">
+				<source>Save</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.userPictureTitle">
+				<source>No image selected.</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.userPictureAlt">
+				<source>No image selected.</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.deleteUserPicture">
+				<source>Delete picture.</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.addUserPicture">
+				<source>Add a picture</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.switchUserPicture">
+				<source>Switch the picture</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.pictureNote">
+				<source>Hint: The best side relation is 4:3 (height : width) </source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.yourPicture">
+				<source>Your picture </source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.userGroups">
+				<source>User grous</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.userAssignment">
+				<source>User group assignment</source>
+			</trans-unit>
+			<!-- &#128683;  -->
+			<trans-unit id="editProfile.form.currentlyOffDuty">
+				<source>Currenty off duty</source>
+			</trans-unit>
+
+			<!--  Newsletter options -->
+			<trans-unit id="editProfile.form.newsletterOption.disabled">
+				<source>Disabled</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.newsletterOption.onlyImportantNews">
+				<source>Only important news</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.newsletterOption.allNews">
+				<source>All news</source>
+			</trans-unit>
+			
+				
+			<!-- edit profile - errors -->
+			<trans-unit id="editProfile.form.error.notLogged">
+				<source>You are not logged.</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.error.onlyCurrentUserIsEditable">
+				<source>Only the current logged user is editable.</source>
+			</trans-unit>
+			<trans-unit id="editProfile.form.error.invalidNewsletterSetting">
+				<source>The newsletter setting is invalid.</source>
+			</trans-unit>
+		<!--
+			<trans-unit id="editProfile.form.error.noPictureAvailable">
+				<source>No picture available.</source>
+			</trans-unit>
+		-->		
+			<!-- list users -->	
+			<trans-unit id="listAllUser.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="listAllUser.email">
+				<source>E-Mail address</source>
+			</trans-unit>
+			<trans-unit id="listAllUser.telephone">
+				<source>Telephone</source>
+			</trans-unit>
+			<trans-unit id="listAllUser.noEmailAvailable">
+				<source>No email address available</source>
+			</trans-unit>
+			<trans-unit id="listAllUser.noEmailPublic">
+				<source>No email address public</source>
+			</trans-unit>
+			<trans-unit id="listAllUser.emailNotPublic">
+				<source>Email address is not public</source>
+			</trans-unit>
+
+			<trans-unit id="listAllUser.phoneNumber">
+				<source>Phone number</source>
+			</trans-unit>
+			<trans-unit id="listAllUser.nonePhoneNumber">
+				<source>No telephone number stored</source>
+			</trans-unit>
+			<trans-unit id="listAllUser.noPhoneNumberPublic">
+				<source>No telephone number public</source>
+			</trans-unit>
+			<trans-unit id="listAllUser.phoneNumberNotPublic">
+				<source>Telephone number is not public</source>
+			</trans-unit>
+			<trans-unit id="listAllUser.currentlyOffDuty">
+				<source>Currently off duty</source>				
+			</trans-unit>
+			
+
+			<!-- change email form -->		
+			<trans-unit id="changeEmail.form.title">
+				<source>Change the email address</source>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.currentEmail">
+				<source>Current email address</source>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.newEmail">
+				<source>The new email address</source>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.submitChange">
+				<source>Change</source>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.note">
+				<source>If you change your email address, you will receive an email with a confirmation link if no other account exists with this email address. The change of the e-mail address is only active after a confirmation and only then the new e-mail address is displayed here.</source>
+			</trans-unit>
+
+			<!-- change email form - errors -->
+			<trans-unit id="changeEmail.form.error.newEmailIsOldEmail">
+				<source>The new email address is equals to the current email address.</source>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.error.notLogged">
+				<source>You are not logged.</source>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.error.newEmailEmpty">
+				<source>No new e-mail address was provided.</source>
+			</trans-unit>	
+			<trans-unit id="changeEmail.form.error.newEmailInvalid">
+				<source>The new email addresse is invalid-</source>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.error.newEmailExists">
+				<source>The email address is already in use.</source>
+			</trans-unit>
+			
+			<!-- change email confirm mail -->
+			<trans-unit id="changeEmail.mail.confirm.subject">
+				<source>Confirm your new email address</source>
+			</trans-unit>
+		  <trans-unit id="changeEmail.mail.confirm.salutation">
+				<source>Hello %s,</source>
+			</trans-unit>
+			<trans-unit id="changeEmail.mail.confirm.beforeLink">
+				<source>This e-mail is to confirm that you wish to change your e-mail address. The new e-mail address is: %s.
+To complete the confirmation, follow the link below:</source>
+				<target state="tanslated">Diese E-Mail dient zur Bestätigung, dass Sie Ihre E-Mail-Adresse ändern wollen. Die neue E-Mail-Adresse lautet: %s.
+Um die Bestätigung abzuschließen, führen Sie den folgenden Link aus:</target>
+			</trans-unit>
+				<trans-unit id="changeEmail.mail.confirm.link">
+				<source>E-mail address confirmation %s</source>
+			</trans-unit>
+			<trans-unit id="changeEmail.mail.confirm.afterLink">
+				<source>After the successful confirmation you can use the new e-mail address to log in.
+
+With kind regards
+
+your administrator</source>
+				<target state="tanslated">Nach der erfolgreichen Bestätigung können Sie die neue E-Mail-Adresse zum einloggen verwenden.
+
+Mit freundlichem Gruß
+
+Ihr Administrator</target>
+			</trans-unit>
+			
+			
+			
+			<!-- change email confirm mail - errors -->
+			<trans-unit id="changeEmail.error.tokenEmailCombinationNotFound">
+				<source>No email change could be found that matches this confirmation link.</source>
+			</trans-unit>
+		  <trans-unit id="changeEmail.error.invalidLink">
+				<source>The confirmation link is invalid.</source>
+			</trans-unit>
+
+
+			<!-- change email successful "form" -->
+			<trans-unit id="changeEmail.successful.title">
+				<source>The e-mail address was successfully changed</source>
+			</trans-unit>
+  		<trans-unit id="changEmail.successful.message">
+				<source>The e-mail address was successfully changed to %s.</source>
+			</trans-unit>
+
+			<!-- change email unsuccessful "form" -->
+			<trans-unit id="changeEmail.unsuccessful.title">
+				<source>The e-mail address was not successfully changed</source>
+			</trans-unit>
+			<trans-unit id="changeEmail.unsuccessful.error.tokenEmailCombinationNotFound">
+				<source>No e-mail exists for the token contained in the link. The link may already have been successfully confirmed or a new link has been requested.</source>
+			</trans-unit>
+			<trans-unit id="changeEmail.unsuccessful.error.invalidLink"> %
+				<source>The confirmation link is invalid.</source>
+			</trans-unit>
+	
+	
+	
+			<!-- change password form -->		
+			<trans-unit id="changePassword.form.title">
+				<source>Change the password</source>
+			</trans-unit>
+			<trans-unit id="changePassword.form.password">
+				<source>New password</source>
+			</trans-unit>
+			<trans-unit id="changePassword.form.confirmPassword">
+				<source>Repeat of the password</source>
+			</trans-unit>
+			<trans-unit id="changePassword.form.submitChange">
+				<source>Change</source>
+			</trans-unit>
+			<trans-unit id="changePassword.form.note">
+				<source>A password is valid if it is at least 8 characters long. It must contain upper and lower case letters, as well as numbers and special characters ( !#+-_"/§$%&amp;()[]{} )</source>
+			</trans-unit>
+			
+			<trans-unit id="changePassword.form.error.newPasswordIsOldPassword">
+				<source>Your new password is the same as your old password. </source>
+			</trans-unit>
+			<trans-unit id="changePassword.form.error.confirmPasswordIsNotEquals">
+				<source>The repeated password is not identical with the new password. </source>
+			</trans-unit>
+			<trans-unit id="changePassword.form.error.passwordInvalid">
+				<source>The new password does not meet the security requirements: A password is valid if it is at least 8 characters long. It must contain upper and lower case letters, numbers and special characters ( !#+-_"/§$%&amp;()[]{} )</source>
+			</trans-unit>
+			<trans-unit id="changePassword.form.info.passwordChangeSuccessful">
+				<source>The password change was successful. </source>
+			</trans-unit>
+		
+			<trans-unit id="task.sendNewsletter.title">
+				<source>Send a newsletter</source>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.description">
+				<source>Send a reminder email if a new news is posted.</source>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.newsStoragePageId">
+				<source>Page id of the news storage</source>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.feUserPageId">
+				<source>Page id of the frontend users.</source>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.newsDisplayUrl">
+				<source>Url the news show.</source>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.logStoragePageId">
+				<source>Storage of the newsletter log.</source>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.maxCharacters">
+				<source>Limitation of the characters in the news reminder email</source>
+			</trans-unit>
+
+
+			<trans-unit id="task.sendNewsletter.error.invalid.newsStoragePageId">
+				<source>Invalid news storoage page id.</source>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.error.invalid.feUserPageId">
+				<source>Invalid frontend user page id.</source>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.error.invalid.logStoragePageId">
+				<source>Invalid log stroage page id.</source>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.error.invalid.newsDisplayUrl">
+				<source>Invalid news display url.</source>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.error.invalid.maxCharacters">
+				<source>The limitation of the characters in the news reminder email is invalid.</source>
+			</trans-unit>
+
+
+			<trans-unit id="task.sendNewsletter.rememberEmail.subject">
+				<source>Newletter: </source>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.rememberEmail.salutation">
+				<source>Hello %s,</source>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.rememberEmail.teaser">
+				<source>a new news is public. Here are the first words of the news:</source>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.rememberEmail.newsLink">
+				<source>Link to the full news</source>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.rememberEmail.subscriptInfo"> 
+				<source>Hint: You can config the newsletter settings in your personal profile.</source>
+			</trans-unit>
+			
+			<trans-unit id="taskForceOverview.reason.currentlyOffDuty">
+				<source>Currently off duty</source>
+			</trans-unit>
+			
+
+		</body>
+	</file>
+</xliff>

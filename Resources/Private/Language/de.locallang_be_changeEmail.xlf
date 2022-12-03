@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-11-29T21:51:04Z" product-name="usertools">
+		<header />
+		<body>
+			<trans-unit id="plugin.name">
+				<source>Email address change form</source>
+				<target state="tanslated">Ändern der E-mail-Adresse</target>
+			</trans-unit>
+			<trans-unit id="plugin.description">
+				<source>With this plugin the user can change his email address.</source>
+				<target state="tanslated">Mit dieser Erweiterung kann der Nutzer seine E-Mail-Adresse ändern.</target>
+			</trans-unit>
+
+			<trans-unit id="flexforms_general.redirectSuccess.label">
+				<source>E-Mail-Confirm page</source>
+				<target state="tanslated">E-Mail-Bestätigungsseite</target>
+			</trans-unit>
+			<trans-unit id="flexforms_general.sender.label">
+				<source>Sender email address </source>
+				<target state="tanslated">Sender-E-Mail-Adresse der Bestätigungs-E-Mail</target>
+			</trans-unit>
+			<trans-unit id="flexforms_general.senderName.label">
+				<source>Sender name</source>
+				<target state="tanslated">Sender-Name der Bestätigungs-E-Mail</target>
+			</trans-unit>
+			<trans-unit id="flexforms_general.title">
+				<source>Common settings</source>
+				<target state="tanslated">Allgemeine Einstellungen</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

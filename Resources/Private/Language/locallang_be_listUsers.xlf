@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-11-29T21:51:04Z" product-name="usertools">
+		<header />
+		<body>
+			<trans-unit id="flexforms_general.settings.canViewPhoneNumbers">
+				<source>Can always view the phone numbers</source>
+			</trans-unit>
+			<trans-unit id="flexforms_general.settings.canViewCurrentlyOffDuty">
+				<source>Can view the currenty off duty flag</source>
+			</trans-unit>
+			<trans-unit id="flexforms_general.settings.visbleFeGroups">
+				<source>Visbible frontend user groups </source>
+			</trans-unit>
+			<trans-unit id="flexforms_general.settings.alternativEmailLink">
+				<source>Alternative link if the user has not public his email address </source>
+			</trans-unit>
+
+			<trans-unit id="flexforms_general.title">
+				<source>Common settings</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

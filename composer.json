@@ -1,0 +1,31 @@
+{
+	"name" : "cylancer/usertools",
+	"type" : "typo3-cms-extension",
+	"description" : "edit profile\nchange email",
+	"authors" : [{
+			"name" : "Clemens Gogolin",
+			"role" : "Product Manager"
+		}, {
+			"name" : "Clemens Gogolin",
+			"role" : "Developer"
+		}
+	],
+	"require" : {
+		"typo3/cms-core" : "11.5.15"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Cylancer\\Usertools\\" : "Classes"
+		}
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"Cylancer\\Usertools\\Tests\\" : "Tests"
+		}
+	},
+	"replace" : {
+		"cylancer/usertools" : "self.version",
+		"typo3-ter/usertools" : "self.version"
+	},
+	"minimum-stability" : "stable"
+}

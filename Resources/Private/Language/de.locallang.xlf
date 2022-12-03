@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-03-12T08:01:36Z" product-name="usertools">
+		<header />
+		<body>
+
+			<!-- edit profile (user settings) -->
+			<trans-unit id="editProfile.form.phoneNumber">
+				<source>Phone number</source>
+				<target state="tanslated">Telefonnummer</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.allowDisplayPhone">
+				<source>I allow my phone number to be displayed in the internal area.</source>
+				<target state="tanslated">Ich erlaube, dass meine Telefonnummer im interen Bereich angezeigt wird.</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.allowDisplayEmail">
+				<source>I allow my email address to be displayed in the internal area.</source>
+				<target state="tanslated">Ich erlaube, dass meine E-Mail-Adresse im interen Bereich angezeigt wird.</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.allowDisplayImagePublic">
+				<source>I allow my image to be displayed in the public area.</source>
+				<target state="tanslated">Ich erlaube, dass mein Bild im öffentlichen Bereich angezeigt wird.</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.allowDisplayImageInternal">
+				<source>I allow my image to be displayed in the internal area.</source>
+				<target state="tanslated">Ich erlaube, dass mein Bild im interen Bereich angezeigt wird.</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.newsletterSettings">
+				<source>Newsletter settings:</source>
+				<target state="tanslated">Newsletter-Einstellungen:</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.submit">
+				<source>Save</source>
+				<target state="tanslated">Speichern</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.noneUserImage">
+				<source>No image selected.</source>
+				<target state="tanslated">Kein Bild ausgewählt.</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.deleteCurrentUserImages">
+				<source>Delete image.</source>
+				<target state="tanslated">Bild entfernen.</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.addUserImage">
+				<source>Add a image</source>
+				<target state="tanslated">Bild hinzufügen</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.switchUserImage">
+				<source>Switch the image</source>
+				<target state="tanslated">Bild aktualisieren</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.imageNote">
+				<source>Hint: The best side relation is 4:3 (height : width) </source>
+				<target state="tanslated">Hinweis: Das beste Seitenverhältnis ist 4:3 (Höhe: Breite)</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.yourImage">
+				<source>Image </source>
+				<target state="tanslated">Bild</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.userGroups">
+				<source>User grous</source>
+				<target state="tanslated">Gruppenzugehörigkeit</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.userAssignment">
+				<source>User group assignment</source>
+				<target state="tanslated">Gruppenzugehörigkeit</target>
+			</trans-unit>
+			<!-- &#128683; -->
+			<trans-unit id="editProfile.form.currentlyOffDuty">
+				<source>Currenty off duty</source>
+				<target state="tanslated">Derzeit nicht im Dienst</target>
+			</trans-unit>
+
+			<trans-unit id="editProfile.form.name">
+				<source>Name</source>
+				<target state="tanslated">Name</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.privacyPolicies">
+				<source>Privacy policies</source>
+				<target state="tanslated">Richtlinien zum Datenschutz</target>
+			</trans-unit>
+
+			<!-- Newsletter options -->
+			<trans-unit id="editProfile.form.newsletterOption.disabled">
+				<source>Disabled</source>
+				<target state="tanslated">Abgeschaltet</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.newsletterOption.onlyImportantNews">
+				<source>Only important news</source>
+				<target state="tanslated">Nur als wichtig markierte Nachrichten</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.newsletterOption.allNews">
+				<source>All news</source>
+				<target state="tanslated">Alle Nachrichten</target>
+			</trans-unit>
+
+
+			<!-- edit profile - info -->
+			<trans-unit id="editProfile.form.info.savingSuccessful">
+				<source>The values are save successful. </source>
+				<target state="tanslated">Einstellungen erfolgreich abgespeichert.</target>
+			</trans-unit>
+
+			<!-- edit profile - errors -->
+			<trans-unit id="editProfile.form.error.notLogged">
+				<source>You are not logged.</source>
+				<target state="tanslated">Sie sind nicht eingeloggt.</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.error.onlyCurrentUserIsEditable">
+				<source>Only the current logged user is editable.</source>
+				<target state="tanslated">Sie können nur den Nutzer bearbeiten, der auch eingeloggt ist.</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.error.invalidNewsletterSetting">
+				<source>The newsletter setting is invalid.</source>
+				<target state="tanslated">Die Newsletter-Einstellung ist ungültig.</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.error.uploadedImage.imageFormatNotSupported">
+				<source>The image format '%s' does not supported.</source>
+				<target state="tanslated">Das Bildformat '%s' wird nicht unterstützt.</target>
+			</trans-unit>
+			<trans-unit id="editProfile.form.error.uploadedImage.scriptsNotAllowed">
+				<source>The uploaded file does not allowed.</source>
+				<target state="tanslated">Die hochgeladene Datei ist nicht zulässig.</target>
+			</trans-unit>
+
+
+			<!-- list users -->
+			<trans-unit id="listAllUser.fastSearch.textfield">
+				<source>Fast search:</source>
+				<target state="tanslated">Schnellsuche:</target>
+			</trans-unit>
+			<trans-unit id="listAllUser.fastSearch.button">
+				<source>→</source>
+				<target state="tanslated">→</target>
+			</trans-unit>
+			<trans-unit id="listAllUser.name">
+				<source>Name</source>
+				<target state="tanslated">Name</target>
+			</trans-unit>
+			<trans-unit id="listAllUser.email">
+				<source>E-Mail address</source>
+				<target state="tanslated">E-Mail Adresse</target>
+			</trans-unit>
+			<trans-unit id="listAllUser.telephone">
+				<source>Telephone</source>
+				<target state="tanslated">Telefonnummer</target>
+			</trans-unit>
+			<trans-unit id="listAllUser.noEmailAvailable">
+				<source>No email address available</source>
+				<target state="tanslated">Keine E-Mail Adresse hinterlegt</target>
+			</trans-unit>
+			<trans-unit id="listAllUser.noEmailPublic">
+				<source>No email address public</source>
+				<target state="tanslated">Keine E-Mail-Adresse veröffentlicht</target>
+			</trans-unit>
+			<trans-unit id="listAllUser.emailNotPublic">
+				<source>Email address is not public</source>
+				<target state="tanslated">E-Mail-Adresse nicht veröffentlicht</target>
+			</trans-unit>
+
+			<trans-unit id="listAllUser.phoneNumber">
+				<source>Phone number</source>
+				<target state="tanslated">Telefonnummer</target>
+			</trans-unit>
+			<trans-unit id="listAllUser.nonePhoneNumber">
+				<source>No telephone number stored</source>
+				<target state="tanslated">Keine Telefonnummer hinterlegt</target>
+			</trans-unit>
+			<trans-unit id="listAllUser.noPhoneNumberPublic">
+				<source>No telephone number public</source>
+				<target state="tanslated">Keine Telefonnummer veröffentlicht</target>
+			</trans-unit>
+			<trans-unit id="listAllUser.phoneNumberNotPublic">
+				<source>Telephone number is not public</source>
+				<target state="tanslated">Telefonnummer nicht veröffentlicht</target>
+			</trans-unit>
+			<trans-unit id="listAllUser.currentlyOffDuty">
+				<source>Currently off duty</source>
+				<target state="tanslated">Derzeit nicht im Dienst</target>
+			</trans-unit>
+
+			<!-- change email form -->
+			<trans-unit id="changeEmail.form.currentEmail">
+				<source>Current email address</source>
+				<target state="tanslated">Aktuelle E-Mail-Adresse</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.newEmail">
+				<source>The new email address</source>
+				<target state="tanslated">Die neue E-Mail-Adresse</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.submitChange">
+				<source>Change</source>
+				<target state="tanslated">Ändern</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.note">
+				<source>If you change your email address, you will receive an email with a confirmation link if no other account exists with this email address. The change
+					of the e-mail address is only active after a confirmation and only then the new e-mail address is displayed here.
+				</source>
+				<target state="tanslated">Wenn Du Deine E-Mail Adresse änderst, erhältst Du eine E-Mail mit einem Bestätigungslink insofern noch kein anderer Account mit dieser
+					E-Mail Adresse existiert. Die Änderung der E-Mail Adresse ist erst nach einer Bestätigung aktiv und auch dann erst wird die neue E-Mail Adresse hier
+					angezeigt.
+				</target>
+			</trans-unit>
+
+			<!-- change email form - errors -->
+			<trans-unit id="changeEmail.form.error.newEmailIsOldEmail">
+				<source>The new email address is equals to the current email address.</source>
+				<target state="tanslated">Die neue E-Mail-Adresse ist die gleiche, wie die aktuelle E-Mail-Adresse.</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.error.notLogged">
+				<source>You are not logged.</source>
+				<target state="tanslated">Sie sind nicht eingeloggt.</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.error.newEmailEmpty">
+				<source>No new e-mail address was provided.</source>
+				<target state="tanslated">Es wurde keine neue E-Mail-Adresse angeben.</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.error.newEmailInvalid">
+				<source>The new email addresse is invalid-</source>
+				<target state="tanslated">Die neue E-Mail-Adresse ist ungültig.</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.error.newEmailExists">
+				<source>The email address is already in use.</source>
+				<target state="tanslated">Die E-Mail-Adresse wird bereits verwendet.</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.info.confirmEMailMailSuccessful">
+				<source>The mail to confirm the new email address has been sent successfull.</source>
+				<target state="tanslated">Die Mail zur Bestätigung der neuen E-Mail-Adresse ist erfolgreich versendet worden.</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.info.confirmEMailMailFailed">
+				<source>Mail transmission to confirm the email address failed. Contact the administrator.</source>
+				<target state="tanslated">Die Mailübertragung zur Bestätigung der neuen E-Mail-Adresse ist fehlgeschlagen. Wenden Sie sich an den Administrator.</target>
+			</trans-unit>
+
+
+
+
+			<!-- change email confirm mail -->
+			<trans-unit id="changeEmail.mail.confirm.subject">
+				<source>Confirm your new email address</source>
+				<target state="tanslated">Bestätige Deine neue E-Mail-Adresse</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.mail.confirm.salutation">
+				<source>Hello %s,</source>
+				<target state="tanslated">Guten Tag %s,</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.mail.confirm.beforeLink">
+				<source>This e-mail is to confirm that you wish to change your e-mail address. The new e-mail address is: %s.
+To complete the confirmation, follow the link
+below:
+				</source>
+				<target state="tanslated">Diese E-Mail dient zur Bestätigung, dass Sie Ihre E-Mail-Adresse ändern wollen. Die neue E-Mail-Adresse lautet: %s.
+Um die Bestätigung
+abzuschließen, führen Sie den folgenden Link aus:
+				</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.mail.confirm.link">
+				<source>E-mail address confirmation %s</source>
+				<target state="tanslated">Bestätigung der E-Mail-Adresse %s</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.mail.confirm.afterLink">
+				<source>After the successful confirmation you can use the new e-mail address to log in.
+
+With kind regards
+
+your administrator
+				</source>
+				<target state="tanslated">Nach der erfolgreichen Bestätigung können Sie die neue E-Mail-Adresse zum einloggen verwenden.
+
+Mit freundlichem Gruß
+
+Ihr Administrator
+				</target>
+			</trans-unit>
+
+
+
+			<!-- change email confirm mail - errors -->
+			<trans-unit id="changeEmail.error.tokenEmailCombinationNotFound">
+				<source>No email change could be found that matches this confirmation link.</source>
+				<target state="tanslated">Es konnte kein E-Mai-Änderung gefunden werden, der zu diesem Bestätigungslink passt.</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.error.invalidLink">
+				<source>The confirmation link is invalid.</source>
+				<target state="tanslated">Der Bestätigungslink ist ungültig.</target>
+			</trans-unit>
+
+
+			<!-- change email successful "form" -->
+			<trans-unit id="changeEmail.successful.title">
+				<source>The e-mail address was successfully changed</source>
+				<target state="tanslated">Die E-Mail-Adresse wurde erfolgreich geändert</target>
+			</trans-unit>
+			<trans-unit id="changEmail.successful.message">
+				<source>The e-mail address was successfully changed to %s.</source>
+				<target state="tanslated">Die E-Mail-Adresse wurde erfolgreich auf %s geändert.</target>
+			</trans-unit>
+
+			<!-- change email unsuccessful "form" -->
+			<trans-unit id="changeEmail.unsuccessful.title">
+				<source>The e-mail address was not successfully changed</source>
+				<target state="tanslated">Die E-Mail-Adresse wurde nicht erfolgreich geändert</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.unsuccessful.error.tokenEmailCombinationNotFound">
+				<source>No e-mail exists for the token contained in the link. The link may already have been successfully confirmed or a new link has been requested.
+				</source>
+				<target state="tanslated">Zum dem im Link enthalten Token existiert keine E-Mail. Der Link wurde vielleicht bereits erfolgreich bestätigt oder ein neuer Link 
+					ist bereits angefordert worden.
+				</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.unsuccessful.error.invalidLink">
+				<source>The confirmation link is invalid.</source>
+				<target state="tanslated">Der Bestätigungslink ist ungültig.</target>
+			</trans-unit>
+
+			<!-- change password form -->
+			<trans-unit id="changePassword.form.password">
+				<source>New password</source>
+				<target state="tanslated">Neues Passwort</target>
+			</trans-unit>
+			<trans-unit id="changePassword.form.confirmPassword">
+				<source>Repeat of the password</source>
+				<target state="tanslated">Wiederholung des Passwortes</target>
+			</trans-unit>
+			<trans-unit id="changePassword.form.submitChange">
+				<source>Change</source>
+				<target state="tanslated">Ändern</target>
+			</trans-unit>
+			<trans-unit id="changePassword.form.note">
+				<source>A password is valid if it is at least 8 characters long. It must contain upper and lower case letters, as well as numbers and special characters: !
+					# + - _ " / § $ %% &amp; ()[]{}</source>
+				<target state="tanslated">Ein Passwort ist gültig, wenn es mindestens 8 Zeichen lang ist. Es muss große und kleine Buchstaben enthalten, sowie Zahlen und
+					Sonderzeichen:: ! # + - _ " / § $ %% &amp; ()[]{}</target>
+			</trans-unit>
+
+			<trans-unit id="changePassword.form.error.newPasswordIsOldPassword">
+				<source>Your new password is the same as your old password. </source>
+				<target state="tanslated">Ihr neues Passwort ist das gleiche wie das alte Passwort.</target>
+			</trans-unit>
+			<trans-unit id="changePassword.form.error.confirmPasswordIsNotEquals">
+				<source>The repeated password is not identical with the new password. </source>
+				<target state="tanslated">Das wiederholte Passwort ist nicht identisch mit dem neuen Passwort. </target>
+			</trans-unit>
+			<trans-unit id="changePassword.form.error.passwordInvalid">
+				<source>The new password does not meet the security requirements: A password is valid if it is at least 8 characters long. It must contain upper and lower
+					case letters, numbers and special characters: ! # + - _ " / § $ %% &amp; ()[]{} </source>
+				<target state="tanslated">Das neue Passwort entspricht nicht den Sicherheitsvorgaben: Ein Passwort ist gültig, wenn es mindestens 8 Zeichen lang ist. Es muss
+					große und kleine Buchstaben enthalten, sowie Zahlen und Sonderzeichen: ! # + - _ " / § $ %% &amp; ()[]{} </target>
+			</trans-unit>
+			<trans-unit id="changePassword.form.info.passwordChangeSuccessful">
+				<source>The password change was successful. </source>
+				<target state="tanslated">Die Passwortänderung war erfolgreich. </target>
+			</trans-unit>
+			<trans-unit id="changePassword.form.error.notLogged">
+				<source>You are not logged.</source>
+				<target state="tanslated">Sie sind nicht eingeloggt.</target>
+			</trans-unit>
+
+			
+			<trans-unit id="task.sendNewsletter.newsStoragePageId">
+				<source>Page id of the news storage</source>
+				<target state="tanslated">Page Id der Nachrichtenablage</target>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.feUserPageId">
+				<source>Page id of the frontend users.</source>
+				<target state="tanslated">Page Id der Webseitennutzer</target>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.newsDisplayUrl">
+				<source>Url the news show.</source>
+				<target state="tanslated">Seite, wo die News angezeigt werden</target>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.logStoragePageId">
+				<source>Storage of the newsletter log.</source>
+				<target state="tanslated">Hier werden die Log-Einträge hinterlegt.</target>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.maxCharacters">
+				<source>Limitation of the characters in the news reminder email</source>
+				<target state="tanslated">Wie viele Zeichen sollen in der Erinnerungsmail von der Neuigkeit angezeigt werden?</target>
+			</trans-unit>
+
+			<trans-unit id="task.sendNewsletter.error.invalid.newsStoragePageId">
+				<source>Invalid news storoage page id.</source>
+				<target state="tanslated">Ungültige News-Speicher-Seiten-Id.</target>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.error.invalid.feUserPageId">
+				<source>Invalid frontend user page id.</source>
+				<target state="tanslated">Ungültige Webseitennutzer-Seiten-Id.</target>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.error.invalid.logStoragePageId">
+				<source>Invalid log stroage page id.</source>
+				<target state="tanslated">Ungültige Log-Speicher-Seiten-Id.</target>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.error.invalid.newsDisplayUrl">
+				<source>Invalid news display url.</source>
+				<target state="tanslated">Ungültige URL (Wo die News angezeigt werden.)</target>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.error.invalid.maxCharacters">
+				<source>The limitation of the characters in the news reminder email is invalid.</source>
+				<target state="tanslated">Zeichenanzahl in der Erinnerungsmail ist ungültig.</target>
+			</trans-unit>
+
+			<trans-unit id="task.sendNewsletter.rememberEmail.subject">
+				<source>Newletter: </source>
+				<target state="tanslated">[Newsletter der Ortsfeuerwehr Letter] </target>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.rememberEmail.salutation">
+				<source>Hello %s,</source>
+				<target state="tanslated">Guten Tag %s,</target>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.rememberEmail.teaser">
+				<source>a new news is public. Here are the first words of the news:</source>
+				<target state="tanslated">es wurde eine neue Neuigkeit veröffentlicht. Hier sind die ersten Zeilen der Nachricht:</target>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.rememberEmail.newsLink">
+				<source>Link to the full news</source>
+				<target state="tanslated">Link zur vollständigen Neuigkeit</target>
+			</trans-unit>
+			<trans-unit id="task.sendNewsletter.rememberEmail.subscriptInfo">
+				<source>Hint: You can config the newsletter settings in your personal profile.</source>
+				<target state="tanslated">Hinweis: Im persönlichen Profil kann man die Einstellungen zu diesem Newsletter verändert.</target>
+			</trans-unit>
+
+			<trans-unit id="taskForceOverview.reason.currentlyOffDuty">
+				<source>Currently off duty</source>
+				<target state="tanslated">Derzeit nicht im Dienst</target>
+			</trans-unit>
+
+
+		</body>
+	</file>
+</xliff>

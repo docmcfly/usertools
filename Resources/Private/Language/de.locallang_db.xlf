@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-01-09T21:28:55Z" product-name="usertools">
+		<header />
+		<body>
+
+			<!-- FRONTEND USER -->
+			<trans-unit id="tx_usertools_domain_model_frontendUser.tab.user_preferences">
+				<source>Private user preferences</source>
+				<target state="tanslated">Persönliche Benutzereinstellungen</target>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.allow_display_email">
+				<source>Allow Display Email</source>
+				<target state="tanslated">Anzeige der E-Mail erlauben</target>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.allow_display_image_internal">
+				<source>Allow Display Image Internal</source>
+				<target state="tanslated">Interne Anzeige des Bildes erlauben</target>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.allow_display_image_public">
+				<source>Allow Display Image Public</source>
+				<target state="tanslated">Öffentliche Anzeige des Bildes erlauben</target>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.allow_display_phone">
+				<source>Allow Display Phone</source>
+				<target>Anzeige der Telefonnummer erlauben</target>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.currently_off_duty">
+				<source>Currently off duty</source>
+				<target>Derzeit außer Dienst</target>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.currently_off_duty_until">
+				<source>Currently off duty until</source>
+				<target>Derzeit außer Dienst bis</target>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.new_email">
+				<source>New Email</source>
+				<target state="tanslated">Neue E-Mail</target>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.new_email_token">
+				<source>New Email Token</source>
+				<target state="tanslated">Neues E-Mail-Token</target>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.newsletter_setting">
+				<source>Newsletter setting</source>
+				<target state="tanslated">Newsletter-Einstellung</target>
+			</trans-unit>
+
+			<!-- frontend user extenstion tab -->
+			<trans-unit id="fe_users.tx_extbase_type.Tx_Usertools_User">
+				<source>User tools</source>
+				<target state="tanslated">Benutzerwerkzeuge</target>
+			</trans-unit>
+
+			<!-- NEWSLETTER LOG -->
+			<trans-unit id="tx_usertools_domain_model_newsletter_log.news">
+				<source>News</source>
+				<target state="tanslated">Nachricht</target>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_newsletter_log.title">
+				<source>Newsletter log</source>
+				<target state="tanslated">Newsletter log</target>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_newsletter_log.description">
+				<source>Contains the history of transmitted newsletters</source>
+				<target state="tanslated">Enthält alle bereits versandten Newsletter</target>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

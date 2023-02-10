@@ -4,7 +4,7 @@
 		<header />
 		<body>
 			<trans-unit id="plugin.name">
-				<source>Confirm new email</source>
+				<source>Confirm the new email</source>
 				<target state="tanslated">Bestätigen der neuen E-Mail-Adresse</target>
 			</trans-unit>
 			<trans-unit id="plugin.description">

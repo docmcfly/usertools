@@ -3,6 +3,14 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2019-11-29T21:51:04Z" product-name="usertools">
 		<header />
 		<body>
+
+			<trans-unit id="plugin.name">
+				<source>User listing</source>
+			</trans-unit>
+			<trans-unit id="plugin.description">
+				<source>This plugin lists the frontend users.</source>
+			</trans-unit>
+
 			<trans-unit id="flexforms_general.settings.canViewPhoneNumbers">
 				<source>Can always view the phone numbers</source>
 			</trans-unit>

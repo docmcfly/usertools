@@ -10,7 +10,7 @@ call_user_func(function () {
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('Cylancer.Usertools', 'Changeemailform', 'LLL:EXT:usertools/Resources/Private/Language/locallang_be_changeEmail.xlf:plugin.name');
 
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('Cylancer.Usertools', 'Confirmnewemail', 'LLL:EXT:usertools/Resources/Private/Language/locallang_be_confirmEmail.xlf:plugin.name');
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('Cylancer.Usertools', 'Confirmnewemail', 'LLL:EXT:usertools/Resources/Private/Language/locallang_be_confirmNewEmail.xlf:plugin.name');
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('Cylancer.Usertools', 'Changeuserpassword', 'LLL:EXT:usertools/Resources/Private/Language/locallang_be_changePassword.xlf:plugin.name');
 

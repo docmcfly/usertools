@@ -3,14 +3,20 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2019-11-29T21:51:04Z" product-name="usertools">
 		<header />
 		<body>
+		
+			<trans-unit id="plugin.name">
+				<source>User profile prereferences</source>
+			</trans-unit>
+			<trans-unit id="plugin.description">
+				<source>With this plugin the user can set his user prereferences.</source>
+			</trans-unit>
+		
 			<trans-unit id="flexforms_general.title">
 				<source>Common settings</source>
 			</trans-unit>
-
 			<trans-unit id="flexforms_general.settings.visbleFeGroups">
 				<source>Visbible frontend user groups </source>
 			</trans-unit>
-
 			<trans-unit id="flexforms_general.settings.userImageFolder">
 				<source>Storage folder for the user image</source>
 			</trans-unit>

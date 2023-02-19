@@ -11,7 +11,11 @@ This extension contains a collection of user tools:
 ## Limitations
 * **DEPENDENCIES:**  
 	- TYPO3 (11.5.0 - 11.5.99)
+<<<<<<< HEAD
 	- bootstrap_package (12.0.0 - 13.0.99)
+=======
+	- bootstrap_package (12.0.0 - 12.99.99)
+>>>>>>> refs/remotes/origin/development
 
 ## Installation
 

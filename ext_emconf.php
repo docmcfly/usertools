@@ -30,5 +30,5 @@ $EM_CONF[$_EXTKEY] = [
 
 /** ---- CHANGELOG ----------
 2.1.3 :: Add documentarion / change this icons. 
-
+2.2.0 :: Removes the news extension dependecy (Removes the newsletter task. You can use the scheduler task cy_newsletter.) 
 // ---- CHANGELOG ---------- */

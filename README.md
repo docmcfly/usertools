@@ -7,10 +7,11 @@ This extension contains a collection of user tools:
 	- email address
 	- password 
 	- visualisation properties
-- background task for a news reminder. 
 
 ## Limitations
-* **IMPORTANT:**  This extension is dependent from the news extension. 
+* **DEPENDENCIES:**  
+	- TYPO3 (11.5.0 - 11.5.99)
+	- bootstrap_package (12.0.0 - 12.99.99)
 
 ## Installation
 
@@ -60,18 +61,6 @@ You do not have any plugin specific settings.
 has a new "Private user preferences" sheet. You can see but you can not change the private preference of the frontend user. 
 
 You can only the flag "currently off duty". 
-
-
-### The task: Send a newsletter
-
-This task sends a newsletter if you public a news. The task is not configure simple. 
-
-* **Page id of the news storage** :: on this page (folder) are stored the news. 
-* **Page id of the frontend users** :: this page (folder) contains the frontend users. 
-* **Storage of the newsletter log** :: To prevent newsletters from being sent twice, data must be saved. This data is stored in the specified folder. 
-* **Url the news show** :: This url refers to the news page. 
-+ **Limitation of the characters in the news reminder email** :: is the maximal characters of the news in your newsletter mail. 
-
 
 
 

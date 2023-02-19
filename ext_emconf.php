@@ -9,8 +9,7 @@ $EM_CONF[$_EXTKEY] = [
     'title' => 'User tools',
     'description' => 'Collection of user tools:  
 - list all users
-- edit the profile (image, phone number, email address, visualisation properties etc.)
-- background task for a newsletter',
+- edit the profile (image, phone number, email address, visualisation properties etc.)',
     'category' => 'plugin',
     'author' => 'Clemens Gogolin',
     'author_email' => 'service@cylancer.net',
@@ -18,11 +17,11 @@ $EM_CONF[$_EXTKEY] = [
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '2.1.3',
+    'version' => '2.2.0',
     'constraints' => [
         'depends' => [
             'typo3' => '11.5.0-11.5.99',
-            'news' => '8.6.0-9.4.99'
+            'bootstrap_package' => '12.0.0-12.99.99'
         ],
         'conflicts' => [],
         'suggests' => [],

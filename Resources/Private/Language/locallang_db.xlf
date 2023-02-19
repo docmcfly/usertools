@@ -32,24 +32,10 @@
 			<trans-unit id="tx_usertools_domain_model_frontendUser.new_email_token">
 				<source>New Email Token</source>
 			</trans-unit>
-			<trans-unit id="tx_usertools_domain_model_frontendUser.newsletter_setting">
-				<source>Newsletter setting</source>
-			</trans-unit>
-
+			
 			<!-- frontend user extenstion tab -->
 			<trans-unit id="fe_users.tx_extbase_type.Tx_Usertools_User">
 				<source>User tools</source>
-			</trans-unit>
-
-			<!-- NEWSLETTER LOG -->
-			<trans-unit id="tx_usertools_domain_model_newsletter_log.news">
-				<source>News</source>
-			</trans-unit>
-			<trans-unit id="tx_usertools_domain_model_newsletter_log.title">
-				<source>Newsletter log</source>
-			</trans-unit>
-			<trans-unit id="tx_usertools_domain_model_newsletter_log.description">
-				<source>Contains the history of transmitted newsletters</source>
 			</trans-unit>
 
 		</body>

@@ -4,7 +4,8 @@
 	"description" : "A tool box for a fe user managemnet.",
 	"license" : "GPL-2.0-or-later",
 	"require" : {
-		"typo3/cms-core" : "^11.5"
+		"typo3/cms-core" : "^11.5",
+		"bk2k/bootstrap-package" : "~12"
 	},
 	"autoload" : {
 		"psr-4" : {
@@ -20,7 +21,7 @@
 	],
 	"support" : {
 		"issues" : "https://github.com/docmcfly/usertools/issues",
-		"source" : "https://github.com/docmcfly/usertoolstree/master/loginViaEmail"
+		"source" : "https://github.com/docmcfly/usertools"
 	},
 	"extra" : {
 		"typo3/cms" : {

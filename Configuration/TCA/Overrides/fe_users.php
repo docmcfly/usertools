@@ -125,21 +125,6 @@ $tmp_usertools_columns = [
             'default' => 0,
         ]
     ],
-    
-    'newsletter_setting' => [
-        'exclude' => false,
-        'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.new_email',
-        'config' => [
-            'readOnly' => 1,
-            'type' => 'select',
-            'items' => [
-                '1' => 'LLL:EXT:lang/locallang.xlf:editProfile.form.newsletterOption.disabled',
-                '2' => 'LLL:EXT:lang/locallang.xlf:editProfile.form.newsletterOption.onlyImportantNews',
-                '3' => 'LLL:EXT:lang/locallang.xlf:editProfile.form.newsletterOption.allNews'
-            ],
-            'default' => 2
-        ]
-    ],
     'new_email' => [
         'exclude' => false,
         'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.new_email',

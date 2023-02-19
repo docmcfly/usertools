@@ -45,12 +45,6 @@ class FrontendUser extends AbstractEntity
 
     /**
      *
-     * @var int
-     */
-    protected $newsletterSetting = 0;
-
-    /**
-     *
      * @var string
      */
     protected $newEmail = '';
@@ -320,27 +314,6 @@ class FrontendUser extends AbstractEntity
     }
 
     /**
-     * Returns the newsletterSetting
-     *
-     * @return int $newsletterSetting
-     */
-    public function getNewsletterSetting(): int
-    {
-        return $this->newsletterSetting;
-    }
-
-    /**
-     * Sets the newsletterSetting
-     *
-     * @param int $newsletterSetting
-     * @return void
-     */
-    public function setNewsletterSetting(int $newsletterSetting): void
-    {
-        $this->newsletterSetting = $newsletterSetting;
-    }
-
-    /**
      * Sets the usergroups.
      * Keep in mind that the property is called "usergroup"
      * although it can hold several usergroups.
@@ -527,7 +500,7 @@ class FrontendUser extends AbstractEntity
      * Sets the password value
      *
      * @param string $password
-     * @return void 
+     * @return void
      */
     public function setPassword(String $password): void
     {

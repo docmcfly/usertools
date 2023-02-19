@@ -5,7 +5,6 @@ use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use Cylancer\Usertools\Domain\Model\UserNewsletterOptions;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use Cylancer\Usertools\Domain\Repository\FrontendUserRepository;
 use Cylancer\Usertools\Domain\Model\FrontendUser;
@@ -50,8 +49,6 @@ class ProfileController extends ActionController
 
     const PASSWORD_RULES = '^(?=(?:[^A-Z]*[A-Z]){1})(?=(?:[^0-9]*[0-9]){1})(?=(?:[^!#+-_"\/§$%&\()\[\]\{\}]*[!#+-_"\/§$%&\()\[\]\{\}]){1}).{8,}$';
 
-    const NEWSLETTER_OPTIONS = 'newsletterOptions';
-
     /** @var FrontendUserRepository   */
     private $frontendUserRepository = null;
 
@@ -67,8 +64,6 @@ class ProfileController extends ActionController
     /** @var FrontendUserService **/
     private $frontendUserService;
 
-    private $previousPicture = null;
-
     private $_validationResults = null;
 
     private function getValidationResults()
@@ -81,8 +76,7 @@ class ProfileController extends ActionController
         return $this->_validationResults;
     }
 
-    public function __construct(FrontendUserRepository $frontendUserRepository, EmailSendService $emailSendService, 
-        PersistenceManager $persistenceManager, ResourceFactory $resourceFactory, FrontendUserService $frontendUserService)
+    public function __construct(FrontendUserRepository $frontendUserRepository, EmailSendService $emailSendService, PersistenceManager $persistenceManager, ResourceFactory $resourceFactory, FrontendUserService $frontendUserService)
     {
         $this->frontendUserRepository = $frontendUserRepository;
         $this->emailSendService = $emailSendService;
@@ -110,10 +104,6 @@ class ProfileController extends ActionController
             }
         } else {
             $validationResults->addError('notLogged');
-        }
-
-        if (! key_exists($currentUser->getNewsletterSetting(), UserNewsletterOptions::LABEL)) {
-            $validationResults->addError('invalidNewsletterSetting');
         }
 
         if (! GeneralUtility::makeInstance(FileNameValidator::class)->isValid($currentUser->getUploadedImage()['name'])) {
@@ -271,28 +261,12 @@ class ProfileController extends ActionController
 
         if ($this->frontendUserService->isLogged()) {
             $this->view->assign(ProfileController::CURRENT_USER, $this->frontendUserService->getCurrentUser());
-            $this->view->assign(ProfileController::NEWSLETTER_OPTIONS, $this->getTranslatedNewsletterOptions());
             $this->view->assign(ProfileController::VISIBLE_FE_GROUPS, GeneralUtility::intExplode(',', $this->settings['visibleFeGroups']));
         } else {
             $validationResults->addError('notLogged');
         }
         $this->view->assign(ProfileController::VALIDATIOPN_RESULTS, $validationResults);
         return null;
-    }
-
-    /**
-     *
-     * @return string[]
-     */
-    private function getTranslatedNewsletterOptions(): array
-    {
-        $return = array();
-
-        foreach (UserNewsletterOptions::LABEL as $k => $v) {
-            $return[$k] = LocalizationUtility::translate('editProfile.form.newsletterOption.' . $v, 'Usertools');
-        }
-
-        return $return;
     }
 
     /**
@@ -446,8 +420,8 @@ class ProfileController extends ActionController
                 ProfileController::CURRENT_USER => $user,
                 ProfileController::TARGET_PAGE => $this->settings['redirectSuccess']
             ] //
-                
-                )) {
+
+            )) {
                 $validationResults->addInfo('confirmEMailMailSuccessful');
             } else {
                 $validationResults->addError('confirmEMailMailFailed');

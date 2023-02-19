@@ -25,10 +25,6 @@
 				<source>I allow my image to be displayed in the internal area.</source>
 				<target state="tanslated">Ich erlaube, dass mein Bild im interen Bereich angezeigt wird.</target>
 			</trans-unit>
-			<trans-unit id="editProfile.form.newsletterSettings">
-				<source>Newsletter settings:</source>
-				<target state="tanslated">Newsletter-Einstellungen:</target>
-			</trans-unit>
 			<trans-unit id="editProfile.form.submit">
 				<source>Save</source>
 				<target state="tanslated">Speichern</target>
@@ -79,21 +75,6 @@
 				<source>Privacy policies</source>
 				<target state="tanslated">Richtlinien zum Datenschutz</target>
 			</trans-unit>
-
-			<!-- Newsletter options -->
-			<trans-unit id="editProfile.form.newsletterOption.disabled">
-				<source>Disabled</source>
-				<target state="tanslated">Abgeschaltet</target>
-			</trans-unit>
-			<trans-unit id="editProfile.form.newsletterOption.onlyImportantNews">
-				<source>Only important news</source>
-				<target state="tanslated">Nur als wichtig markierte Nachrichten</target>
-			</trans-unit>
-			<trans-unit id="editProfile.form.newsletterOption.allNews">
-				<source>All news</source>
-				<target state="tanslated">Alle Nachrichten</target>
-			</trans-unit>
-
 
 			<!-- edit profile - info -->
 			<trans-unit id="editProfile.form.info.savingSuccessful">
@@ -246,12 +227,12 @@
 			</trans-unit>
 			<trans-unit id="changeEmail.mail.confirm.beforeLink">
 				<source>This e-mail is to confirm that you wish to change your e-mail address. The new e-mail address is: %s.
-To complete the confirmation, follow the link
-below:
+					To complete the confirmation, follow the link
+					below:
 				</source>
 				<target state="tanslated">Diese E-Mail dient zur Bestätigung, dass Sie Ihre E-Mail-Adresse ändern wollen. Die neue E-Mail-Adresse lautet: %s.
-Um die Bestätigung
-abzuschließen, führen Sie den folgenden Link aus:
+					Um die Bestätigung
+					abzuschließen, führen Sie den folgenden Link aus:
 				</target>
 			</trans-unit>
 			<trans-unit id="changeEmail.mail.confirm.link">
@@ -261,15 +242,15 @@ abzuschließen, führen Sie den folgenden Link aus:
 			<trans-unit id="changeEmail.mail.confirm.afterLink">
 				<source>After the successful confirmation you can use the new e-mail address to log in.
 
-With kind regards
+					With kind regards
 
-your administrator
+					your administrator
 				</source>
 				<target state="tanslated">Nach der erfolgreichen Bestätigung können Sie die neue E-Mail-Adresse zum einloggen verwenden.
 
-Mit freundlichem Gruß
+					Mit freundlichem Gruß
 
-Ihr Administrator
+					Ihr Administrator
 				</target>
 			</trans-unit>
 
@@ -304,7 +285,7 @@ Ihr Administrator
 			<trans-unit id="changeEmail.unsuccessful.error.tokenEmailCombinationNotFound">
 				<source>No e-mail exists for the token contained in the link. The link may already have been successfully confirmed or a new link has been requested.
 				</source>
-				<target state="tanslated">Zum dem im Link enthalten Token existiert keine E-Mail. Der Link wurde vielleicht bereits erfolgreich bestätigt oder ein neuer Link 
+				<target state="tanslated">Zum dem im Link enthalten Token existiert keine E-Mail. Der Link wurde vielleicht bereits erfolgreich bestätigt oder ein neuer Link
 					ist bereits angefordert worden.
 				</target>
 			</trans-unit>
@@ -356,75 +337,10 @@ Ihr Administrator
 				<target state="tanslated">Sie sind nicht eingeloggt.</target>
 			</trans-unit>
 
-			
-			<trans-unit id="task.sendNewsletter.newsStoragePageId">
-				<source>Page id of the news storage</source>
-				<target state="tanslated">Page Id der Nachrichtenablage</target>
-			</trans-unit>
-			<trans-unit id="task.sendNewsletter.feUserPageId">
-				<source>Page id of the frontend users.</source>
-				<target state="tanslated">Page Id der Webseitennutzer</target>
-			</trans-unit>
-			<trans-unit id="task.sendNewsletter.newsDisplayUrl">
-				<source>Url the news show.</source>
-				<target state="tanslated">Seite, wo die News angezeigt werden</target>
-			</trans-unit>
-			<trans-unit id="task.sendNewsletter.logStoragePageId">
-				<source>Storage of the newsletter log.</source>
-				<target state="tanslated">Hier werden die Log-Einträge hinterlegt.</target>
-			</trans-unit>
-			<trans-unit id="task.sendNewsletter.maxCharacters">
-				<source>Limitation of the characters in the news reminder email</source>
-				<target state="tanslated">Wie viele Zeichen sollen in der Erinnerungsmail von der Neuigkeit angezeigt werden?</target>
-			</trans-unit>
-
-			<trans-unit id="task.sendNewsletter.error.invalid.newsStoragePageId">
-				<source>Invalid news storoage page id.</source>
-				<target state="tanslated">Ungültige News-Speicher-Seiten-Id.</target>
-			</trans-unit>
-			<trans-unit id="task.sendNewsletter.error.invalid.feUserPageId">
-				<source>Invalid frontend user page id.</source>
-				<target state="tanslated">Ungültige Webseitennutzer-Seiten-Id.</target>
-			</trans-unit>
-			<trans-unit id="task.sendNewsletter.error.invalid.logStoragePageId">
-				<source>Invalid log stroage page id.</source>
-				<target state="tanslated">Ungültige Log-Speicher-Seiten-Id.</target>
-			</trans-unit>
-			<trans-unit id="task.sendNewsletter.error.invalid.newsDisplayUrl">
-				<source>Invalid news display url.</source>
-				<target state="tanslated">Ungültige URL (Wo die News angezeigt werden.)</target>
-			</trans-unit>
-			<trans-unit id="task.sendNewsletter.error.invalid.maxCharacters">
-				<source>The limitation of the characters in the news reminder email is invalid.</source>
-				<target state="tanslated">Zeichenanzahl in der Erinnerungsmail ist ungültig.</target>
-			</trans-unit>
-
-			<trans-unit id="task.sendNewsletter.rememberEmail.subject">
-				<source>Newletter: </source>
-				<target state="tanslated">[Newsletter der Ortsfeuerwehr Letter] </target>
-			</trans-unit>
-			<trans-unit id="task.sendNewsletter.rememberEmail.salutation">
-				<source>Hello %s,</source>
-				<target state="tanslated">Guten Tag %s,</target>
-			</trans-unit>
-			<trans-unit id="task.sendNewsletter.rememberEmail.teaser">
-				<source>a new news is public. Here are the first words of the news:</source>
-				<target state="tanslated">es wurde eine neue Neuigkeit veröffentlicht. Hier sind die ersten Zeilen der Nachricht:</target>
-			</trans-unit>
-			<trans-unit id="task.sendNewsletter.rememberEmail.newsLink">
-				<source>Link to the full news</source>
-				<target state="tanslated">Link zur vollständigen Neuigkeit</target>
-			</trans-unit>
-			<trans-unit id="task.sendNewsletter.rememberEmail.subscriptInfo">
-				<source>Hint: You can config the newsletter settings in your personal profile.</source>
-				<target state="tanslated">Hinweis: Im persönlichen Profil kann man die Einstellungen zu diesem Newsletter verändert.</target>
-			</trans-unit>
-
 			<trans-unit id="taskForceOverview.reason.currentlyOffDuty">
 				<source>Currently off duty</source>
 				<target state="tanslated">Derzeit nicht im Dienst</target>
 			</trans-unit>
-
 
 		</body>
 	</file>

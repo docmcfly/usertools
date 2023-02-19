@@ -121,17 +121,6 @@ call_user_func(function () {
     ]);
 });
 
-// \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerTypeConverter('Cylancer\\Usertools\\Property\\TypeConverter\\UploadedFileReferenceConverter');
-
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][\Cylancer\Usertools\Task\SendNewsletterTask::class]['description'] = 'Send Newsletter';
-// Add task for optimizing database tables
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][\Cylancer\Usertools\Task\SendNewsletterTask::class] = [
-    'extension' => 'usertools',
-    'title' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_task_sendNewsLetter.xlf:task.sendNewsletter.title',
-    'description' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_task_sendNewsLetter.xlf:task.sendNewsletter.description',
-    'additionalFields' => \Cylancer\Usertools\Task\SendNewsletterAdditionalFieldProvider::class
-];
-
 
 
 

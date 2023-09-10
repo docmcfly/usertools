@@ -8,7 +8,7 @@ namespace Cylancer\Usertools\Service;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * (c) 2022 C. Gogolin <service@cylancer.net>
+ * (c) 2023 C. Gogolin <service@cylancer.net>
  *
  * @package Cylancer\Usertools\Service
  */
@@ -94,28 +94,4 @@ class FrontendUserService implements SingletonInterface
         }
     }
 
-    /**
-     *
-     * @param FrontendUserGroup $userGroup
-     * @param integer $fegid
-     * @param array $loopProtect
-     * @return boolean
-     */
-    public function getAllGroups($userGroup, $return = array(), &$loopProtect = array()): bool
-    {
-        $return = array();
-        if ($userGroup->getUid() == $feugid) {
-            return true;
-        } else {
-            if (! in_array($userGroup->getUid(), $loopProtect)) {
-                $loopProtect[] = $userGroup->getUid();
-                foreach ($userGroup->getSubgroup() as $sg) {
-                    if ($this->contains($sg, $feugid, $loopProtect)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-    }
 }

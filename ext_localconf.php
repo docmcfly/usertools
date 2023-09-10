@@ -5,45 +5,65 @@ use Cylancer\Usertools\Controller\ListController;
 defined('TYPO3_MODE') || die('Access denied.');
 
 call_user_func(function () {
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('Cylancer.Usertools', 'Editprofile', [
-        ProfileController::class => 'editProfile, doEditProfile, deleteCurrentUserImages'
-    ], 
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'Usertools',
+        'Editprofile',
+        [
+            ProfileController::class => 'editProfile, doEditProfile, deleteCurrentUserImages'
+        ],
         // non-cacheable actions
         [
             ProfileController::class => 'editProfile, doEditProfile, deleteCurrentUserImages'
-        ]);
+        ]
+    );
 
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('Cylancer.Usertools', 'Listusers', [
-        ListController::class => 'listAll'
-    ], 
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'Usertools',
+        'Listusers',
+        [
+            ListController::class => 'listAll'
+        ],
         // non-cacheable actions
         [
             ListController::class => 'listAll'
-        ]);
+        ]
+    );
 
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('Cylancer.Usertools', 'Changeemailform', [
-        ProfileController::class => 'changeEmailForm, prepareEmailChange, changeEmail'
-    ], 
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'Usertools',
+        'Changeemailform',
+        [
+            ProfileController::class => 'changeEmailForm, prepareEmailChange, changeEmail'
+        ],
         // non-cacheable actions
         [
             ProfileController::class => 'changeEmailForm, prepareEmailChange, changeEmail'
-        ]);
+        ]
+    );
 
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('Cylancer.Usertools', 'Confirmnewemail', [
-        ProfileController::class => 'confirmNewEmail'
-    ], 
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'Usertools',
+        'Confirmnewemail',
+        [
+            ProfileController::class => 'confirmNewEmail'
+        ],
         // non-cacheable actions
         [
             ProfileController::class => 'confirmNewEmail'
-        ]);
+        ]
+    );
 
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin('Cylancer.Usertools', 'Changeuserpassword', [
-        ProfileController::class => 'changePasswordForm, changePassword'
-    ], 
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+        'Usertools',
+        'Changeuserpassword',
+        [
+            ProfileController::class => 'changePasswordForm, changePassword'
+        ],
         // non-cacheable actions
         [
             ProfileController::class => 'changePasswordForm, changePassword'
-        ]);
+        ]
+    );
 
     // wizards
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('mod {
@@ -120,8 +140,3 @@ call_user_func(function () {
         'source' => 'EXT:usertools/Resources/Public/Icons/user_plugin_changeuserpassword.svg'
     ]);
 });
-
-
-
-
-

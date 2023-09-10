@@ -13,11 +13,11 @@ $EM_CONF[$_EXTKEY] = [
     'category' => 'plugin',
     'author' => 'Clemens Gogolin',
     'author_email' => 'service@cylancer.net',
-    'state' => 'beta',
+    'state' => 'stable',
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '2.2.1',
+    'version' => '2.3.0',
     'constraints' => [
         'depends' => [
             'typo3' => '11.5.0-11.5.99',
@@ -29,7 +29,9 @@ $EM_CONF[$_EXTKEY] = [
 ];
 
 /** ---- CHANGELOG ----------
-2.1.3 :: Add documentarion / change this icons. 
-2.2.0 :: Removes the dependency on the news extension (Removes the newsletter scheduler task. You can use the cy_newsletter extension).
+2.3.0 :: Fix : Repair the plugin configuration / registry.
+2.2.2 :: Fix : List all users -> fix the layout of the fast search form 
 2.2.1 :: Update bootstrap_package dependency: Allows the version 13. 
+2.2.0 :: Removes the dependency on the news extension (Removes the newsletter scheduler task. You can use the cy_newsletter extension).
+2.1.3 :: Add documentarion / change this icons. 
 // ---- CHANGELOG ---------- */

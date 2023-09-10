@@ -9,7 +9,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"Cylancer\\Usertools\\" : "Classes"
+			"Cylancer\\Usertools\\" : "Classes/"
 		}
 	},
 	"authors" : [{

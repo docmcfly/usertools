@@ -2,7 +2,7 @@
 use Cylancer\Usertools\Controller\ProfileController;
 use Cylancer\Usertools\Controller\ListController;
 
-defined('TYPO3_MODE') || die('Access denied.');
+defined('TYPO3') || die('Access denied.');
 
 call_user_func(function () {
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
@@ -139,4 +139,9 @@ call_user_func(function () {
     $iconRegistry->registerIcon('usertools-plugin-changeuserpassword', \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class, [
         'source' => 'EXT:usertools/Resources/Public/Icons/user_plugin_changeuserpassword.svg'
     ]);
+
+    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths']['cy_usertools']    = 'EXT:usertools/Resources/Private/Templates/ConfirmEmail/';
+    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['layoutRootPaths']['cy_usertools']    = 'EXT:usertools/Resources/Private/Layouts/ConfirmEmail/';
+    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['partialRootPaths']['cy_usertools']    = 'EXT:usertools/Resources/Private/Partials/ConfirmEmail/';
+
 });

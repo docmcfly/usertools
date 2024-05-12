@@ -1,6 +1,7 @@
 <?php
 namespace Cylancer\Usertools\Controller;
 
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Cylancer\Usertools\Domain\Repository\FrontendUserRepository;
@@ -39,9 +40,9 @@ class ListController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
     /**
      *
-     * @return void
+     * @return ResponseInterface
      */
-    public function listAllAction(): void
+    public function listAllAction(): ResponseInterface
     {
         if ($this->frontendUserService->isLogged()) {
             
@@ -78,5 +79,7 @@ class ListController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             
           
         }
+        return $this->htmlResponse();
     }
+    
 }

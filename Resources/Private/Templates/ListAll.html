@@ -50,7 +50,7 @@
 			</thead>
 			<tbody>
 				<f:for each="{users}" as="user">
-					<tr id="name_{user.username}">
+					<tr id="name_{user.username}" >
 						<td class="picture"><f:if condition="{user.image.0}  && {user.allowDisplayImageInternal}">
 								<f:then>
 									<f:image image="{user.image.0}" maxWidth="150" maxHeight="200" />
@@ -65,7 +65,7 @@
 							<div class="container">
 								<div class="row">
 									<div class="col-sm">
-										<strong class="fullName">{user.firstName}&nbsp;{user.lastName}</strong>
+										<strong class="fullName" style="scroll-margin-top: 150px;">{user.firstName}&nbsp;{user.lastName}</strong>
 										<ul class="userGroupList">
 											<f:for each="{user.allSortedUserGroups}" as="group">
 												<f:if condition="{c:inArray(value:group.uid, array:visibleFeGroups)}">

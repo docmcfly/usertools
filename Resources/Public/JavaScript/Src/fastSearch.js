@@ -5,7 +5,7 @@ function search() {
   $(".fullName").each(function() {
   	let name = $(this).text().toUpperCase()
   	if( !f && name.search(pattern) >= 0 ) {
-  		$(this).get(0).scrollIntoView({ behavior: 'smooth' });
+  		$(this).get(0).scrollIntoView({ top: '150px', block: 'start', behavior: 'smooth' });
   		f = true
   	}
   })

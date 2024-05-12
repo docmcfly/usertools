@@ -267,7 +267,7 @@ Ihr Administrator</target>
 			
 			<!-- change email confirm mail -->
 			<trans-unit id="changeEmail.mail.confirm.subject">
-				<source>Confirm your new email address</source>
+				<source>Confirm the new email address</source>
 			</trans-unit>
 		  <trans-unit id="changeEmail.mail.confirm.salutation">
 				<source>Hello %s,</source>
@@ -275,8 +275,6 @@ Ihr Administrator</target>
 			<trans-unit id="changeEmail.mail.confirm.beforeLink">
 				<source>This e-mail is to confirm that you wish to change your e-mail address. The new e-mail address is: %s.
 To complete the confirmation, follow the link below:</source>
-				<target state="tanslated">Diese E-Mail dient zur Bestätigung, dass Sie Ihre E-Mail-Adresse ändern wollen. Die neue E-Mail-Adresse lautet: %s.
-Um die Bestätigung abzuschließen, führen Sie den folgenden Link aus:</target>
 			</trans-unit>
 				<trans-unit id="changeEmail.mail.confirm.link">
 				<source>E-mail address confirmation %s</source>
@@ -287,14 +285,7 @@ Um die Bestätigung abzuschließen, führen Sie den folgenden Link aus:</target>
 With kind regards
 
 your administrator</source>
-				<target state="tanslated">Nach der erfolgreichen Bestätigung können Sie die neue E-Mail-Adresse zum einloggen verwenden.
-
-Mit freundlichem Gruß
-
-Ihr Administrator</target>
 			</trans-unit>
-			
-			
 			
 			<!-- change email confirm mail - errors -->
 			<trans-unit id="changeEmail.error.tokenEmailCombinationNotFound">

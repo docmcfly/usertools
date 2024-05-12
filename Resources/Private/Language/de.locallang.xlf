@@ -218,8 +218,8 @@
 
 			<!-- change email confirm mail -->
 			<trans-unit id="changeEmail.mail.confirm.subject">
-				<source>Confirm your new email address</source>
-				<target state="tanslated">Bestätige Deine neue E-Mail-Adresse</target>
+				<source>Confirm the new email address</source>
+				<target state="tanslated">Bestätigung der neuen E-Mail-Adresse</target>
 			</trans-unit>
 			<trans-unit id="changeEmail.mail.confirm.salutation">
 				<source>Hello %s,</source>
@@ -227,12 +227,10 @@
 			</trans-unit>
 			<trans-unit id="changeEmail.mail.confirm.beforeLink">
 				<source>This e-mail is to confirm that you wish to change your e-mail address. The new e-mail address is: %s.
-					To complete the confirmation, follow the link
-					below:
+To complete the confirmation, follow the link below:
 				</source>
 				<target state="tanslated">Diese E-Mail dient zur Bestätigung, dass Sie Ihre E-Mail-Adresse ändern wollen. Die neue E-Mail-Adresse lautet: %s.
-					Um die Bestätigung
-					abzuschließen, führen Sie den folgenden Link aus:
+Um die Bestätigung abzuschließen, führen Sie den folgenden Link aus:
 				</target>
 			</trans-unit>
 			<trans-unit id="changeEmail.mail.confirm.link">
@@ -242,15 +240,15 @@
 			<trans-unit id="changeEmail.mail.confirm.afterLink">
 				<source>After the successful confirmation you can use the new e-mail address to log in.
 
-					With kind regards
+With kind regards
 
-					your administrator
+your administrator
 				</source>
 				<target state="tanslated">Nach der erfolgreichen Bestätigung können Sie die neue E-Mail-Adresse zum einloggen verwenden.
 
-					Mit freundlichem Gruß
+Mit freundlichem Gruß
 
-					Ihr Administrator
+Ihr Administrator
 				</target>
 			</trans-unit>
 

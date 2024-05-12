@@ -19,7 +19,7 @@ $EM_CONF[$_EXTKEY] = [
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '3.0.1',
+    'version' => '3.0.2',
     'autoload' => [
         'psr-4' => [
             'Cylancer\\Usertools\\' =>'Classes/',
@@ -29,7 +29,7 @@ $EM_CONF[$_EXTKEY] = [
     'constraints' => [
         'depends' => [
             'typo3' => '12.4.0-12.4.99',
-            'bootstrap_package' => '12.0.0-13.0.99'
+            'bootstrap_package' => '14.0.0-14.0.99'
         ],
         'conflicts' => [],
         'suggests' => [],
@@ -38,6 +38,7 @@ $EM_CONF[$_EXTKEY] = [
 
 /** ---- CHANGELOG ----------
  * 
+3.0.2 :: UPD : Update to bootstrap_package 14.0.0
 3.0.1 :: FIX : fast search : result is displayed in the center of the screen.
 3.0.0 :: UPD : Update to TYPO3 12.4.0
 2.3.0 :: Fix : Repair the plugin configuration / registry.

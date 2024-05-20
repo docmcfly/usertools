@@ -69,7 +69,7 @@ class ValidationResults
 
     /**
      *
-     * @param String $errorKey
+     * @param string $errorKey
      * @param array $arguments
      */
     public function addInfo(String $infoKey, array $arguments = []): void
@@ -81,7 +81,7 @@ class ValidationResults
 
     /**
      *
-     * @param String $errorKey
+     * @param string $errorKey
      * @param array $arguments
      */
     public function addError(String $errorKey, array $arguments = []): void

@@ -19,11 +19,11 @@ $EM_CONF[$_EXTKEY] = [
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '3.0.2',
+    'version' => '3.0.3',
     'autoload' => [
         'psr-4' => [
-            'Cylancer\\Usertools\\' =>'Classes/',
-            
+            'Cylancer\\Usertools\\' => 'Classes/',
+
         ],
     ],
     'constraints' => [
@@ -38,6 +38,7 @@ $EM_CONF[$_EXTKEY] = [
 
 /** ---- CHANGELOG ----------
  * 
+3.0.3 :: FIX : The confirm new email address change mail is send to the current and to the future email address.
 3.0.2 :: UPD : Update to bootstrap_package 14.0.0
 3.0.1 :: FIX : fast search : result is displayed in the center of the screen.
 3.0.0 :: UPD : Update to TYPO3 12.4.0

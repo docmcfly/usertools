@@ -19,7 +19,6 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Core\Resource\DuplicationBehavior;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\Folder;
-use Symfony\Component\Config\Resource\FileResource;
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\Security\FileNameValidator;
 use TYPO3\CMS\Core\Utility\PathUtility;
@@ -27,7 +26,6 @@ use Cylancer\Usertools\Domain\Model\ValidationResults;
 use Cylancer\Usertools\Domain\Model\Password;
 use Cylancer\Usertools\Domain\Model\Email;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
-use Cylancer\Usertools\Service\EmailSendService;
 use Cylancer\Usertools\Service\FrontendUserService;
 
 /**
@@ -185,7 +183,7 @@ class ProfileController extends ActionController
     private function addFile(array $uploadFileData, FrontendUser $frontendUser): void
     {
         $tmpFile = $uploadFileData['tmp_name'];
-        $fileExtension = end(explode('.',  $uploadFileData['name']));
+        $fileExtension = end(explode('.', $uploadFileData['name']));
 
         // Save the imgae in the storage...
         /** @var StorageRepository $storageRepository **/
@@ -413,7 +411,7 @@ class ProfileController extends ActionController
             $fluidEmail = GeneralUtility::makeInstance(FluidEmail::class);
             $fluidEmail
                 ->setRequest($this->request)
-                ->to(new Address($email->getEmail(), $user->getName()))
+                ->to(new Address($user->getEmail(), $user->getName()))
                 ->from(new Address($this->settings['sender'], $this->settings['senderName']))
                 ->subject(LocalizationUtility::translate('changeEmail.mail.confirm.subject', 'Usertools'))
                 ->format(FluidEmail::FORMAT_BOTH) // send HTML and plaintext mail

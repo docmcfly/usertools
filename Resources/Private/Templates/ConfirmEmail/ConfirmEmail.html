@@ -1,20 +1,36 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:layout name="ConfirmEmail"/>
+<f:layout name="ConfirmEmail" />
 <f:section name="main">
-		<div><f:translate key="LLL:EXT:usertools/Resources/Private/Language/locallang.xlf:changeEmail.mail.confirm.salutation" arguments="{0:currentUser.name}"/></div>
-		
-		<div><f:translate key="LLL:EXT:usertools/Resources/Private/Language/locallang.xlf:changeEmail.mail.confirm.beforeLink" arguments="{0:currentUser.newEmail}" /></div>
-		<div>
-			<f:link.action 
-				pageUid="{targetPage}" 
-				absolute="true"   
-				controller="Profile" 
-				action="confirmNewEmail" 
-				pluginName="confirmNewEmail"
-				noCache="true"
-				arguments="{token:token, email:currentUser.newEmail}"><f:translate key="LLL:EXT:usertools/Resources/Private/Language/locallang.xlf:changeEmail.mail.confirm.link" arguments="{0:currentUser.newEmail}"/></f:link.action></div>
-		
-		<div><f:translate key="LLL:EXT:usertools/Resources/Private/Language/locallang.xlf:changeEmail.mail.confirm.afterLink" arguments="{0:currentUser.newEmail}" /></div>
-</f:section>
-</html>
+	<p style="margin-bottom: 1em;">
+		<f:translate
+			key="LLL:EXT:usertools/Resources/Private/Language/locallang.xlf:changeEmail.mail.confirm.salutation"
+			arguments="{0:currentUser.name}" />
+	</p>
 
+	<p style="margin-bottom: 1em;">
+		<f:format.nl2br>
+			<f:translate
+				key="LLL:EXT:usertools/Resources/Private/Language/locallang.xlf:changeEmail.mail.confirm.beforeLink"
+				arguments="{0:currentUser.confirmedNewEmail}" />
+		</f:format.nl2br>
+	</p>
+
+	<p style="margin-bottom: 1em;">
+		<f:link.action pageUid="{confirmEmailChangePage}" absolute="true" controller="ChangeEmail"
+			action="confirmNewEmail" pluginName="confirmNewEmail" noCache="true"
+			arguments="{token:token, email:currentUser.confirmedNewEmail}">
+			<f:translate key="LLL:EXT:usertools/Resources/Private/Language/locallang.xlf:changeEmail.mail.confirm.link"
+				arguments="{0:currentUser.confirmedNewEmail}" />
+		</f:link.action>
+	</p>
+
+	<p style="margin-bottom: 1em;">
+		<f:format.nl2br>
+			<f:translate
+				key="LLL:EXT:usertools/Resources/Private/Language/locallang.xlf:changeEmail.mail.confirm.afterLink"
+				arguments="{0:currentUser.confirmedNewEmail}" />
+		</f:format.nl2br>
+	</p>
+</f:section>
+
+</html>

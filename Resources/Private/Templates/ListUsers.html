@@ -1,20 +1,25 @@
-<!DOCTYPE html PUBLIC "-//WC//DTD XHTML . Strict//EN"
-	"http://www.w.org/TR/xhtml/DTD/xhtml-strict.dtd">
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:c="http://typo3.org/ns/Cylancer/Usertools/ViewHelpers" data-namespace-typo3-fluid="true"
-	xmlns="http://www.w.org//xhtml" xml:lang="en" lang="en"
->
+<!DOCTYPE html PUBLIC "-//WC//DTD XHTML . Strict//EN" "http://www.w.org/TR/xhtml/DTD/xhtml-strict.dtd">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	xmlns:c="http://typo3.org/ns/Cylancer/Usertools/ViewHelpers" data-namespace-typo3-fluid="true"
+	xmlns="http://www.w.org//xhtml" xml:lang="en" lang="en">
+
 <head>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 </head>
+
 <body>
 	<f:layout name="Default" />
 	<f:section name="main">
-		<f:asset.script identifier="usertools_jquery-3.6.1.min.js" src="EXT:usertools/Resources/Public/JavaScript/Dist/jquery-3.6.1.min.js" />
-		<f:asset.script identifier="usertools_fastSearch.js" src="EXT:usertools/Resources/Public/JavaScript/Src/fastSearch.js" defer="defer" />
-		<div class="container mb-4" >
+		<f:asset.script identifier="usertools_jquery-3.7.1.min.js"
+			src="EXT:usertools/Resources/Public/JavaScript/Dist/jquery-3.7.1.min.js" />
+		<f:asset.script identifier="usertools_fastSearch.js"
+			src="EXT:usertools/Resources/Public/JavaScript/Src/fastSearch.js" defer="defer" />
+		<div class="container mb-4">
 			<div class="row">
 				<div class="col-3 pr-0 mr-0">
-					<label for="fastSearch"><f:translate key="listAllUser.fastSearch.textfield" /></label>
+					<label for="fastSearch">
+						<f:translate key="listAllUser.fastSearch.textfield" />
+					</label>
 				</div>
 				<div class="col-7 pr-0 mr-0">
 					<input id="fastSearch" class="form-control">
@@ -26,7 +31,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<table class="table listusers">
 			<thead>
 				<tr>
@@ -50,22 +55,26 @@
 			</thead>
 			<tbody>
 				<f:for each="{users}" as="user">
-					<tr id="name_{user.username}" >
-						<td class="picture"><f:if condition="{user.image.0}  && {user.allowDisplayImageInternal}">
+					<tr id="name_{user.username}">
+						<td class="picture">
+							<f:if condition="{user.portrait}  && {user.allowDisplayImageInternal}">
 								<f:then>
-									<f:image image="{user.image.0}" maxWidth="150" maxHeight="200" />
+									<f:image image="{user.portrait}" maxWidth="150" maxHeight="200" />
 								</f:then>
 								<f:else>
-									<f:image src="EXT:usertools/Resources/Public/NoPhoto.png" alt="{f:translate(key:'editProfile.form.userPictureAlt')}"
-										title="{f:translate(key:'editProfile.form.userPictureTitle')}" maxWidth="150" maxHeight="150"
-									/>
+									<f:image src="EXT:usertools/Resources/Public/NoPhoto.png"
+										alt="{f:translate(key:'editProfile.form.userPictureAlt')}"
+										title="{f:translate(key:'editProfile.form.userPictureTitle')}" maxWidth="150"
+										maxHeight="150" />
 								</f:else>
-							</f:if></td>
+							</f:if>
+						</td>
 						<td class="name">
 							<div class="container">
 								<div class="row">
 									<div class="col-sm">
-										<strong class="fullName" style="scroll-margin-top: 150px;">{user.firstName}&nbsp;{user.lastName}</strong>
+										<strong class="fullName"
+											style="scroll-margin-top: 150px;">{user.firstName}&nbsp;{user.lastName}</strong>
 										<ul class="userGroupList">
 											<f:for each="{user.allSortedUserGroups}" as="group">
 												<f:if condition="{c:inArray(value:group.uid, array:visibleFeGroups)}">
@@ -73,7 +82,9 @@
 												</f:if>
 											</f:for>
 											<f:if condition="{canViewCurrentlyOffDuty} && {user.currentlyOffDuty}">
-												<li class="text-primary"><f:translate key="listAllUser.currentlyOffDuty" /></li>
+												<li class="text-primary">
+													<f:translate key="listAllUser.currentlyOffDuty" />
+												</li>
 											</f:if>
 										</ul>
 									</div>
@@ -89,8 +100,9 @@
 														<f:then>
 															<f:link.email email="{user.email}" />
 															<f:if condition="!{user.allowDisplayEmail}">
-																<br>(<f:translate key="listAllUser.emailNotPublic" />)
-																</f:if>
+																<br>(
+																<f:translate key="listAllUser.emailNotPublic" />)
+															</f:if>
 														</f:then>
 														<f:else>
 															<f:if condition="{alternativEmailLink}">
@@ -124,8 +136,9 @@
 														<f:then>
 															<a href="tel:{user.telephone}">{user.telephone}</a>
 															<f:if condition="!{user.allowDisplayPhone}">
-																<br>(<f:translate key="listAllUser.phoneNumberNotPublic" />)
-																</f:if>
+																<br>(
+																<f:translate key="listAllUser.phoneNumberNotPublic" />)
+															</f:if>
 														</f:then>
 														<f:else>
 															<f:translate key="listAllUser.phoneNumberNotPublic" />
@@ -147,4 +160,5 @@
 		</table>
 	</f:section>
 </body>
+
 </html>

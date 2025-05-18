@@ -3,35 +3,31 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2019-11-29T21:51:04Z" product-name="usertools">
 		<header />
 		<body>
-
 			<trans-unit id="plugin.name">
-				<source>Email address change form</source>
+				<source>Confirm an email change</source>
+				<target state="tanslated">Bestätigen eines E-Mail-Adressen-Wechsels</target>
 			</trans-unit>
 			<trans-unit id="plugin.description">
-				<source>With this plugin the user can change his email address.</source>
+				<source>The user can confirm that they want to change the email.</source>
+				<target state="tanslated">Der Nutzer kann bestätigen, dass er eine E-Mail-Wechsel durchführen möchte.</target>
 			</trans-unit>
 
 			<trans-unit id="flexforms_general.title">
 				<source>Settings</source>
+				<target state="tanslated">Einstellungen</target>
 			</trans-unit>
 
-			<trans-unit id="flexforms_general.confirmEmailChangePage.label">
-				<source>E-Mail change confirm page</source>
-			</trans-unit>
 			<trans-unit id="flexforms_general.confirmNewEmailPage.label">
 				<source>New email confirm page</source>
+				<target state="tanslated">Neue E-Mail-Bestätigungsseite</target>
 			</trans-unit>
 			<trans-unit id="flexforms_general.sender.label">
 				<source>Sender email address </source>
+				<target state="tanslated">Sender-E-Mail-Adresse der Bestätigungs-E-Mail</target>
 			</trans-unit>
 			<trans-unit id="flexforms_general.senderName.label">
 				<source>Sender name</source>
-			</trans-unit>
-			<trans-unit id="flexforms_general.sendChangeConfirmationLink2currentMail.label">
-				<source>Should the existing email only be informed, or should a change confirmation link be sent to it?</source>
-			</trans-unit>
-			<trans-unit id="flexforms_general.sendChangeConfirmationLink2currentMail.value.label">
-				<source>Send change confirmation link</source>
+				<target state="tanslated">Sender-Name der Bestätigungs-E-Mail</target>
 			</trans-unit>
 		</body>
 	</file>

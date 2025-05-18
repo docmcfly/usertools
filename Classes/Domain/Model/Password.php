@@ -9,48 +9,34 @@ namespace Cylancer\Usertools\Domain\Model;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * (c) 2022 Clemens Gogolin <service@cylancer.net>
+ * (c) 2025 C. Gogolin <service@cylancer.net>
  *
- * @package Cylancer\Usertools\Domain\Model
  */
-class Password {
+class Password
+{
 
-    /**
-     * @var string
-     */
-    protected $password = '';
+    protected ?string $password = '';
 
-		/**
-     * @var string
-     */
-    protected $confirmPassword = '';
+    protected ?string $confirmPassword = '';
 
 
-    /**
-     * @return string
-     */
-    public function getPassword() {
+    public function getPassword(): ?string
+    {
         return $this->password;
     }
 
-    /**
-     * @param string $password
-     */
-    public function setPassword($password) {
+    public function setPassword(?string $password): void
+    {
         $this->password = $password;
     }
 
-    /**
-     * @return string
-     */
-    public function getConfirmPassword() {
+    public function getConfirmPassword(): ?string
+    {
         return $this->confirmPassword;
     }
 
-    /**
-     * @param string $confirmPassword
-     */
-    public function setConfirmPassword($confirmPassword) {
+    public function setConfirmPassword(?string $confirmPassword): void
+    {
         $this->confirmPassword = $confirmPassword;
     }
 

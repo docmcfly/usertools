@@ -5,19 +5,15 @@
 		<body>
 
 			<trans-unit id="plugin.name">
-				<source>Email address change form</source>
+				<source>Confirm an email change</source>
 			</trans-unit>
 			<trans-unit id="plugin.description">
-				<source>With this plugin the user can change his email address.</source>
+				<source>The user can confirm that they want to change the email.</source>
 			</trans-unit>
-
 			<trans-unit id="flexforms_general.title">
 				<source>Settings</source>
 			</trans-unit>
 
-			<trans-unit id="flexforms_general.confirmEmailChangePage.label">
-				<source>E-Mail change confirm page</source>
-			</trans-unit>
 			<trans-unit id="flexforms_general.confirmNewEmailPage.label">
 				<source>New email confirm page</source>
 			</trans-unit>
@@ -26,12 +22,6 @@
 			</trans-unit>
 			<trans-unit id="flexforms_general.senderName.label">
 				<source>Sender name</source>
-			</trans-unit>
-			<trans-unit id="flexforms_general.sendChangeConfirmationLink2currentMail.label">
-				<source>Should the existing email only be informed, or should a change confirmation link be sent to it?</source>
-			</trans-unit>
-			<trans-unit id="flexforms_general.sendChangeConfirmationLink2currentMail.value.label">
-				<source>Send change confirmation link</source>
 			</trans-unit>
 		</body>
 	</file>

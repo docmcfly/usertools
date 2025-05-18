@@ -21,26 +21,26 @@
 		</f:if>
 	</f:section>
 	<f:section name="unsuccessful">
-		<div class="card confirmNewEmail">
+		<div class="card confirmEmailChange">
 			<div class="card-body">
 				<h4 class="card-title">
-					<f:translate key="changeEmail.unsuccessful.title" />
+					<f:translate key="confirmEmailChange.unsuccessful.title" />
 				</h4>
 				<div class="card-text">
 					<f:render partial="validationResults"
-						arguments="{prefix:'changeEmail.unsuccessful', validationResults: validationResults}" />
+						arguments="{prefix:'confirmEmailChange.unsuccessful', validationResults: validationResults}" />
 				</div>
 			</div>
 		</div>
 	</f:section>
 	<f:section name="successful">
-		<div class="card confirmNewEmail">
+		<div class="card confirmEmailChange">
 			<div class="card-body">
 				<h4 class="card-title">
-					<f:translate key="changeEmail.successful.title" />
+					<f:translate key="confirmEmailChange.successful.title" />
 				</h4>
 				<div class="card-text">
-					<f:translate key="changEmail.successful.message" arguments="{0:currentUser.email}" />
+					<f:translate key="confirmEmailChange.successful.message" arguments="{0:currentUser.email}" />
 				</div>
 			</div>
 		</div>

@@ -1,9 +1,15 @@
 <?php
 
-/***************************************************************
- * Extension Manager/Repository config file for ext: "usertools"
+
+/**
+ * This file is part of the "user tools" Extension for TYPO3 CMS.
  *
- ***************************************************************/
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * (c) 2025 C. Gogolin <service@cylancer.net>
+ * 
+ */ 
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'User tools',
@@ -13,13 +19,13 @@ $EM_CONF[$_EXTKEY] = [
 - change your password
 - change your email address',
     'category' => 'plugin',
-    'author' => 'Clemens Gogolin',
+    'author' => 'C. Gogolin',
     'author_email' => 'service@cylancer.net',
     'state' => 'stable',
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '3.0.3',
+    'version' => '4.1.1',
     'autoload' => [
         'psr-4' => [
             'Cylancer\\Usertools\\' => 'Classes/',
@@ -28,8 +34,8 @@ $EM_CONF[$_EXTKEY] = [
     ],
     'constraints' => [
         'depends' => [
-            'typo3' => '12.4.0-12.4.99',
-            'bootstrap_package' => '14.0.0-14.0.99'
+            'typo3' => '13.4.0-13.4.99',
+            'bootstrap_package' => '14.0.0-15.0.99'
         ],
         'conflicts' => [],
         'suggests' => [],
@@ -38,7 +44,9 @@ $EM_CONF[$_EXTKEY] = [
 
 /** ---- CHANGELOG ----------
  * 
-3.0.3 :: FIX : The confirm new email address change mail is send to the current and to the future email address.
+4.1.1 :: FIX : Fix the upgrade wizzard. 
+4.1.0 :: FIX/UPD : An email adresse change validates the current and the new email address.
+4.0.0 :: UPD : Update to TYPO3 13.4.0
 3.0.2 :: UPD : Update to bootstrap_package 14.0.0
 3.0.1 :: FIX : fast search : result is displayed in the center of the screen.
 3.0.0 :: UPD : Update to TYPO3 12.4.0
@@ -47,4 +55,4 @@ $EM_CONF[$_EXTKEY] = [
 2.2.1 :: Update bootstrap_package dependency: Allows the version 13. 
 2.2.0 :: Removes the dependency on the news extension (Removes the newsletter scheduler task. You can use the cy_newsletter extension).
 2.1.3 :: Add documentarion / change this icons. 
- ---- CHANGELOG ---------- */
+// ---- CHANGELOG ---------- */

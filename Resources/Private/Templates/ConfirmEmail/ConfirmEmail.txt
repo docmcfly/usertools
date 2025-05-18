@@ -8,9 +8,9 @@
 
 <f:format.raw>
 <f:uri.action 
-				pageUid="{targetPage}" 
+				pageUid="{confirmEmailChangePage}" 
 				absolute="true" 
-				controller="Profile" 
+				controller="ChangeEmail" 
 				action="confirmNewEmail" 
 				pluginName="confirmNewEmail"
 				noCache="true"

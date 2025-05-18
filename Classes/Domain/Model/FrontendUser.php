@@ -3,7 +3,7 @@ namespace Cylancer\Usertools\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use TYPO3\CMS\Extbase\Domain\Model\FileReference;
+use \TYPO3\CMS\Extbase\Domain\Model\FileReference;
 
 /**
  *
@@ -12,538 +12,280 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * (c) 2022 Clemens Gogolin <service@cylancer.net>
+ * (c) 2025 C. Gogolin <service@cylancer.net>
  *
- * @package Cylancer\Usertools\Domain\Model
  */
 class FrontendUser extends AbstractEntity
 {
 
-    /**
-     *
-     * @var bool
-     */
-    protected $allowDisplayEmail = false;
+    protected bool $allowDisplayEmail = false;
 
-    /**
-     *
-     * @var bool
-     */
-    protected $allowDisplayImageInternal = false;
+    protected bool $allowDisplayImageInternal = false;
 
-    /**
-     *
-     * @var bool
-     */
-    protected $allowDisplayImagePublic = false;
+    protected bool $allowDisplayImagePublic = false;
 
-    /**
-     *
-     * @var bool
-     */
-    protected $currentlyOffDuty = false;
+    protected bool $currentlyOffDuty = false;
 
-    /**
-     *
-     * @var string
-     */
-    protected $newEmail = '';
+    protected ?string $newEmail = '';
 
-    /**
-     *
-     * @var string
-     */
-    protected $newEmailToken = '';
+    protected ?string $newEmailToken = '';
 
-    /**
-     *
-     * @var string
-     */
-    protected $passwordToken = '';
+    protected ?string $confirmedNewEmail = '';
 
-    /**
-     *
-     * @var bool
-     */
-    protected $allowDisplayPhone = false;
+    protected ?string $passwordToken = '';
 
-    /**
-     *
-     * @var ObjectStorage<FrontendUserGroup>
-     */
-    protected $usergroup;
+    protected bool $allowDisplayPhone = false;
 
-    /**
-     *
-     * @var ObjectStorage<FileReference>
-     */
-    protected $image;
+    /** @var ObjectStorage<FrontendUserGroup> */
+    protected ObjectStorage $usergroup;
 
-    /**
-     *
-     * @var array
-     */
-    protected $uploadedImage;
+    /** @deprecated 
+     * @var ObjectStorage<FileReference> */
+    protected ObjectStorage $image;
 
-    /**
-     *
-     * @var string
-     */
-    protected $telephone = '';
+    protected ?FileReference $portrait = null;
 
-    /**
-     *
-     * @var string
-     */
-    protected $username = '';
+    protected ?FileReference $uploadedPortrait = null;
 
-    /**
-     *
-     * @var string
-     */
-    protected $name = '';
+    protected ?string $telephone = '';
 
-    /**
-     *
-     * @var string
-     */
-    protected $firstName = '';
+    protected ?string $username = '';
 
-    /**
-     *
-     * @var string
-     */
-    protected $lastName = '';
+    protected ?string $name = '';
 
-    /**
-     *
-     * @var string
-     */
-    protected $password = '';
+    protected ?string $firstName = '';
 
-    /**
-     *
-     * @var string
-     */
-    protected $email = '';
+    protected ?string $lastName = '';
 
-    /**
-     * Constructs a new Front-End User
-     */
+    protected ?string $password = '';
+
+    protected ?string $email = '';
+
     public function __construct()
     {
         $this->usergroup = new ObjectStorage();
         $this->image = new ObjectStorage();
     }
 
-    /**
-     * Called again with initialize object, as fetching an entity from the DB does not use the constructor
-     */
-    public function initializeObject()
+    public function initializeObject(): void
     {
         $this->usergroup = $this->usergroup ?? new ObjectStorage();
         $this->image = $this->image ?? new ObjectStorage();
     }
 
-    /**
-     * Returns the allowDisplayEmail
-     *
-     * @return bool $allowDisplayEmail
-     */
     public function getAllowDisplayEmail(): bool
     {
         return $this->allowDisplayEmail;
     }
 
-    /**
-     * Sets the allowDisplayEmail
-     *
-     * @param bool $allowDisplayEmail
-     * @return void
-     */
     public function setAllowDisplayEmail(bool $allowDisplayEmail): void
     {
         $this->allowDisplayEmail = $allowDisplayEmail;
     }
 
-    /**
-     * Returns the allowDisplayImageInternal
-     *
-     * @return bool allowDisplayImageInternal
-     */
     public function getAllowDisplayImageInternal(): bool
     {
         return $this->allowDisplayImageInternal;
     }
 
-    /**
-     * Sets the allowDisplayImageInternal
-     *
-     * @param bool $allowDisplayImageInternal
-     * @return void
-     */
     public function setAllowDisplayImageInternal(bool $allowDisplayImageInternal): void
     {
         $this->allowDisplayImageInternal = $allowDisplayImageInternal;
     }
 
-    /**
-     * Returns the allowDisplayImagePublic
-     *
-     * @return bool $allowDisplayImagePublic
-     */
     public function getAllowDisplayImagePublic(): bool
     {
         return $this->allowDisplayImagePublic;
     }
 
-    /**
-     * Sets the allowDisplayImagePublic
-     *
-     * @param bool $allowDisplayImagePublic
-     * @return void
-     */
     public function setAllowDisplayImagePublic(bool $allowDisplayImagePublic): void
     {
         $this->allowDisplayImagePublic = $allowDisplayImagePublic;
     }
 
-    /**
-     * Returns the allowDisplayImagePublic
-     *
-     * @return bool $allowDisplayImagePublic
-     */
     public function getCurrentlyOffDuty(): bool
     {
         return $this->currentlyOffDuty;
     }
 
-    /**
-     * Sets the currentlyOffDuty
-     *
-     * @param bool $currentlyOffDuty
-     * @return void
-     */
     public function setCurrentlyOffDuty(bool $currentlyOffDuty): void
     {
         $this->currentlyOffDuty = $currentlyOffDuty;
     }
 
-    /**
-     * Returns the newEmail
-     *
-     * @return string $newEmail
-     */
-    public function getNewEmail(): ?String
+    public function getNewEmail(): ?string
     {
         return $this->newEmail;
     }
 
-    /**
-     * Sets the newEmail
-     *
-     * @param string $newEmail
-     * @return void
-     */
-    public function setNewEmail(String $newEmail): void
+    public function setNewEmail(?string $newEmail): void
     {
         $this->newEmail = $newEmail;
     }
 
-    /**
-     * Returns the newEmailToken
-     *
-     * @return string $newEmailToken
-     */
-    public function getNewEmailToken(): ?String
+    public function getNewEmailToken(): ?string
     {
         return $this->newEmailToken;
     }
 
-    /**
-     * Sets the newEmailToken
-     *
-     * @param string $newEmailToken
-     * @return void
-     */
-    public function setNewEmailToken(String $newEmailToken): void
+    public function setNewEmailToken(?string $newEmailToken): void
     {
         $this->newEmailToken = $newEmailToken;
     }
 
-    /**
-     * Returns the passwordToken
-     *
-     * @return string $passwordToken
-     */
-    public function getPasswordToken(): ?String
+    public function getConfirmedNewEmail(): ?string
+    {
+        return $this->confirmedNewEmail;
+    }
+
+    public function setConfirmedNewEmail(?string $confirmedNewEmail): void
+    {
+        $this->confirmedNewEmail = $confirmedNewEmail;
+    }
+
+    public function getPasswordToken(): ?string
     {
         return $this->passwordToken;
     }
 
-    /**
-     * Sets the newEmailToken
-     *
-     * @param string $newEmailToken
-     * @return void
-     */
-    public function setPasswordToken(String $passwordToken): void
+    public function setPasswordToken(?string $passwordToken): void
     {
         $this->passwordToken = $passwordToken;
     }
 
-    /**
-     * Returns the allowDisplayPhone
-     *
-     * @return bool $allowDisplayPhone
-     */
     public function getAllowDisplayPhone(): bool
     {
         return $this->allowDisplayPhone;
     }
 
-    /**
-     * Sets the allowDisplayPhone
-     *
-     * @param bool $allowDisplayPhone
-     * @return void
-     */
     public function setAllowDisplayPhone(bool $allowDisplayPhone): void
     {
         $this->allowDisplayPhone = $allowDisplayPhone;
     }
 
-    /**
-     * Sets the usergroups.
-     * Keep in mind that the property is called "usergroup"
-     * although it can hold several usergroups.
-     *
-     * @param ObjectStorage<FrontendUserGroup> $usergroup
-     */
     public function setUsergroup(ObjectStorage $usergroup)
     {
         $this->usergroup = $usergroup;
     }
 
-    /**
-     * Adds a usergroup to the frontend user
-     *
-     * @param FrontendUserGroup $usergroup
-     */
     public function addUsergroup(FrontendUserGroup $usergroup)
     {
         $this->usergroup->attach($usergroup);
     }
 
-    /**
-     * Removes a usergroup from the frontend user
-     *
-     * @param FrontendUserGroup $usergroup
-     */
     public function removeUsergroup(FrontendUserGroup $usergroup)
     {
         $this->usergroup->detach($usergroup);
     }
 
-    /**
-     * Returns the usergroups.
-     * Keep in mind that the property is called "usergroup"
-     * although it can hold several usergroups.
-     *
-     * @return ObjectStorage<FrontendUserGroup> An object storage containing the usergroup
-     */
-    public function getUsergroup()
+    public function getUsergroup():ObjectStorage
     {
         return $this->usergroup;
     }
 
-    /**
-     * Sets the image value
-     *
-     * @param ObjectStorage<FileReference> $image
-     */
     public function setImage(ObjectStorage $image): void
     {
         $this->image = $image;
     }
 
-    /**
-     * Gets the image value
-     *
-     * @return ObjectStorage<FileReference>
-     */
     public function getImage(): ObjectStorage
     {
         return $this->image;
     }
 
-    /**
-     *
-     * @return array
-     */
-    public function getUploadedImage(): ?array
+    public function getUploadedPortrait(): ?FileReference
     {
-        return $this->uploadedImage;
+        return $this->uploadedPortrait;
     }
 
-    /**
-     *
-     * @param array $uploadedImage
-     * @return void
-     */
-    public function setUploadedImage($uploadedImage): void
+    public function setUploadedPortrait(?FileReference $uploadedPortrait): void
     {
-        $this->uploadedImage = $uploadedImage;
+        $this->uploadedPortrait = $uploadedPortrait;
     }
 
-    /**
-     * Sets the telephone value
-     *
-     * @param string $telephone
-     */
-    public function setTelephone($telephone)
+    public function getPortrait(): ?FileReference
+    {
+        return $this->portrait;
+    }
+
+    public function setPortrait(?FileReference $portrait): void
+    {
+        $this->portrait = $portrait;
+    }
+
+    public function setTelephone($telephone):void
     {
         $this->telephone = $telephone;
     }
 
-    /**
-     * Returns the telephone value
-     *
-     * @return string
-     */
-    public function getTelephone()
+    public function getTelephone():?string
     {
         return $this->telephone;
     }
 
-    /**
-     * Sets the username value
-     *
-     * @param string $username
-     */
-    public function setUsername(String $username): void
+    public function setUsername(string $username): void
     {
         $this->username = $username;
     }
 
-    /**
-     * Returns the username value
-     *
-     * @return string
-     */
-    public function getUsername(): String
+    public function getUsername(): string
     {
         return $this->username;
     }
 
-    /**
-     * Sets the name value
-     *
-     * @param string $name
-     */
     public function setName($name): void
     {
         $this->name = $name;
     }
 
-    /**
-     * Returns the name value
-     *
-     * @return string
-     */
-    public function getName(): String
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * Sets the firstName value
-     *
-     * @param string $firstName
-     */
-    public function setFirstName($firstName)
+    public function setFirstName($firstName):void
     {
         $this->firstName = $firstName;
     }
 
-    /**
-     * Returns the firstName value
-     *
-     * @return string
-     */
-    public function getFirstName()
+    public function getFirstName():?string 
     {
         return $this->firstName;
     }
 
-    /**
-     * Sets the lastName value
-     *
-     * @param string $lastName
-     */
-    public function setLastName($lastName)
+    public function setLastName($lastName):void
     {
         $this->lastName = $lastName;
     }
 
-    /**
-     * Returns the lastName value
-     *
-     * @return string
-     */
-    public function getLastName()
+    public function getLastName(): ?string
     {
         return $this->lastName;
     }
 
-    /**
-     * Sets the password value
-     *
-     * @param string $password
-     * @return void
-     */
-    public function setPassword(String $password): void
+    public function setPassword(string $password): void
     {
         $this->password = $password;
     }
 
-    /**
-     * Returns the password value
-     *
-     * @return string
-     */
-    public function getPassword(): String
+    public function getPassword(): string
     {
         return $this->password;
     }
 
-    /**
-     * Sets the email value
-     *
-     * @param string $email
-     */
-    public function setEmail(String $email): void
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
 
-    /**
-     * Returns the email value
-     *
-     * @return string
-     */
-    public function getEmail(): ?String
+    public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    /**
-     *
-     * @return array
-     */
     public function getAllSortedUserGroups(): array
     {
-        $return = array();
+        $return = [];
         $duplicateProtection = array();
 
         /** @var FrontendUserGroup $frontendUserGroup **/
@@ -556,17 +298,11 @@ class FrontendUser extends AbstractEntity
         return array_values($return);
     }
 
-    /**
-     *
-     * @param FrontendUserGroup $userGroup
-     * @param array $duplicateProtection
-     * @return array
-     */
     private function getSubUserGroups(FrontendUserGroup $frontendUserGroup, array &$duplicateProtection): array
     {
-        $return = array();
+        $return = [];
         foreach ($frontendUserGroup->getSubgroup() as $sg) {
-            if (! in_array($sg->getUid(), $duplicateProtection)) {
+            if (!in_array($sg->getUid(), $duplicateProtection)) {
                 $duplicateProtection[] = $sg->getUid();
                 $return[$sg->getTitle()] = $sg;
                 $return = array_merge($return, $this->getSubUserGroups($sg, $duplicateProtection));

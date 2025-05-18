@@ -1,7 +1,17 @@
 <?php
 defined('TYPO3') || die('Access denied.');
 
-if (! isset($GLOBALS['TCA']['fe_users']['ctrl']['type'])) {
+/**
+ * This file is part of the "user tools" Extension for TYPO3 CMS.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * (c) 2025 C. Gogolin <service@cylancer.net>
+ * 
+ */ 
+
+if (!isset($GLOBALS['TCA']['fe_users']['ctrl']['type'])) {
     // no type field defined, so we define it here. This will only happen the first time the extension is installed!!
     $GLOBALS['TCA']['fe_users']['ctrl']['type'] = 'tx_extbase_type';
     $tempColumnstx_usertools_fe_users = [];
@@ -131,7 +141,7 @@ $tmp_usertools_columns = [
         'config' => [
             'readOnly' => 1,
             'type' => 'input',
-            'size' => 30,
+            'size' => 255,
             'eval' => 'trim'
         ]
     ],
@@ -144,19 +154,40 @@ $tmp_usertools_columns = [
             'eval' => 'trim'
         ]
     ],
+    'confirmed_new_email' => [
+        'exclude' => false,
+        'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.confirmed_new_email',
+        'config' => [
+            'readOnly' => 1,
+            'type' => 'input',
+            'size' => 255,
+            'eval' => 'trim'
+        ]
+    ],
     'password_token' => [
         'exclude' => false,
-        'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_user.password_token',
+        'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.password_token',
         'config' => [
             'type' => 'input',
             'size' => 30,
             'eval' => 'trim'
         ]
-    ]
+    ],
+    'portrait' => [
+        'exclude' => false,
+        'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.portrait',
+        'config' => [
+            'type' => 'file',
+            'maxitems' => 1,
+            'allowed' => 'common-image-types',
+        ],
+    ],
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('fe_users', $tmp_usertools_columns);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('fe_users', '--div--;LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.tab.user_preferences, allow_display_email, allow_display_phone, allow_display_image_internal, new_email, currently_off_duty, currently_off_duty_from, currently_off_duty_until');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('fe_users', '--div--;LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:'
+    . 'tx_usertools_domain_model_frontendUser.tab.user_preferences, allow_display_email, allow_display_phone, allow_display_image_internal, '
+    . 'new_email, confirmed_new_email, currently_off_duty, currently_off_duty_from, currently_off_duty_until, portrait');
 
 /* inherit and extend the show items from the parent class */
 

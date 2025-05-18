@@ -13,39 +13,33 @@ use Cylancer\Usertools\Service\FrontendUserService;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * (c) 2022 Clemens Gogolin <service@cylancer.net>
+ * (c) 2025 C. Gogolin <service@cylancer.net>
  */
 class ListController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
 
-    const USERS = 'users';
+    private const USERS = 'users';
 
-    const CAN_VIEW_PHONE_NUMBER = 'canViewPhoneNumbers';
+    private const CAN_VIEW_PHONE_NUMBER = 'canViewPhoneNumbers';
 
-    const CAN_VIEW_CURRENTLY_OFF_DUTY = 'canViewCurrentlyOffDuty';
+    private const CAN_VIEW_CURRENTLY_OFF_DUTY = 'canViewCurrentlyOffDuty';
 
-    const VISIBLE_FE_GROUPS = 'visibleFeGroups';
+    private const VISIBLE_FE_GROUPS = 'visibleFeGroups';
 
-    /** @var FrontendUserRepository     */
-    public $frontendUserRepository = null;
-
-    /** @var FrontendUserService     */
-    public $frontendUserService = null;
-
-    public function __construct(FrontendUserRepository $frontendUserRepository, FrontendUserService $frontendUserService)
-    {
-        $this->frontendUserRepository = $frontendUserRepository;
-        $this->frontendUserService = $frontendUserService;
+    public function __construct(
+        private readonly FrontendUserRepository $frontendUserRepository,
+        private readonly FrontendUserService $frontendUserService
+    ) {
     }
 
-    /**
+    /** 
      *
      * @return ResponseInterface
      */
-    public function listAllAction(): ResponseInterface
+    public function listUsersAction(): ResponseInterface
     {
         if ($this->frontendUserService->isLogged()) {
-            
+
             $this->frontendUserRepository->setDefaultOrderings([
                 'last_name' => QueryInterface::ORDER_ASCENDING,
                 'first_name' => QueryInterface::ORDER_ASCENDING
@@ -76,10 +70,10 @@ class ListController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             $this->view->assign(ListController::CAN_VIEW_CURRENTLY_OFF_DUTY, $allowGroupFound);
             $this->view->assign(ListController::VISIBLE_FE_GROUPS, GeneralUtility::intExplode(',', $this->settings[ListController::VISIBLE_FE_GROUPS]));
             $this->view->assign('alternativEmailLink', $this->settings['alternativEmailLink']);
-            
-          
+
+
         }
         return $this->htmlResponse();
     }
-    
+
 }

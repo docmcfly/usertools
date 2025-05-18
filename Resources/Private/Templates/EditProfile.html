@@ -1,16 +1,20 @@
-<!DOCTYPE html PUBLIC "-//WC//DTD XHTML . Strict//EN"
-	"http://www.w.org/TR/xhtml/DTD/xhtml-strict.dtd">
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true" xmlns="http://www.w.org//xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//WC//DTD XHTML . Strict//EN" "http://www.w.org/TR/xhtml/DTD/xhtml-strict.dtd">
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true"
+	xmlns="http://www.w.org//xhtml" xml:lang="en" lang="en">
+
 <head>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 </head>
+
 <body>
 	{namespace c=Cylancer\Usertools\ViewHelpers}
 	<f:layout name="Default" />
 	<f:section name="main">
-		<f:asset.css identifier="tx_usertools_custom.css" href="EXT:usertools/Resources/Public/Css/tx_usertools_custom.css" />
+		<f:asset.css identifier="tx_usertools_custom.css"
+			href="EXT:usertools/Resources/Public/Css/tx_usertools_custom.css" />
 		<div class="card profile">
-			<f:render partial="validationResults" arguments="{prefix:'editProfile.form', validationResults: validationResults}" />
+			<f:render partial="validationResults"
+				arguments="{prefix:'editProfile.form', validationResults: validationResults}" />
 			<f:security.ifAuthenticated>
 				<f:then>
 					<f:render section="authenticated" arguments="{_all}" />
@@ -22,12 +26,14 @@
 		</div>
 	</f:section>
 	<f:section name="authenticated">
-		<f:form action="doEditProfile" object="{currentUser}" class="form" name="currentUser" enctype="multipart/form-data">
+		<f:form action="doEditProfile" object="{currentUser}" class="form" name="currentUser"
+			enctype="multipart/form-data">
 			<div class="card-body">
 				<div class="card-text">
 					<div class="form">
 						<h5>
-							<label> <f:translate key="editProfile.form.name" />
+							<label>
+								<f:translate key="editProfile.form.name" />
 							</label>
 						</h5>
 						<p>{currentUser.name}</p>
@@ -36,7 +42,8 @@
 					<!-- phone number -->
 					<div class="form">
 						<h5>
-							<label for="telephone"> <f:translate key="editProfile.form.phoneNumber" />
+							<label for="telephone">
+								<f:translate key="editProfile.form.phoneNumber" />
 							</label>
 						</h5>
 						<f:form.textfield property="telephone" class="form-control" value="{currentUser.telephone}" />
@@ -45,34 +52,41 @@
 					<!-- User image  -->
 					<div class="form">
 						<h5>
-							<f:translate key="editProfile.form.yourImage" />
+							<f:translate key="editProfile.form.portrait" />
 						</h5>
 					</div>
 					<div class="form">
 						<div class="row">
 							<div class="col">
-								<f:if condition="{currentUser.image.0}">
+								<f:if condition="{currentUser.portrait}">
 									<f:then>
-										<f:image class="border border-white rounded m-3" image="{currentUser.image.0}" id="image"
-											title="{currentUser.image.0.originalResource.originalFile.name}" alt="{currentUser.image.0.originalResource.originalFile.name}" maxWidth="150"
-											maxHeight="150"
-										/>
-										<f:link.action action="deleteCurrentUserImages">
-											<f:translate key="editProfile.form.deleteCurrentUserImages" />
+										<f:image class="border border-white rounded m-3" image="{currentUser.portrait}"
+											id="image" title="{currentUser.portrait.originalResource.originalFile.name}"
+											alt="{currentUser.portrait.originalResource.originalFile.name}"
+											maxWidth="150" maxHeight="150" />
+										<f:link.action action="deletePortrait">
+											<f:translate key="editProfile.form.deletePortrait" />
 										</f:link.action>
 									</f:then>
 									<f:else>
-										<f:image class="border border-white rounded m-3" src="EXT:usertools/Resources/Public/NoPhoto.png"
-											alt="{f:translate(key:'editProfile.form.noneUserImage')}" title="{f:translate(key:'editProfile.form.noneUserImage')}" maxWidth="150" maxHeight="150"
-										/>
-										<label for="image"><f:translate key="editProfile.form.noneUserImage" /></label>
+										<f:image class="border border-white rounded m-3"
+											src="EXT:usertools/Resources/Public/NoPhoto.png"
+											alt="{f:translate(key:'editProfile.form.noneUserImage')}"
+											title="{f:translate(key:'editProfile.form.noneUserImage')}" maxWidth="150"
+											maxHeight="150" />
+										<label for="image">
+											<f:translate key="editProfile.form.noneUserImage" />
+										</label>
 									</f:else>
 								</f:if>
 								<p>
 									<f:translate key="editProfile.form.imageNote" />
 								</p>
-								<label for="uploadedImage" id="uploadedImageLabel"><f:translate key="editProfile.form.switchUserImage" /> </label>
-								<f:form.upload property="uploadedImage" additionalAttributes="{accept:'image/*'}" class="form-input" id="uploadedImage" />
+								<label for="uploadedPortrait" id="uploadedPortraitLabel">
+									<f:translate key="editProfile.form.switchPortrait" />
+								</label>
+								<f:form.upload property="uploadedPortrait" additionalAttributes="{accept:'image/*'}"
+									class="form-input" id="uploadedPortrait" />
 							</div>
 						</div>
 					</div>
@@ -84,25 +98,29 @@
 					<!-- Allow display phone number -->
 					<div class="form-check">
 						<f:form.checkbox property="allowDisplayPhone" class="form-check-input" value="1" />
-						<label for="allowDisplayPhone"> <f:translate key="editProfile.form.allowDisplayPhone" />
+						<label for="allowDisplayPhone">
+							<f:translate key="editProfile.form.allowDisplayPhone" />
 						</label>
 					</div>
 					<!-- Allow display email -->
 					<div class="form-check">
 						<f:form.checkbox property="allowDisplayEmail" class="form-check-input" value="1" />
-						<label for="allowDisplayEmail"> <f:translate key="editProfile.form.allowDisplayEmail" />
+						<label for="allowDisplayEmail">
+							<f:translate key="editProfile.form.allowDisplayEmail" />
 						</label>
 					</div>
 					<!-- Allow display image internal -->
 					<div class="form-check">
 						<f:form.checkbox property="allowDisplayImageInternal" class="form-check-input" value="1" />
-						<label for="allowDisplayEmail"> <f:translate key="editProfile.form.allowDisplayImageInternal" />
+						<label for="allowDisplayEmail">
+							<f:translate key="editProfile.form.allowDisplayImageInternal" />
 						</label>
 					</div>
 				</div>
 				<div class="form mt-3">
 					<!-- SUBMIT BUTTON -->
-					<f:form.submit class="btn btn-primary btn-lg" disabled="{existsErrors}" value="{f:translate(key: 'editProfile.form.submit')}" />
+					<f:form.submit class="btn btn-primary btn-lg" disabled="{existsErrors}"
+						value="{f:translate(key: 'editProfile.form.submit')}" />
 					<!-- SUBMIT BUTTON -->
 				</div>
 			</div>
@@ -120,7 +138,9 @@
 						</f:if>
 					</f:for>
 					<f:if condition="{currentUser.currentlyOffDuty}">
-						<li class="text-primary"><f:translate key="editProfile.form.currentlyOffDuty" /></li>
+						<li class="text-primary">
+							<f:translate key="editProfile.form.currentlyOffDuty" />
+						</li>
 					</f:if>
 				</ul>
 			</div>
@@ -134,4 +154,5 @@
 		</div>
 	</f:section>
 </body>
+
 </html>

@@ -10,7 +10,6 @@ namespace Cylancer\Usertools\Service;
  *
  * (c) 2023 C. Gogolin <service@cylancer.net>
  *
- * @package Cylancer\Usertools\Service
  */
 use TYPO3\CMS\Core\SingletonInterface;
 use Cylancer\Usertools\Domain\Repository\FrontendUserRepository;
@@ -22,67 +21,40 @@ use Cylancer\Usertools\Domain\Model\FrontendUser;
 class FrontendUserService implements SingletonInterface
 {
 
-    /** @var FrontendUserRepository   */
-    private $frontendUserRepository = null;
-
-    /**
-     *
-     * @param FrontendUserRepository $frontendUserRepository
-     */
-    public function __construct(FrontendUserRepository $frontendUserRepository)
-    {
-        $this->frontendUserRepository = $frontendUserRepository;
+    public function __construct(
+        private readonly FrontendUserRepository $frontendUserRepository
+    ) {
     }
 
-    /**
-     *
-     * @return FrontendUser Returns the current frontend user
-     */
     public function getCurrentUser(): bool|FrontendUser
     {
-        if (! $this->isLogged()) {
+        if (!$this->isLogged()) {
             return false;
         }
         return $this->frontendUserRepository->findByUid($this->getCurrentUserUid());
     }
-    
-    /**
-     * 
-     * @return int
-     */
+
     public function getCurrentUserUid(): int
     {
-        if (! $this->isLogged()) {
+        if (!$this->isLogged()) {
             return false;
         }
         $context = GeneralUtility::makeInstance(Context::class);
         return $context->getPropertyFromAspect('frontend.user', 'id');
     }
 
-    /**
-     * Check if the user is logged
-     *
-     * @return bool
-     */
     public function isLogged(): bool
     {
         $context = GeneralUtility::makeInstance(Context::class);
         return $context->getPropertyFromAspect('frontend.user', 'isLoggedIn');
     }
 
-    /**
-     *
-     * @param FrontendUserGroup $userGroup
-     * @param integer $fegid
-     * @param array $loopProtect
-     * @return boolean
-     */
     public function contains($userGroup, $feugid, &$loopProtect = array()): bool
     {
         if ($userGroup->getUid() == $feugid) {
             return true;
         } else {
-            if (! in_array($userGroup->getUid(), $loopProtect)) {
+            if (!in_array($userGroup->getUid(), $loopProtect)) {
                 $loopProtect[] = $userGroup->getUid();
                 foreach ($userGroup->getSubgroup() as $sg) {
                     if ($this->contains($sg, $feugid, $loopProtect)) {

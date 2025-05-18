@@ -1,147 +1,107 @@
 <?php
+use Cylancer\Usertools\Controller\ChangeEmailController;
 use Cylancer\Usertools\Controller\ProfileController;
 use Cylancer\Usertools\Controller\ListController;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
 defined('TYPO3') || die('Access denied.');
 
-call_user_func(function () {
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'Usertools',
-        'Editprofile',
-        [
-            ProfileController::class => 'editProfile, doEditProfile, deleteCurrentUserImages'
-        ],
-        // non-cacheable actions
-        [
-            ProfileController::class => 'editProfile, doEditProfile, deleteCurrentUserImages'
-        ]
-    );
+/**
+ * This file is part of the "user tools" Extension for TYPO3 CMS.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * (c) 2025 C. Gogolin <service@cylancer.net>
+ * 
+ */ 
 
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'Usertools',
-        'Listusers',
-        [
-            ListController::class => 'listAll'
-        ],
-        // non-cacheable actions
-        [
-            ListController::class => 'listAll'
-        ]
-    );
+ExtensionUtility::configurePlugin(
+    'Usertools',
+    'EditProfile',
+    [
+        ProfileController::class => 'editProfile, doEditProfile, deletePortrait'
+    ],
+    // non-cacheable actions
+    [
+        ProfileController::class => 'editProfile, doEditProfile, deletePortrait'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
 
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'Usertools',
-        'Changeemailform',
-        [
-            ProfileController::class => 'changeEmailForm, prepareEmailChange, changeEmail'
-        ],
-        // non-cacheable actions
-        [
-            ProfileController::class => 'changeEmailForm, prepareEmailChange, changeEmail'
-        ]
-    );
+ExtensionUtility::configurePlugin(
+    'Usertools',
+    'ListUsers',
+    [
+        ListController::class => 'listUsers'
+    ],
+    // non-cacheable actions
+    [
+        ListController::class => 'listUsers'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
 
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'Usertools',
-        'Confirmnewemail',
-        [
-            ProfileController::class => 'confirmNewEmail'
-        ],
-        // non-cacheable actions
-        [
-            ProfileController::class => 'confirmNewEmail'
-        ]
-    );
+ExtensionUtility::configurePlugin(
+    'Usertools',
+    'ChangeEmail',
+    [
+        ChangeEmailController::class => 'changeEmail, prepareEmailChange'
+    ],
+    // non-cacheable actions
+    [
+        ChangeEmailController::class => 'changeEmail, prepareEmailChange'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
 
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'Usertools',
-        'Changeuserpassword',
-        [
-            ProfileController::class => 'changePasswordForm, changePassword'
-        ],
-        // non-cacheable actions
-        [
-            ProfileController::class => 'changePasswordForm, changePassword'
-        ]
-    );
+ExtensionUtility::configurePlugin(
+    'Usertools',
+    'ConfirmEmailChange',
+    [
+        ChangeEmailController::class => 'confirmEmailChange, '
+    ],
+    // non-cacheable actions
+    [
+        ChangeEmailController::class => 'confirmEmailChange'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
 
-    // wizards
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('mod {
-            wizards.newContentElement.wizardItems.plugins {
-                elements {
-                   editprofile {
-                        iconIdentifier = usertools-plugin-editprofile
-                        title = LLL:EXT:usertools/Resources/Private/Language/locallang_be_editProfile.xlf:plugin.name
-                        description = LLL:EXT:usertools/Resources/Private/Language/locallang_be_editProfile.xlf:plugin.description
-                        tt_content_defValues {
-                            CType = list
-                            list_type = usertools_editprofile
-                        }
-                    }
-                    listusers {
-                        iconIdentifier = usertools-plugin-listusers
-                        title = LLL:EXT:usertools/Resources/Private/Language/locallang_be_listUsers.xlf:plugin.name
-                        description = LLL:EXT:usertools/Resources/Private/Language/locallang_be_listUsers.xlf:plugin.description
-                        tt_content_defValues {
-                            CType = list
-                            list_type = usertools_listusers
-                        }
-                    }
-                    changeemailform {
-                        iconIdentifier = usertools-plugin-changeemailform
-                        title = LLL:EXT:usertools/Resources/Private/Language/locallang_be_changeEmail.xlf:plugin.name
-                        description = LLL:EXT:usertools/Resources/Private/Language/locallang_be_changeEmail.xlf:plugin.description
-                        tt_content_defValues {
-                            CType = list
-                            list_type = usertools_changeemailform
-                        }
-                    }
-                    confirmnewemail {
-                        iconIdentifier = usertools-plugin-confirmnewemail
-                        title = LLL:EXT:usertools/Resources/Private/Language/locallang_be_confirmNewEmail.xlf:plugin.name
-                        description = LLL:EXT:usertools/Resources/Private/Language/locallang_be_confirmNewEmail.xlf:plugin.description
-                        tt_content_defValues {
-                            CType = list
-                            list_type = usertools_confirmnewemail
-                        }
-                    }
-                    changeuserpassword {
-                        iconIdentifier = usertools-plugin-changeuserpassword
-                        title = LLL:EXT:usertools/Resources/Private/Language/locallang_be_changePassword.xlf:plugin.name
-                        description = LLL:EXT:usertools/Resources/Private/Language/locallang_be_changePassword.xlf:plugin.description
-                        tt_content_defValues {
-                            CType = list
-                            list_type = usertools_changeuserpassword
-                        }
-                    }
-                }
-                show = *
-            }
-       }');
-    $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
 
-    $iconRegistry->registerIcon('usertools-plugin-editprofile', \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class, [
-        'source' => 'EXT:usertools/Resources/Public/Icons/user_plugin_editprofile.svg'
-    ]);
+ExtensionUtility::configurePlugin(
+    'Usertools',
+    'ConfirmNewEmail',
+    [
+        ChangeEmailController::class => 'confirmNewEmail, '
+    ],
+    // non-cacheable actions
+    [
+        ChangeEmailController::class => 'confirmNewEmail'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
 
-    $iconRegistry->registerIcon('usertools-plugin-listusers', \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class, [
-        'source' => 'EXT:usertools/Resources/Public/Icons/user_plugin_listusers.svg'
-    ]);
+ExtensionUtility::configurePlugin(
+    'Usertools',
+    'ChangePassword',
+    [
+        ProfileController::class => 'changePassword, doChangePassword'
+    ],
+    // non-cacheable actions
+    [
+        ProfileController::class => 'changePassword,doChangePassword'
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+);
 
-    $iconRegistry->registerIcon('usertools-plugin-changeemailform', \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class, [
-        'source' => 'EXT:usertools/Resources/Public/Icons/user_plugin_changeemailform.svg'
-    ]);
 
-    $iconRegistry->registerIcon('usertools-plugin-confirmnewemail', \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class, [
-        'source' => 'EXT:usertools/Resources/Public/Icons/user_plugin_confirmnewemail.svg'
-    ]);
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths']['cy_usertools_confirmemail'] = 'EXT:usertools/Resources/Private/Templates/ConfirmEmail/';
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['layoutRootPaths']['cy_usertools_confirmemail'] = 'EXT:usertools/Resources/Private/Layouts/ConfirmEmail/';
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['partialRootPaths']['cy_usertools_confirmemail'] = 'EXT:usertools/Resources/Private/Partials/ConfirmEmail/';
 
-    $iconRegistry->registerIcon('usertools-plugin-changeuserpassword', \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class, [
-        'source' => 'EXT:usertools/Resources/Public/Icons/user_plugin_changeuserpassword.svg'
-    ]);
 
-    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths']['cy_usertools']    = 'EXT:usertools/Resources/Private/Templates/ConfirmEmail/';
-    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['layoutRootPaths']['cy_usertools']    = 'EXT:usertools/Resources/Private/Layouts/ConfirmEmail/';
-    $GLOBALS['TYPO3_CONF_VARS']['MAIL']['partialRootPaths']['cy_usertools']    = 'EXT:usertools/Resources/Private/Partials/ConfirmEmail/';
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths']['cy_usertools_confirmemailchange'] = 'EXT:usertools/Resources/Private/Templates/ConfirmEmailChange/';
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['layoutRootPaths']['cy_usertools_confirmemailchange'] = 'EXT:usertools/Resources/Private/Layouts/ConfirmEmailChange/';
+$GLOBALS['TYPO3_CONF_VARS']['MAIL']['partialRootPaths']['cy_usertools_confirmemailchange'] = 'EXT:usertools/Resources/Private/Partials/ConfirmEmailChange/';
 
-});

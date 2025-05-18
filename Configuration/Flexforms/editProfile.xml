@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:usertools/Resources/Private/Language/locallang_be_editProfile.xlf:flexforms_general.title
+					</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.visibleFeGroups>
+						<exclude>1</exclude>
+						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_editProfile.xlf:flexforms_general.settings.visbleFeGroups
+						</label>
+						<config>
+							<type>select</type>
+							<renderType>selectMultipleSideBySide</renderType>
+							<foreign_table>fe_groups</foreign_table>
+							<minitems>0</minitems>
+						</config>
+					</settings.visibleFeGroups>
+					<settings.userImageFolder>
+						<exclude>1</exclude>
+						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_editProfile.xlf:flexforms_general.settings.userImageFolder
+						</label>
+						<config>
+							<type>folder</type>
+							<hideDeleteIcons>true</hideDeleteIcons>
+							<hideMoveIcons>true</hideMoveIcons>
+							<maxitems>1</maxitems>
+							<minitems>1</minitems>
+							<size>1</size>
+						</config>
+					</settings.userImageFolder>
+					<!-- end of settings -->
+
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

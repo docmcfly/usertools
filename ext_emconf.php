@@ -55,4 +55,4 @@ $EM_CONF[$_EXTKEY] = [
 2.2.1 :: Update bootstrap_package dependency: Allows the version 13. 
 2.2.0 :: Removes the dependency on the news extension (Removes the newsletter scheduler task. You can use the cy_newsletter extension).
 2.1.3 :: Add documentarion / change this icons. 
-// ---- CHANGELOG ---------- */
+ ---- CHANGELOG ---------- */

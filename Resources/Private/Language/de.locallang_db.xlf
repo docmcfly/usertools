@@ -41,6 +41,14 @@
 				<source>New Email Token</source>
 				<target state="tanslated">Neues E-Mail-Token</target>
 			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.confirmed_new_email">
+				<source>Confirmed new email (for change)</source>
+				<target state="tanslated">Bestätigte neue E-Mail (für den E-Mail-Wechsel)</target>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.portrait">
+				<source>User prorait image</source>
+				<target state="tanslated">Nutzer-Portaitbild</target>
+			</trans-unit>
 
 			<!-- frontend user extenstion tab -->
 			<trans-unit id="fe_users.tx_extbase_type.Tx_Usertools_User">

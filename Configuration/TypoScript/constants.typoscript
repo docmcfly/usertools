@@ -29,17 +29,17 @@ plugin.tx_usertools_listusers {
     }
 }
 
-plugin.tx_usertools_changeemailform {
+plugin.tx_usertools_changeemail {
     view {
-        # cat=plugin.tx_usertools_changeemailform/file; type=string; label=Path to template root (FE)
+        # cat=plugin.tx_usertools_changeemail/file; type=string; label=Path to template root (FE)
         templateRootPath = EXT:usertools/Resources/Private/Templates/
-        # cat=plugin.tx_usertools_changeemailform/file; type=string; label=Path to template partials (FE)
+        # cat=plugin.tx_usertools_changeemail/file; type=string; label=Path to template partials (FE)
         partialRootPath = EXT:usertools/Resources/Private/Partials/
-        # cat=plugin.tx_usertools_changeemailform/file; type=string; label=Path to template layouts (FE)
+        # cat=plugin.tx_usertools_changeemail/file; type=string; label=Path to template layouts (FE)
         layoutRootPath = EXT:usertools/Resources/Private/Layouts/
     }
     persistence {
-        # cat=plugin.tx_usertools_changeemailform//a; type=string; label=Default storage PID
+        # cat=plugin.tx_usertools_changeemail//a; type=string; label=Default storage PID
         storagePid =
     }
 }

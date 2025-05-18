@@ -33,7 +33,7 @@
 				<source>No image selected.</source>
 				<target state="tanslated">Kein Bild ausgewählt.</target>
 			</trans-unit>
-			<trans-unit id="editProfile.form.deleteCurrentUserImages">
+			<trans-unit id="editProfile.form.deletePortrait">
 				<source>Delete image.</source>
 				<target state="tanslated">Bild entfernen.</target>
 			</trans-unit>
@@ -173,14 +173,22 @@
 				<source>Change</source>
 				<target state="tanslated">Ändern</target>
 			</trans-unit>
-			<trans-unit id="changeEmail.form.note">
-				<source>If you change your email address, you will receive an email with a confirmation link if no other account exists with this email address. The change
-					of the e-mail address is only active after a confirmation and only then the new e-mail address is displayed here.
-				</source>
-				<target state="tanslated">Wenn Du Deine E-Mail Adresse änderst, erhältst Du eine E-Mail mit einem Bestätigungslink insofern noch kein anderer Account mit dieser
-					E-Mail Adresse existiert. Die Änderung der E-Mail Adresse ist erst nach einer Bestätigung aktiv und auch dann erst wird die neue E-Mail Adresse hier
-					angezeigt.
-				</target>
+			<trans-unit id="changeEmail.form.note.userEmailExists">
+				<source>⚠️ The email change process occurs in two steps: &lt;ol>
+    &lt;li>You will receive a confirmation email to the currently valid email address. This ensures that you have access to the current email inbox and prevents unauthorized persons from changing the email.&lt;/li>
+    &lt;li>By clicking the first confirmation link, you will receive an email with a confirmation link to the new email address. This ensures that you have access to the new email inbox and prevents you from possibly entering the wrong email address.&lt;/li>
+
+&lt;/ol>The email change is fully completed only after the second confirmation link.</source>
+				<target state="tanslated">⚠️ Der E-Mail-Wechsel erfolgt in zwei Schritten: &lt;ol>
+						&lt;li>Sie erhalten eine Bestätigungsmail an die aktuell gültige E-Mail-Adresse. Das stellt sicher, dass Sie Zugriff auf das aktuelle E-Mail-Postfach haben und verhindert den E-Mail-Wechsel durch nicht autorisierte Personen.&lt;/li>
+						&lt;li>Durch den ersten Bestätigungslink erhalten Sie eine E-Mail mit einem Bestätigungslink an die neue E-Mail-Adresse. Das stellt sicher, dass Sie Zugriff auf das neue E-Mail-Postfach haben und verhindert, dass Sie eventuell die falsche E-Mail-Adresse eingeben haben.&lt;/li>
+					&lt;/ol>Erst nach dem zweiten Bestätigungslink ist der E-Mail-Wechsel vollständig vollzogen.</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.form.note.noneUserEmailExists">
+				<source>⚠️ You will receive an email with a confirmation link at the new email address. This ensures that you have access to the new email inbox and prevents you from possibly entering the wrong email address. 
+				Only after following the confirmation link is the new email address registered.</source>
+				<target state="tanslated">⚠️ Sie erhalten eine E-Mail mit einem Bestätigungslink an die neue E-Mail-Adresse. Das stellt sicher, dass Sie Zugriff auf das neue E-Mail-Postfach haben und verhindert, dass Sie eventuell die falsche E-Mail-Adresse eingeben haben. 
+				Erst nach dem Ausführen des Bestätigungslink ist die neue E-Mail hinterlegt.</target>
 			</trans-unit>
 
 			<!-- change email form - errors -->
@@ -214,10 +222,79 @@
 			</trans-unit>
 
 
+			<!-- change email confirmEmailChange mail -->
+			<trans-unit id="changeEmail.mail.confirmEmailChange.subject">
+				<source>Confirm the email change</source>
+				<target state="tanslated">Bestätigung des E-Mail-Adressen-Wechsels</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.mail.confirmEmailChange.salutation">
+				<source>Hello %s,</source>
+				<target state="tanslated">Guten Tag %s,</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.mail.confirmEmailChange.teaser">
+				<source>This e-mail is to confirm that you wish to change your e-mail address. The new e-mail address is: %s.</source>
+				<target state="tanslated">Diese E-Mail dient zur Bestätigung, dass Sie Ihre E-Mail-Adresse ändern wollen. Die neue E-Mail-Adresse lautet: %s.</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.mail.confirmEmailChange.teaser.dangerWarning">
+				<source>⚠️ If you are not currently making a change to your email address, this may indicate unauthorized external access. Please contact your administrator as soon as possible. ⚠️</source>
+				<target state="tanslated">⚠️ Wenn Sie gerade keine E-Mail-Adresse-Änderung durchführen, kann dies auf einen nicht autorisierten Fremdzugriff hindeuten. Wenden Sie sich schnellstmöglich an Ihren Administrator. ⚠️</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.mail.confirmEmailChange.beforeLink">
+				<source> To complete the confirmation, follow the link below:</source>
+				<target state="tanslated">Um die Bestätigung abzuschließen, führen Sie den folgenden Link aus: </target>
+			</trans-unit>
+			<trans-unit id="changeEmail.mail.confirmEmailChange.link">
+				<source>E-mail address change confirmation %s</source>
+				<target state="tanslated">Bestätigung des E-Mail-Adresse-Wechsels: %s</target>
+			</trans-unit>
+			<trans-unit id="changeEmail.mail.confirmEmailChange.afterLink">
+				<source>⚠️ After the successful confirmation, you will receive an email at your new email address to verify that you are the owner of the new email address.
+
+With kind regards
+
+your administrator
+				</source>
+				<target state="tanslated">⚠️ Nach der erfolgreichen Bestätigung erhalten Sie eine Mail an ihre neue E-Mail-Adresse um zu prüfen, ob Sie Inhaber der neuen E-Mail-Adresse sind. 
+
+
+Mit freundlichem Gruß
+
+Ihr Administrator
+				</target>
+			</trans-unit>
+
+			<!-- change email successful "form" -->
+			<trans-unit id="confirmEmailChange.successful.title">
+				<source>⚠️ The email address change has been successfully confirmed</source>
+				<target state="tanslated">⚠️ Der E-Mail-Adress-Wechsel wurde erfolgreich bestätigt</target>
+			</trans-unit>
+			<trans-unit id="confirmEmailChange.successful.message">
+				<source>⚠️ You have now received an email at the new email address %s to confirm that you are the owner of the new email address.</source>
+				<target state="tanslated">⚠️ Sie haben nun eine E-Mail an die neue E-Mail-Adresse %s erhalten, um zu bestätigen, dass Sie Zugang zur neuen E-Mail-Adresse haben.</target>
+			</trans-unit>
+
+			<!-- change email unsuccessful "form" -->
+			<trans-unit id="confirmEmailChange.unsuccessful.title">
+				<source>The email address change was not successfully confirmed</source>
+				<target state="tanslated">Der E-Mail-Adress-Wechsel wurde nicht erfolgreich bestätigt</target>
+			</trans-unit>
+			<trans-unit id="confirmEmailChange.unsuccessful.error.tokenEmailCombinationNotFound">
+				<source>No e-mail exists for the token contained in the link. The link may already have been successfully confirmed or a new link has been requested.
+				</source>
+				<target state="tanslated">Zum dem im Link enthalten Token existiert keine E-Mail. Der Link wurde vielleicht bereits erfolgreich bestätigt oder ein neuer Link
+					ist bereits angefordert worden.
+				</target>
+			</trans-unit>
+			<trans-unit id="confirmEmailChange.unsuccessful.error.invalidLink">
+				<source>The confirmation link is invalid.</source>
+				<target state="tanslated">Der Bestätigungslink ist ungültig.</target>
+			</trans-unit>
 
 
 			<!-- change email confirm mail -->
 			<trans-unit id="changeEmail.mail.confirm.subject">
+				<source>Confirm the new email address</source>
+				<target state="tanslated">Bestätigung der neuen E-Mail-Adresse</target>
 				<source>Confirm the new email address</source>
 				<target state="tanslated">Bestätigung der neuen E-Mail-Adresse</target>
 			</trans-unit>
@@ -226,13 +303,16 @@
 				<target state="tanslated">Guten Tag %s,</target>
 			</trans-unit>
 			<trans-unit id="changeEmail.mail.confirm.beforeLink">
-				<source>This e-mail is to confirm that you wish to change your e-mail address. The new e-mail address is: %s.
-To complete the confirmation, follow the link below:
+				<source>This email is to confirm that you want to change your email address and that you are the owner of this email address. 
+
+To complete the confirmation, please follow the link below:
 				</source>
-				<target state="tanslated">Diese E-Mail dient zur Bestätigung, dass Sie Ihre E-Mail-Adresse ändern wollen. Die neue E-Mail-Adresse lautet: %s.
+				<target state="tanslated">Diese E-Mail dient zur Bestätigung, dass Sie Ihre E-Mail-Adresse ändern wollen und Sie Zugang zu dieser E-Mail-Adresse haben.
+
 Um die Bestätigung abzuschließen, führen Sie den folgenden Link aus:
 				</target>
 			</trans-unit>
+
 			<trans-unit id="changeEmail.mail.confirm.link">
 				<source>E-mail address confirmation %s</source>
 				<target state="tanslated">Bestätigung der E-Mail-Adresse %s</target>
@@ -241,13 +321,17 @@ Um die Bestätigung abzuschließen, führen Sie den folgenden Link aus:
 				<source>After the successful confirmation you can use the new e-mail address to log in.
 
 With kind regards
+With kind regards
 
+your administrator
 your administrator
 				</source>
 				<target state="tanslated">Nach der erfolgreichen Bestätigung können Sie die neue E-Mail-Adresse zum einloggen verwenden.
 
 Mit freundlichem Gruß
+Mit freundlichem Gruß
 
+Ihr Administrator
 Ihr Administrator
 				</target>
 			</trans-unit>

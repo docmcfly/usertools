@@ -3,6 +3,12 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2020-03-12T08:01:36Z" product-name="usertools">
 		<header/>
 		<body>
+
+			<!-- Plugin group -->
+			<trans-unit id="plugins.group.usertools.name">
+				<source>User tools</source>
+			</trans-unit>
+
 			<!-- Login - form -->
 			<trans-unit id="login.form.title">
 				<source>Login</source>
@@ -25,9 +31,9 @@
 			<trans-unit id="login.link.forgottenPassword">
 				<source>You forget the password?</source>
 			</trans-unit>
-			
-		
-			
+
+
+
 			<!-- login errors -->
 			<trans-unit id="login.form.error.passwordWrong">
 				<source>Your password is wrong.</source>
@@ -44,16 +50,19 @@
 			<trans-unit id="login.form.error.accountNotfoundByUsername">
 				<source>Account not found.</source>
 			</trans-unit>
-			
+
 			<!-- forgotten password -->
 			<trans-unit id="forgottenPassword.form.title">
 				<source>Forgot your Passwort?</source>
 			</trans-unit>
 			<trans-unit id="forgottenPassword.form.description">
-				<source>If an e-mail address has been entered in the account, an e-mail with a link to is sent. The link allows you to reset the password.
-							If no mail arrives, the user name is not correct or the deposited e-mail address is wrong. For security reasons, no error message is thrown whether the username was correct or not.</source>
-				<target state="tanslated">Wenn eine E-Mail-Adresse im Account hinterlegt worden ist, wird eine Mail mit einem Link zu gesandt. Der Link ermöglicht es, das Passwort neu zusetzen.
-				Wenn keine Mail ankommt, ist der Nutzername nicht korrekt oder die hinterlegte E-Mail-Adresse falsch. Aus Sicherheitsgründen wird keine Fehlermeldung geworfen, ob der Nutzername korrekt war oder nicht.</target>
+				<source>⚠️ If an email address is already registered for the user, the email change process occurs in two steps: &lt;ol>
+    &lt;li>You will receive a confirmation email to the currently valid email address. This ensures that you have access to the current email inbox and prevents unauthorized persons from changing the email.&lt;/li>
+    &lt;li>By clicking the first confirmation link, you will receive an email with a confirmation link to the new valid email address. This ensures that you have access to the new email inbox and prevents you from possibly entering the wrong email address.&lt;/li>
+
+&lt;/ol>The email change is fully completed only after the second confirmation link.
+
+If no email address is registered for the user, the first step is omitted.</source>
 			</trans-unit>
 			<trans-unit id="forgottenPassword.form.username">
 				<source>Username</source>
@@ -61,21 +70,21 @@
 			<trans-unit id="forgottenPassword.form.submit">
 				<source>Send</source>
 			</trans-unit>
-			
+
 			<!-- forgotten password email -->
 			<trans-unit id="forgottenPassword.mail.subject">
 				<source>Link to change your password</source>
 			</trans-unit>
-		  <trans-unit id="forgottenPassword.mail.salutation">
+			<trans-unit id="forgottenPassword.mail.salutation">
 				<source>Hello %s,</source>
 			</trans-unit>
 			<trans-unit id="forgottenPassword.mail.beforeLink">
 				<source>If you click on the link, you can reset your password: </source>
 			</trans-unit>
-      <trans-unit id="forgottenPassword.mail.link">
+			<trans-unit id="forgottenPassword.mail.link">
 				<source>Reset the passwort...</source>
 			</trans-unit>
-			
+
 			<trans-unit id="forgottenPassword.mail.afterLink">
 				<source>
 With kind regards
@@ -86,9 +95,9 @@ Mit freundlichem Gruß
 
 Ihr Administrator</target>
 			</trans-unit>
-	
+
 			<!-- changeForgottenPassword form -->
-			
+
 			<trans-unit id="changeForgottenPassword.form.title">
 				<source>Change the password</source>
 			</trans-unit>
@@ -104,7 +113,7 @@ Ihr Administrator</target>
 			<trans-unit id="changeForgottenPassword.form.note">
 				<source>A password is valid if it is at least 8 characters long. It must contain upper and lower case letters, as well as numbers and special characters ( !#+-_"/§$%&amp;()[]{} )</source>
 			</trans-unit>
-			
+
 			<!-- changeForgottenPassword errors $ infos-->
 			<trans-unit id="changeForgottenPassword.form.error.newPasswordIsOldPassword">
 				<source>Your new password is the same as your old password. </source>
@@ -127,11 +136,11 @@ Ihr Administrator</target>
 			<trans-unit id="login.form.info.passwordChangeMailFailed">
 				<source>Mail transmission to change the password failed. Contact the administrator.</source>
 			</trans-unit>
-			
+
 			<trans-unit id="changeForgottenPassword.link.toLogin">
 				<source>Login</source>
 			</trans-unit>
-			
+
 			<!-- edit profile (user settings) -->
 			<trans-unit id="editProfile.form.title">
 				<source>User settings</source>
@@ -184,8 +193,8 @@ Ihr Administrator</target>
 			<!-- &#128683;  -->
 			<trans-unit id="editProfile.form.currentlyOffDuty">
 				<source>Currenty off duty</source>
-			</trans-unit>			
-				
+			</trans-unit>
+
 			<!-- edit profile - errors -->
 			<trans-unit id="editProfile.form.error.notLogged">
 				<source>You are not logged.</source>
@@ -194,7 +203,7 @@ Ihr Administrator</target>
 				<source>Only the current logged user is editable.</source>
 			</trans-unit>
 
-			<!-- list users -->	
+			<!-- list users -->
 			<trans-unit id="listAllUser.name">
 				<source>Name</source>
 			</trans-unit>
@@ -227,56 +236,74 @@ Ihr Administrator</target>
 				<source>Telephone number is not public</source>
 			</trans-unit>
 			<trans-unit id="listAllUser.currentlyOffDuty">
-				<source>Currently off duty</source>				
-			</trans-unit>
-			
-
-			<!-- change email form -->		
-			<trans-unit id="changeEmail.form.title">
-				<source>Change the email address</source>
-			</trans-unit>
-			<trans-unit id="changeEmail.form.currentEmail">
-				<source>Current email address</source>
-			</trans-unit>
-			<trans-unit id="changeEmail.form.newEmail">
-				<source>The new email address</source>
-			</trans-unit>
-			<trans-unit id="changeEmail.form.submitChange">
-				<source>Change</source>
-			</trans-unit>
-			<trans-unit id="changeEmail.form.note">
-				<source>If you change your email address, you will receive an email with a confirmation link if no other account exists with this email address. The change of the e-mail address is only active after a confirmation and only then the new e-mail address is displayed here.</source>
+				<source>Currently off duty</source>
 			</trans-unit>
 
-			<!-- change email form - errors -->
-			<trans-unit id="changeEmail.form.error.newEmailIsOldEmail">
-				<source>The new email address is equals to the current email address.</source>
+
+			<!-- change email confirmEmailChange mail -->
+			<trans-unit id="changeEmail.mail.confirmEmailChange.subject">
+				<source>Confirm the email change</source>
 			</trans-unit>
-			<trans-unit id="changeEmail.form.error.notLogged">
-				<source>You are not logged.</source>
+			<trans-unit id="changeEmail.mail.confirmEmailChange.salutation">
+				<source>Hello %s,</source>
 			</trans-unit>
-			<trans-unit id="changeEmail.form.error.newEmailEmpty">
-				<source>No new e-mail address was provided.</source>
-			</trans-unit>	
-			<trans-unit id="changeEmail.form.error.newEmailInvalid">
-				<source>The new email addresse is invalid-</source>
+			<trans-unit id="changeEmail.mail.confirmEmailChange.teaser">
+				<source>This e-mail is to confirm that you wish to change your e-mail address. The new e-mail address is: %s.</source>
 			</trans-unit>
-			<trans-unit id="changeEmail.form.error.newEmailExists">
-				<source>The email address is already in use.</source>
+			<trans-unit id="changeEmail.mail.confirmEmailChange.teaser.dangerWarning">
+				<source>⚠️ If you are not currently making a change to your email address, this may indicate unauthorized external access. Please contact your administrator as soon as possible. ⚠️</source>
 			</trans-unit>
-			
+			<trans-unit id="changeEmail.mail.confirmEmailChange.beforeLink">
+				<source> To complete the confirmation, follow the link below:</source>
+			</trans-unit>
+			<trans-unit id="changeEmail.mail.confirmEmailChange.link">
+				<source>E-mail address change confirmation %s</source>
+			</trans-unit>
+			<trans-unit id="changeEmail.mail.confirmEmailChange.afterLink">
+				<source>⚠️ After the successful confirmation, you will receive an email at your new email address to verify that you are the owner of the new email address.
+
+With kind regards
+
+your administrator
+				</source>
+			</trans-unit>
+
+			<!-- change email successful "form" -->
+			<trans-unit id="confirmEmailChange.successful.title">
+				<source>⚠️ The email address change has been successfully confirmed</source>
+			</trans-unit>
+			<trans-unit id="confirmEmailChange.successful.message">
+				<source>⚠️ You have now received an email at the new email address %s to confirm that you are the owner of the new email address.</source>
+			</trans-unit>
+
+			<!-- change email unsuccessful "form" -->
+			<trans-unit id="confirmEmailChange.unsuccessful.title">
+				<source>The email address change was not successfully confirmed</source>
+			</trans-unit>
+			<trans-unit id="confirmEmailChange.unsuccessful.error.tokenEmailCombinationNotFound">
+				<source>No e-mail exists for the token contained in the link. The link may already have been successfully confirmed or a new link has been requested.
+				</source>
+			</trans-unit>
+			<trans-unit id="confirmEmailChange.unsuccessful.error.invalidLink">
+				<source>The confirmation link is invalid.</source>
+			</trans-unit>
+
+
 			<!-- change email confirm mail -->
 			<trans-unit id="changeEmail.mail.confirm.subject">
 				<source>Confirm the new email address</source>
 			</trans-unit>
-		  <trans-unit id="changeEmail.mail.confirm.salutation">
+			<trans-unit id="changeEmail.mail.confirm.salutation">
 				<source>Hello %s,</source>
 			</trans-unit>
 			<trans-unit id="changeEmail.mail.confirm.beforeLink">
-				<source>This e-mail is to confirm that you wish to change your e-mail address. The new e-mail address is: %s.
-To complete the confirmation, follow the link below:</source>
+				<source>This email is to confirm that you want to change your email address and that you are the owner of this email address. 
+
+To complete the confirmation, please follow the link below:
+				</source>
 			</trans-unit>
-				<trans-unit id="changeEmail.mail.confirm.link">
+
+			<trans-unit id="changeEmail.mail.confirm.link">
 				<source>E-mail address confirmation %s</source>
 			</trans-unit>
 			<trans-unit id="changeEmail.mail.confirm.afterLink">
@@ -284,14 +311,17 @@ To complete the confirmation, follow the link below:</source>
 
 With kind regards
 
-your administrator</source>
+your administrator
+				</source>
 			</trans-unit>
-			
+
+
+
 			<!-- change email confirm mail - errors -->
 			<trans-unit id="changeEmail.error.tokenEmailCombinationNotFound">
 				<source>No email change could be found that matches this confirmation link.</source>
 			</trans-unit>
-		  <trans-unit id="changeEmail.error.invalidLink">
+			<trans-unit id="changeEmail.error.invalidLink">
 				<source>The confirmation link is invalid.</source>
 			</trans-unit>
 
@@ -300,7 +330,7 @@ your administrator</source>
 			<trans-unit id="changeEmail.successful.title">
 				<source>The e-mail address was successfully changed</source>
 			</trans-unit>
-  		<trans-unit id="changEmail.successful.message">
+			<trans-unit id="changEmail.successful.message">
 				<source>The e-mail address was successfully changed to %s.</source>
 			</trans-unit>
 
@@ -309,15 +339,14 @@ your administrator</source>
 				<source>The e-mail address was not successfully changed</source>
 			</trans-unit>
 			<trans-unit id="changeEmail.unsuccessful.error.tokenEmailCombinationNotFound">
-				<source>No e-mail exists for the token contained in the link. The link may already have been successfully confirmed or a new link has been requested.</source>
+				<source>No e-mail exists for the token contained in the link. The link may already have been successfully confirmed or a new link has been requested.
+				</source>
 			</trans-unit>
-			<trans-unit id="changeEmail.unsuccessful.error.invalidLink"> %
+			<trans-unit id="changeEmail.unsuccessful.error.invalidLink">
 				<source>The confirmation link is invalid.</source>
 			</trans-unit>
-	
-	
-	
-			<!-- change password form -->		
+
+			<!-- change password form -->
 			<trans-unit id="changePassword.form.title">
 				<source>Change the password</source>
 			</trans-unit>
@@ -333,7 +362,7 @@ your administrator</source>
 			<trans-unit id="changePassword.form.note">
 				<source>A password is valid if it is at least 8 characters long. It must contain upper and lower case letters, as well as numbers and special characters ( !#+-_"/§$%&amp;()[]{} )</source>
 			</trans-unit>
-			
+
 			<trans-unit id="changePassword.form.error.newPasswordIsOldPassword">
 				<source>Your new password is the same as your old password. </source>
 			</trans-unit>
@@ -346,11 +375,11 @@ your administrator</source>
 			<trans-unit id="changePassword.form.info.passwordChangeSuccessful">
 				<source>The password change was successful. </source>
 			</trans-unit>
-		
+
 			<trans-unit id="taskForceOverview.reason.currentlyOffDuty">
 				<source>Currently off duty</source>
 			</trans-unit>
-			
+
 
 		</body>
 	</file>

@@ -1,20 +1,22 @@
 <!-- errors and infos -->
+<f:asset.script identifier="usertools_jquery-3.7.1.min.js"
+	src="EXT:usertools/Resources/Public/JavaScript/Dist/jquery-3.7.1.min.js" />
 <f:for each="{validationResults.infos}" as="info" key="infoKey">
 	<div class="alert alert-success">
 		<f:translate key="{prefix}.{infoKey}" arguments="{info.arguments}" />
 	</div>
 </f:for>
-<f:if condition="{validationResults.errors}">
+<f:if condition="{validationResults.errors -> f:count() > 0}">
 	<script type="text/javascript" defer="defer">
-		$(document).ready(function() {
-		<f:for each="{validationResults.errors}" as="error">
-			$('#{error.id}Label').addClass('error')
-		</f:for>
+		$(document).ready(function () {
+			<f:for each="{validationResults.errors}" as="error">
+				$('#{error.id}Label').addClass('error')
+			</f:for>
 		})
 	</script>
 	<f:for each="{validationResults.errors}" as="error" key="errorKey">
-		<div class="alert alert-danger">
-			<f:translate key="{prefix}.{errorKey}" arguments="{error.arguments}"/>
+		<div class="alert alert-danger" data-key="{prefix}.{errorKey}">
+			<f:translate key="{prefix}.{errorKey}" arguments="{error.arguments}" />
 		</div>
 	</f:for>
 </f:if>

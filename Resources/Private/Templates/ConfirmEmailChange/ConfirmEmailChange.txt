@@ -1,0 +1,33 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="ConfirmEmailChange"/>
+<f:section name="main">
+<f:translate key="LLL:EXT:usertools/Resources/Private/Language/locallang.xlf:changeEmail.mail.confirmEmailChange.salutation" arguments="{0:currentUser.name}"/>
+		
+<f:if condition="{sendConfirmLink}"><f:then>
+<f:translate key="LLL:EXT:usertools/Resources/Private/Language/locallang.xlf:changeEmail.mail.confirmEmailChange.teaser" arguments="{0:currentUser.newEmail}" />
+</f:then><f:else> 
+<f:translate key="LLL:EXT:usertools/Resources/Private/Language/locallang.xlf:changeEmail.mail.confirmEmailChange.teaser" arguments="{0:currentUser.confirmedNewEmail}" />
+
+<f:translate key="LLL:EXT:usertools/Resources/Private/Language/locallang.xlf:changeEmail.mail.confirmEmailChange.teaser.dangerWarning" /></f:else>
+
+</f:if>
+ <f:if condition="{sendConfirmLink}">
+<f:translate key="LLL:EXT:usertools/Resources/Private/Language/locallang.xlf:changeEmail.mail.confirmEmailChange.beforeLink" />
+
+<f:format.raw>
+<f:uri.action 
+				pageUid="{confirmEmailChangePage}" 
+				absolute="true" 
+				controller="ChangeEmail" 
+				action="confirmEmailChange" 
+				pluginName="confirmEmailChange"
+				noCache="true"
+				arguments="{token:token, email:currentUser.newEmail}" /></f:format.raw>
+
+<f:translate key="LLL:EXT:usertools/Resources/Private/Language/locallang.xlf:changeEmail.mail.confirmEmailChange.afterLink" arguments="{0:currentUser.newEmail}" />
+</f:if>
+
+</f:section>
+</html>
+
+

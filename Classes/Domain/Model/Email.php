@@ -8,28 +8,21 @@ namespace Cylancer\Usertools\Domain\Model;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  *
- * (c) 2022 Clemens Gogolin <service@cylancer.net>
+ * (c) 2025 C. Gogolin <service@cylancer.net>
  *
- * @package Cylancer\Usertools\Domain\Model
  */
-class Email {
+class Email
+{
 
-    /**
-     * @var string
-     */
-    protected $email = '';
+    protected ?string $email = '';
 
-    /**
-     * @return string
-     */
-    public function getEmail() {
+    public function getEmail(): ?string
+    {
         return $this->email;
     }
 
-    /**
-     * @param string $email
-     */
-    public function setEmail($email) {
+    public function setEmail(?string $email): void
+    {
         $this->email = $email;
     }
 

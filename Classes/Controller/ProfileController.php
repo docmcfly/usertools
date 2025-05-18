@@ -12,60 +12,46 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use Cylancer\Usertools\Domain\Repository\FrontendUserRepository;
 use Cylancer\Usertools\Domain\Model\FrontendUser;
-use TYPO3\CMS\Core\Resource\StorageRepository;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
-use TYPO3\CMS\Core\Resource\FileInterface;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use TYPO3\CMS\Core\Resource\DuplicationBehavior;
-use TYPO3\CMS\Core\Resource\File;
-use TYPO3\CMS\Core\Resource\Folder;
-use Symfony\Component\Config\Resource\FileResource;
-use TYPO3\CMS\Core\Resource\FileReference;
-use TYPO3\CMS\Core\Resource\Security\FileNameValidator;
-use TYPO3\CMS\Core\Utility\PathUtility;
 use Cylancer\Usertools\Domain\Model\ValidationResults;
 use Cylancer\Usertools\Domain\Model\Password;
 use Cylancer\Usertools\Domain\Model\Email;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
-use Cylancer\Usertools\Service\EmailSendService;
 use Cylancer\Usertools\Service\FrontendUserService;
+
+use TYPO3\CMS\Core\Resource\Enum\DuplicationBehavior;
+use TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator;
+use TYPO3\CMS\Extbase\Mvc\Controller\FileUploadConfiguration;
+use TYPO3\CMS\Extbase\Mvc\Controller\Argument;
+use TYPO3\CMS\Core\Utility\StringUtility;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 
 /**
  *
- * @package Cylancer\Usertools\Controller;
  */
 class ProfileController extends ActionController
 {
 
-    const TOKEN_KEY = 'token';
 
-    const EMAIL_KEY = 'email';
+    private const CURRENT_USER = 'currentUser';
 
-    const CURRENT_USER = 'currentUser';
+    private const EMAIL = 'email';
 
-    const VALIDATIOPN_RESULTS = 'validationResults';
+    private const VALIDATIOPN_RESULTS = 'validationResults';
 
-    const PASSWORD_KEY = 'password';
+    private const VISIBLE_FE_GROUPS = 'visibleFeGroups';
 
-    const TARGET_PAGE = 'targetPage';
-
-    const VISIBLE_FE_GROUPS = 'visibleFeGroups';
-
-    const PASSWORD_RULES = '^(?=(?:[^A-Z]*[A-Z]){1})(?=(?:[^0-9]*[0-9]){1})(?=(?:[^!#+-_"\/§$%&\()\[\]\{\}]*[!#+-_"\/§$%&\()\[\]\{\}]){1}).{8,}$';
-
-    /** @var FrontendUserRepository   */
-    private $frontendUserRepository = null;
-
-    /** @var PersistenceManager **/
-    private $persistenceManager;
-
-    /** @var ResourceFactory  **/
-    private $resourceFactory;
-
-    /** @var FrontendUserService **/
-    private $frontendUserService;
 
     private $_validationResults = null;
+
+    public function __construct(
+        private readonly FrontendUserRepository $frontendUserRepository,
+        private readonly FrontendUserService $frontendUserService,
+        private readonly PersistenceManager $persistenceManager,
+        private readonly ResourceFactory $resourceFactory
+    ) {
+    }
+
 
     private function getValidationResults()
     {
@@ -77,13 +63,25 @@ class ProfileController extends ActionController
         return $this->_validationResults;
     }
 
-    public function __construct(FrontendUserRepository $frontendUserRepository, PersistenceManager $persistenceManager, ResourceFactory $resourceFactory, FrontendUserService $frontendUserService)
+    public function initializeDoEditProfileAction(): void
     {
-        $this->frontendUserRepository = $frontendUserRepository;
-        $this->persistenceManager = $persistenceManager;
-        $this->responseFactory = $resourceFactory;
-        $this->frontendUserService = $frontendUserService;
+        $mimeTypeValidator = GeneralUtility::makeInstance(MimeTypeValidator::class);
+        $mimeTypeValidator->setOptions(['allowedMimeTypes' => ['image/jpeg', 'image/png']]);
+
+        /** @var Argument */
+        $currentUser = $this->arguments->getArgument('currentUser');
+        $fileHandlingServiceConfiguration = $currentUser->getFileHandlingServiceConfiguration();
+        $uploadConfiguration = (new FileUploadConfiguration('uploadedPortrait'))
+            ->addValidator($mimeTypeValidator)
+            ->setMaxFiles(1)
+            ->setUploadFolder($this->settings['userImageFolder'] . '/');
+
+        $uploadConfiguration->setDuplicationBehavior(DuplicationBehavior::REPLACE);
+        $fileHandlingServiceConfiguration->addFileUploadConfiguration($uploadConfiguration);
+        $currentUser->getPropertyMappingConfiguration()->skipProperties('uploadedPortrait');
+
     }
+
 
     /**
      *
@@ -91,7 +89,7 @@ class ProfileController extends ActionController
      * @return ResponseInterface
      *
      */
-    public function doEditProfileAction(FrontendUser $currentUser = null): ResponseInterface
+    public function doEditProfileAction(FrontendUser $currentUser): ResponseInterface
     {
         if ($this->request->hasArgument('uploadedImage')) {
             $currentUser->setUploadedImage($this->request->getArgument('uploadedImage'));
@@ -117,10 +115,10 @@ class ProfileController extends ActionController
                 $validationResults->addError('uploadedImage.scriptsNotAllowed');
             } else {
 
-                $this->updateImage($currentUser);
-            }
-        }
         if (!$validationResults->hasErrors()) {
+
+            $this->updatePortrait($currentUser);
+
             $this->frontendUserRepository->update($currentUser);
             $validationResults->addInfo('savingSuccessful');
         }
@@ -134,98 +132,29 @@ class ProfileController extends ActionController
      * @param FrontendUser $frontendUser
      * @return bool
      */
-    private function updateImage(FrontendUser $frontendUser): bool
+    private function updatePortrait(FrontendUser $frontendUser): void
     {
-        /** @var ValidationResults $validationResults **/
-        $validationResults = $this->getValidationResults();
+        if ($frontendUser->getUploadedPortrait() != null) {
+            if ($frontendUser->getPortrait() != null) {
+                $frontendUser->getPortrait()->getOriginalResource()->delete();
 
-        $uploadFileData = $frontendUser->getUploadedImage();
-        $error = $uploadFileData['error'];
-        if ($error !== UPLOAD_ERR_NO_FILE) {
-            $fileName = $uploadFileData['name'];
-            $fileExtension = PathUtility::pathinfo($fileName, PATHINFO_EXTENSION);
-            if (!GeneralUtility::inList($GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'], strtolower($fileExtension))) {
-                $validationResults->addError('uploadedImage.imageFormatNotSupported', [
-                    $fileExtension
-                ]);
-            } else if (!$validationResults->hasErrors() && $error === UPLOAD_ERR_OK) {
-                if ($frontendUser->getImage()->count() === 0) {
-                    // the first image... :)
-                    $this->addFile($uploadFileData, $frontendUser);
-                } else {
-                    // one image exists:
-
-                    /** @var \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference **/
-                    $fileReference = $frontendUser->getImage()->getArray()[0];
-                    $fileName = $fileReference->getOriginalResource()->getName();
-
-                    if (($fileName !== $frontendUser->getUsername() . '.' . $fileExtension)) {
-                        $frontendUser->getImage()->removeAll($frontendUser->getImage());
-                        $fileResource = GeneralUtility::makeInstance(ResourceFactory::class)->getFileReferenceObject($fileReference->getUid());
-                        $fileResource->getOriginalFile()->delete();
-                    }
-
-                    $this->addFile($uploadFileData, $frontendUser);
-                }
-                $this->frontendUserRepository->update($frontendUser);
-                $this->persistenceManager->persistAll();
-
-                return true;
             }
+            $uploadedPortrait = $frontendUser->getUploadedPortrait();
+
+            $extension = $uploadedPortrait->getOriginalResource()->getOriginalFile()->getExtension();
+            $uploadedPortrait->getOriginalResource()->getOriginalFile()->rename($frontendUser->getUsername() . '.' . $extension);
+            $frontendUser->setPortrait($uploadedPortrait);
+            $frontendUser->setUploadedPortrait(null);
         }
-        return $error === UPLOAD_ERR_NO_FILE;
     }
 
-    /**
-     *
-     * @param array $uploadFileData
-     * @param FrontendUser $frontendUser
-     * @return void
-     */
-    private function addFile(array $uploadFileData, FrontendUser $frontendUser): void
-    {
-        $tmpFile = $uploadFileData['tmp_name'];
-        $fileExtension = end(explode('.',  $uploadFileData['name']));
-
-        // Save the imgae in the storage...
-        /** @var StorageRepository $storageRepository **/
-        $storageRepository = GeneralUtility::makeInstance(StorageRepository::class);
-        $storage = $storageRepository->getDefaultStorage();
-
-        /** @var Folder $folder **/
-        $folder = $storage->getFolder($this->settings['userImageFolder']);
-
-        /** @var FileInterface $imageFile **/
-        $imageFile = $folder->addFile($tmpFile, $frontendUser->getUsername() . '.' . $fileExtension, DuplicationBehavior::REPLACE);
-
-        $storageRepository->flush();
-
-        /** @var File $file **/
-        $coreFile = $storage->getFileByIdentifier($imageFile->getIdentifier());
-
-        /** @var \\TYPO3\CMS\Extbase\Domain\Model\File $file **/
-        $file = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Domain\Model\File::class);
-        $file->setOriginalResource($coreFile);
-
-        /** @var FileReference $coreFileReference **/
-        $coreFileReference = GeneralUtility::makeInstance(FileReference::class, [
-            'uid_local' => $coreFile->getUid()
-        ]);
-
-        /** @var \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference **/
-        $fileReference = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Domain\Model\FileReference::class);
-        $fileReference->setOriginalResource($coreFileReference);
-
-        /** @var ObjectStorage $objectstorage */
-        $frontendUser->getImage()->attach($fileReference);
-    }
 
     /**
      *
      * @param FrontendUser $frontendUser
      * @return ResponseInterface
      */
-    public function deleteCurrentUserImagesAction(): ?object
+    public function deletePortraitAction(): ?object
     {
         /** @var ValidationResults $validationResults **/
         $validationResults = $this->getValidationResults();
@@ -233,21 +162,13 @@ class ProfileController extends ActionController
         if (!$this->frontendUserService->isLogged()) {
             $validationResults->addError('notLogged');
         }
-        if (!$validationResults->hasErrors()) {
+        $frontendUser = $this->frontendUserService->getCurrentUser();
+        $portrait = $frontendUser->getPortrait();
+        if (!$validationResults->hasErrors() && $portrait != null) {
 
-            /** @var ResourceFactory $resourceFactory **/
-            $resourcefactory = GeneralUtility::makeInstance(ResourceFactory::class);
-
-            $frontendUser = $this->frontendUserService->getCurrentUser();
-            $fileReferences = $frontendUser->getImage()->getArray();
-
-            /** @var \TYPO3\CMS\Extbase\Domain\Model\FileReference $fileReference **/
-            foreach ($fileReferences as $fileReference) {
-                $frontendUser->getImage()->detach($fileReference);
-
-                $fileResource = $resourcefactory->getFileReferenceObject($fileReference->getUid());
-                $fileResource->getOriginalFile()->delete();
-            }
+            $frontendUser->setPortrait(null);
+            $fileResource = $this->resourceFactory->getFileReferenceObject($portrait->getUid());
+            $fileResource->getOriginalFile()->delete();
 
             $this->frontendUserRepository->update($frontendUser);
         }
@@ -263,245 +184,49 @@ class ProfileController extends ActionController
      */
     public function editProfileAction(): ResponseInterface
     {
-        $validationResults = $this->getValidationResults();
 
+        $validationResults = $this->getValidationResults();
         if ($this->frontendUserService->isLogged()) {
-            $this->view->assign(ProfileController::CURRENT_USER, $this->frontendUserService->getCurrentUser());
+            $frontendUser = $this->frontendUserService->getCurrentUser();
+            $this->view->assign(ProfileController::CURRENT_USER, $frontendUser);
             $this->view->assign(ProfileController::VISIBLE_FE_GROUPS, GeneralUtility::intExplode(',', $this->settings['visibleFeGroups']));
-        } else {
-            $validationResults->addError('notLogged');
-        }
-        $this->view->assign(ProfileController::VALIDATIOPN_RESULTS, $validationResults);
-        return $this->htmlResponse();
-    }
 
-    /**
-     *
-     * @param \Cylancer\Usertools\Domain\Model\Password $password
-     * @return ResponseInterface
-     */
-    public function changePasswordFormAction(Password $password = null): ResponseInterface
-    {
-        /** @var ValidationResults $validationResults **/
-        $validationResults = $this->getValidationResults();
-        if (!$this->frontendUserService->isLogged()) {
-            $validationResults->addError('notLogged');
-        }
+            // migration from usertools 3.x (for TYPO3 12) to 4.x (for TYPO3 13)
+            // Moves the first image to the portait, if the filename is equals with the username. 
+            if ($frontendUser->getImage()->count() > 0 && $frontendUser->getPortrait() == null) {
+                $firstFileReference = $frontendUser->getImage()->getArray()[0];
+                $orgFile = $firstFileReference->getOriginalResource()->getOriginalFile();
+                $extension = $orgFile->getExtension();
+                if (($frontendUser->getUsername() . '.' . $extension) == $orgFile->getName()) {
 
-        if ($password == null) {
-            $password = GeneralUtility::makeInstance(Password::class);
-            $this->view->assign(ProfileController::PASSWORD_KEY, $password);
-        }
+                    // create a new portait file reference...    
+                    $newObject = [
+                        'uid_local' => $orgFile->getUid(),
+                        'uid_foreign' => StringUtility::getUniqueId('NEW'),
+                        'uid' => StringUtility::getUniqueId('NEW'),
+                        'crop' => null,
+                    ];
 
-        $this->view->assign(ProfileController::VALIDATIOPN_RESULTS, $validationResults);
-        return $this->htmlResponse();
-    }
+                    $fileReference = $this->resourceFactory->createFileReferenceObject($newObject);
+                    $fileReferenceObject = GeneralUtility::makeInstance(FileReference::class);
+                    $fileReferenceObject->setOriginalResource($fileReference);
 
-    /**
-     *
-     * @param Password $password
-     * @return ResponseInterface
-     */
-    public function changePasswordAction(Password $password): ResponseInterface
-    {
-        /** @var ValidationResults $validationResults **/
-        $validationResults = $this->getValidationResults();
+                    $frontendUser->setPortrait($fileReferenceObject);
 
-        if ($this->frontendUserService->isLogged()) {
-            $validationResults->addErrors($this->validatePassword($password));
-        } else {
-            $validationResults->addError('notLogged');
-        }
+                    // delete the first image... 
+                    $frontendUser->getImage()->detach($firstFileReference);
 
-        if (!$validationResults->hasErrors()) {
-            $user = $this->frontendUserRepository->findByUid($this->frontendUserService->getCurrentUserUid());
-            $user->setPassword($this->getHashedPassword($password->getPassword()));
-            $this->frontendUserRepository->update($user);
-            $validationResults->addInfo('passwordChangeSuccessful');
-            $password = null;
-        } else {
-            $password->setConfirmPassword("");
-        }
-
-        return GeneralUtility::makeInstance(ForwardResponse::class, 'changePasswordForm')->withArguments([
-            ProfileController::PASSWORD_KEY => $password,
-            ProfileController::VALIDATIOPN_RESULTS => $validationResults
-        ]);
-    }
-
-    /**
-     * Checks the password of the current front end user
-     *
-     * @param Password $password
-     * @return array
-     */
-    private function validatePassword(Password $password): array
-    {
-        $errors = array();
-        $user = $this->frontendUserService->getCurrentUser();
-        if ($this->checkPassword($password->getPassword(), $user->getPassword())) {
-            $errors[] = 'newPasswordIsOldPassword';
-        }
-
-        if ($password->getPassword() !== $password->getConfirmPassword()) {
-            $errors[] = 'confirmPasswordIsNotEquals';
-        }
-
-        if (!preg_match('/' . ProfileController::PASSWORD_RULES . '/', $password->getPassword())) {
-            $errors[] = 'passwordInvalid';
-        }
-        return $errors;
-    }
-
-    /**
-     * Displays the change email form
-     * @return ResponseInterface
-     */
-    public function changeEmailFormAction()
-    {
-        /** @var ValidationResults $validationResults **/
-        $validationResults = $this->getValidationResults();
-
-        $email = ($this->request->hasArgument(ProfileController::EMAIL_KEY)) ? $this->request->getArgument(ProfileController::EMAIL_KEY) : GeneralUtility::makeInstance(Email::class);
-
-        if ($this->frontendUserService->isLogged()) {
-            $user = $this->frontendUserService->getCurrentUser();
-        } else {
-            $validationResults->addError('notLogged');
-        }
-        $this->view->assign(ProfileController::EMAIL_KEY, $email);
-        $this->view->assign(ProfileController::CURRENT_USER, $user);
-        $this->view->assign(ProfileController::VALIDATIOPN_RESULTS, $validationResults);
-        return $this->htmlResponse();
-    }
-
-    /**
-     *
-     * @param Email $email
-     *  @return ResponseInterface
-     */
-    public function prepareEmailChangeAction(Email $email): ?object
-    {
-        /** @var ValidationResults $validationResults **/
-        $validationResults = $this->getValidationResults();
-
-        $errors = array();
-        if ($this->frontendUserService->isLogged()) {
-            $user = $this->frontendUserService->getCurrentUser();
-            // No email
-            if (empty($email->getEmail())) {
-                $errors[] = 'newEmailEmpty';
-            } // E-Mail Format
-            elseif (!filter_var($email->getEmail(), FILTER_VALIDATE_EMAIL)) {
-                $errors[] = 'newEmailInvalid';
-            } elseif ($email->getEmail() === $user->getEmail()) {
-                $errors[] = 'newEmailIsOldEmail';
-            } elseif (count($this->frontendUserRepository->findByEmail($email->getEmail())) > 0) {
-                $errors[] = 'newEmailExists';
-            }
-        } else {
-            $errors[] = 'notLogged';
-        }
-        $validationResults->addErrors($errors);
-
-        if (!$validationResults->hasErrors()) {
-            $user->setNewEmail($email->getEmail());
-            $emailHash = sha1(uniqid($email->getEmail()));
-            $user->setNewEmailToken($emailHash);
-            $this->frontendUserRepository->update($user);
-
-            $fluidEmail = GeneralUtility::makeInstance(FluidEmail::class);
-            $fluidEmail
-                ->setRequest($this->request)
-                ->to(new Address($email->getEmail(), $user->getName()))
-                ->from(new Address($this->settings['sender'], $this->settings['senderName']))
-                ->subject(LocalizationUtility::translate('changeEmail.mail.confirm.subject', 'Usertools'))
-                ->format(FluidEmail::FORMAT_BOTH) // send HTML and plaintext mail
-                ->setTemplate('ConfirmEmail')
-                ->assign(ProfileController::TOKEN_KEY, $emailHash)
-                ->assign(ProfileController::CURRENT_USER, $user)
-                ->assign(ProfileController::TARGET_PAGE, $this->settings['redirectSuccess']);
-            try {
-                GeneralUtility::makeInstance(MailerInterface::class)->send($fluidEmail);
-                $validationResults->addInfo('confirmEMailMailSuccessful');
-            } catch (\Exception $e) {
-                $validationResults->addError('confirmEMailMailFailed');
-            }
-
-            $email = GeneralUtility::makeInstance(Email::class);
-        }
-
-        return GeneralUtility::makeInstance(ForwardResponse::class, 'changeEmailForm')->withArguments([
-            ProfileController::EMAIL_KEY => $email,
-            ProfileController::VALIDATIOPN_RESULTS => $validationResults
-        ]);
-    }
-
-    /**
-     * Confirms the new email address
-     *
-     * @return ResponseInterface
-     */
-    public function confirmNewEmailAction(): ?object
-    {
-        /** @var ValidationResults $validationResults **/
-        $validationResults = $this->getValidationResults();
-
-        if ($this->request->hasArgument(ProfileController::TOKEN_KEY) && $this->request->hasArgument(ProfileController::EMAIL_KEY)) {
-
-            $token = $this->request->getArgument(ProfileController::TOKEN_KEY);
-            $email = $this->request->getArgument(ProfileController::EMAIL_KEY);
-
-            /** @var FrontendUser $user **/
-            $user = null;
-            $users = $this->frontendUserRepository->findByNewEmailToken($token);
-            if (count($users) > 0) {
-                foreach ($users as $u) {
-                    if ($u->getNewEmail() === $email) {
-                        $user = $u;
-                        break;
-                    }
+                    $this->frontendUserRepository->update($frontendUser);
                 }
-            }
-            if ($user == null) {
-                $validationResults->addError('tokenEmailCombinationNotFound');
-            }
-            if (!$validationResults->hasErrors()) {
-                $user->setNewEmail('');
-                $user->setNewEmailToken('');
-                $user->setEmail($email);
-                $this->frontendUserRepository->update($user);
-                $this->view->assign(ProfileController::CURRENT_USER, $user);
-                $validationResults->addInfo('emailChangingSuccessful');
-            }
-        } else {
-            $validationResults->addError('invalidLink');
-        }
 
+            }
+
+
+        } else {
+            $validationResults->addError('notLogged');
+        }
         $this->view->assign(ProfileController::VALIDATIOPN_RESULTS, $validationResults);
         return $this->htmlResponse();
     }
 
-    /**
-     * Get the hashed password
-     *
-     * @param string $password
-     * @return string|NULL
-     */
-    private function getHashedPassword(string $password): ?string
-    {
-        return GeneralUtility::makeInstance(PasswordHashFactory::class)->getDefaultHashInstance('FE')->getHashedPassword($password);
-    }
-
-    /**
-     * Check password
-     *
-     * @param string $password
-     * @param string $passwordHash
-     * @return string|NULL
-     */
-    public function checkPassword(string $password, string $passwordHash): ?string
-    {
-        return GeneralUtility::makeInstance(PasswordHashFactory::class)->get($passwordHash, 'FE')->checkPassword($password, $passwordHash);
-    }
 }

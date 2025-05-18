@@ -7,8 +7,8 @@
 			<!-- Plugin group -->
 			<trans-unit id="plugins.group.usertools.name">
 				<source>User tools</source>
+				<target state="tanslated">Nutzer-Werkzeuge</target>
 			</trans-unit>
-
 
 		</body>
 	</file>

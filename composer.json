@@ -4,8 +4,8 @@
 	"description" : "A tool box for a fe user managemnet.",
 	"license" : "GPL-2.0-or-later",
 	"require" : {
-		"typo3/cms-core" : "^12.4",
-		"bk2k/bootstrap-package" : ">12.0.1"
+		"typo3/cms-core" : "^13.4",
+		"bk2k/bootstrap-package" : ">14.0.1"
 	},
 	"autoload" : {
 		"psr-4" : {
@@ -13,7 +13,7 @@
 		}
 	},
 	"authors" : [{
-			"name" : "Clemens Gogolin",
+			"name" : "C. Gogolin",
 			"email" : "service@cylancer.net",
 			"role" : "developer",
 			"homepage" : "https://github.com/docmcfly/usertools"

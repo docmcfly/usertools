@@ -32,7 +32,13 @@
 			<trans-unit id="tx_usertools_domain_model_frontendUser.new_email_token">
 				<source>New Email Token</source>
 			</trans-unit>
-			
+			<trans-unit id="tx_usertools_domain_model_frontendUser.confirmed_new_email">
+				<source>Confirmed new email (for change)</source>
+			</trans-unit>
+			<trans-unit id="tx_usertools_domain_model_frontendUser.portrait">
+				<source>User prorait image</source>
+			</trans-unit>
+
 			<!-- frontend user extenstion tab -->
 			<trans-unit id="fe_users.tx_extbase_type.Tx_Usertools_User">
 				<source>User tools</source>

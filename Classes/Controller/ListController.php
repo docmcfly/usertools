@@ -75,4 +75,5 @@ class ListController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         }
         return $this->htmlResponse();
     }
+
 }

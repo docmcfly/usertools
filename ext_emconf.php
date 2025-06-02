@@ -25,7 +25,7 @@ $EM_CONF[$_EXTKEY] = [
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '4.1.1',
+    'version' => '4.1.2',
     'autoload' => [
         'psr-4' => [
             'Cylancer\\Usertools\\' => 'Classes/',
@@ -42,17 +42,3 @@ $EM_CONF[$_EXTKEY] = [
     ],
 ];
 
-/** ---- CHANGELOG ----------
- * 
-4.1.1 :: FIX : Fix the upgrade wizzard. 
-4.1.0 :: FIX/UPD : An email adresse change validates the current and the new email address.
-4.0.0 :: UPD : Update to TYPO3 13.4.0
-3.0.2 :: UPD : Update to bootstrap_package 14.0.0
-3.0.1 :: FIX : fast search : result is displayed in the center of the screen.
-3.0.0 :: UPD : Update to TYPO3 12.4.0
-2.3.0 :: Fix : Repair the plugin configuration / registry.
-2.2.2 :: Fix : List all users -> fix the layout of the fast search form 
-2.2.1 :: Update bootstrap_package dependency: Allows the version 13. 
-2.2.0 :: Removes the dependency on the news extension (Removes the newsletter scheduler task. You can use the cy_newsletter extension).
-2.1.3 :: Add documentarion / change this icons. 
- ---- CHANGELOG ---------- */

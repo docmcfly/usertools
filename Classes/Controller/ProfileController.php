@@ -91,15 +91,8 @@ class ProfileController extends ActionController
      */
     public function doEditProfileAction(FrontendUser $currentUser): ResponseInterface
     {
-        if ($this->request->hasArgument('uploadedImage')) {
-            $currentUser->setUploadedImage($this->request->getArgument('uploadedImage'));
-        }
-
         /** @var ValidationResults $validationResults **/
         $validationResults = $this->getValidationResults();
-
-
-
 
         if ($currentUser == null) {
             return GeneralUtility::makeInstance(ForwardResponse::class, 'editProfile');
@@ -110,10 +103,6 @@ class ProfileController extends ActionController
         } else {
             $validationResults->addError('notLogged');
         }
-        if ($currentUser->getUploadedImage() != null) {
-            if (!GeneralUtility::makeInstance(FileNameValidator::class)->isValid($currentUser->getUploadedImage()['name'])) {
-                $validationResults->addError('uploadedImage.scriptsNotAllowed');
-            } else {
 
         if (!$validationResults->hasErrors()) {
 
@@ -191,6 +180,7 @@ class ProfileController extends ActionController
             $this->view->assign(ProfileController::CURRENT_USER, $frontendUser);
             $this->view->assign(ProfileController::VISIBLE_FE_GROUPS, GeneralUtility::intExplode(',', $this->settings['visibleFeGroups']));
 
+
             // migration from usertools 3.x (for TYPO3 12) to 4.x (for TYPO3 13)
             // Moves the first image to the portait, if the filename is equals with the username. 
             if ($frontendUser->getImage()->count() > 0 && $frontendUser->getPortrait() == null) {
@@ -228,5 +218,6 @@ class ProfileController extends ActionController
         $this->view->assign(ProfileController::VALIDATIOPN_RESULTS, $validationResults);
         return $this->htmlResponse();
     }
+
 
 }

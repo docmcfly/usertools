@@ -9,35 +9,7 @@ defined('TYPO3') || die('Access denied.');
  *
  * (c) 2025 C. Gogolin <service@cylancer.net>
  * 
- */ 
-
-if (!isset($GLOBALS['TCA']['fe_users']['ctrl']['type'])) {
-    // no type field defined, so we define it here. This will only happen the first time the extension is installed!!
-    $GLOBALS['TCA']['fe_users']['ctrl']['type'] = 'tx_extbase_type';
-    $tempColumnstx_usertools_fe_users = [];
-    $tempColumnstx_usertools_fe_users[$GLOBALS['TCA']['fe_users']['ctrl']['type']] = [
-        'exclude' => true,
-        'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools.tx_extbase_type',
-        'config' => [
-            'type' => 'select',
-            'renderType' => 'selectSingle',
-            'items' => [
-                [
-                    '',
-                    ''
-                ],
-                [
-                    'User',
-                    'Tx_Usertools_User'
-                ]
-            ],
-            'default' => 'Tx_Usertools_User',
-            'size' => 1,
-            'maxitems' => 1
-        ]
-    ];
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('fe_users', $tempColumnstx_usertools_fe_users);
-}
+ */
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('fe_users', $GLOBALS['TCA']['fe_users']['ctrl']['type'], '', 'after:' . $GLOBALS['TCA']['fe_users']['ctrl']['label']);
 
@@ -47,13 +19,12 @@ $tmp_usertools_columns = [
         'exclude' => false,
         'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.allow_display_email',
         'config' => [
-            'readOnly' => 1,
+            'readOnly' => true,
             'type' => 'check',
             'renderType' => 'checkboxToggle',
             'items' => [
                 [
-                    0 => '',
-                    1 => '',
+                    'label' => '',
                 ]
             ],
             'default' => 0
@@ -63,13 +34,12 @@ $tmp_usertools_columns = [
         'exclude' => false,
         'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.allow_display_phone',
         'config' => [
-            'readOnly' => 1,
+            'readOnly' => true,
             'type' => 'check',
             'renderType' => 'checkboxToggle',
             'items' => [
                 [
-                    0 => '',
-                    1 => '',
+                    'label' => '',
                 ]
             ],
             'default' => 0
@@ -79,13 +49,12 @@ $tmp_usertools_columns = [
         'exclude' => false,
         'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.allow_display_image_internal',
         'config' => [
-            'readOnly' => 1,
+            'readOnly' => true,
             'type' => 'check',
             'renderType' => 'checkboxToggle',
             'items' => [
                 [
-                    0 => '',
-                    1 => '',
+                    'label' => '',
                 ]
             ],
             'default' => 0
@@ -95,13 +64,12 @@ $tmp_usertools_columns = [
         'exclude' => false,
         'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.allow_display_image_public',
         'config' => [
-            'readOnly' => 1,
+            'readOnly' => true,
             'type' => 'check',
             'renderType' => 'checkboxToggle',
             'items' => [
                 [
-                    0 => '',
-                    1 => '',
+                    'label' => '',
                 ]
             ],
             'default' => 0
@@ -112,13 +80,12 @@ $tmp_usertools_columns = [
         'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.currently_off_duty',
         'onChange' => 'reload',
         'config' => [
-            'readOnly' => 0,
+            'readOnly' => false,
             'type' => 'check',
             'renderType' => 'checkboxToggle',
             'items' => [
                 [
-                    0 => '',
-                    1 => '',
+                    'label' => '',
                 ]
             ],
             'default' => 0
@@ -128,18 +95,17 @@ $tmp_usertools_columns = [
         'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.currently_off_duty_until',
         'displayCond' => 'FIELD:currently_off_duty:REQ:true',
         'config' => [
-            'type' => 'input',
-            'renderType' => 'inputDateTime',
+            'type' => 'datetime',
+            'format' => 'date',
             'dbType' => 'date',
-            'eval' => 'date,int',
-            'default' => 0,
+            'readOnly' => true,
         ]
     ],
     'new_email' => [
         'exclude' => false,
         'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.new_email',
         'config' => [
-            'readOnly' => 1,
+            'readOnly' => true,
             'type' => 'input',
             'size' => 255,
             'eval' => 'trim'
@@ -151,26 +117,28 @@ $tmp_usertools_columns = [
         'config' => [
             'type' => 'input',
             'size' => 30,
-            'eval' => 'trim'
+            'eval' => 'trim',
+            'readOnly' => true,
         ]
     ],
     'confirmed_new_email' => [
         'exclude' => false,
         'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.confirmed_new_email',
         'config' => [
-            'readOnly' => 1,
+            'readOnly' => true,
             'type' => 'input',
             'size' => 255,
             'eval' => 'trim'
         ]
     ],
-    'password_token' => [
+   'password_token' => [
         'exclude' => false,
         'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.password_token',
         'config' => [
             'type' => 'input',
             'size' => 30,
-            'eval' => 'trim'
+            'eval' => 'trim',
+            'readOnly' => true,
         ]
     ],
     'portrait' => [
@@ -180,6 +148,7 @@ $tmp_usertools_columns = [
             'type' => 'file',
             'maxitems' => 1,
             'allowed' => 'common-image-types',
+            'readOnly' => false,
         ],
     ],
 ];

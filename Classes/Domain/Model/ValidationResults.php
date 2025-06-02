@@ -50,12 +50,7 @@ class ValidationResults
         $this->infos["info.$infoKey"]['id'] = count($keySplit) == 2 ? $keySplit[0] : $infoKey;
     }
 
-    /**
-     *
-     * @param String $errorKey
-     * @param array $arguments
-     */
-    public function addError(String $errorKey, array $arguments = []): void
+    public function addError(string $errorKey, array $arguments = []): void
     {
         $keySplit = explode('.', $errorKey, 2);
         $this->errors["error.$errorKey"]['arguments'] = $arguments;

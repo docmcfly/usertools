@@ -295,8 +295,6 @@ Ihr Administrator
 			<trans-unit id="changeEmail.mail.confirm.subject">
 				<source>Confirm the new email address</source>
 				<target state="tanslated">Bestätigung der neuen E-Mail-Adresse</target>
-				<source>Confirm the new email address</source>
-				<target state="tanslated">Bestätigung der neuen E-Mail-Adresse</target>
 			</trans-unit>
 			<trans-unit id="changeEmail.mail.confirm.salutation">
 				<source>Hello %s,</source>
@@ -321,17 +319,13 @@ Um die Bestätigung abzuschließen, führen Sie den folgenden Link aus:
 				<source>After the successful confirmation you can use the new e-mail address to log in.
 
 With kind regards
-With kind regards
 
-your administrator
 your administrator
 				</source>
 				<target state="tanslated">Nach der erfolgreichen Bestätigung können Sie die neue E-Mail-Adresse zum einloggen verwenden.
 
 Mit freundlichem Gruß
-Mit freundlichem Gruß
 
-Ihr Administrator
 Ihr Administrator
 				</target>
 			</trans-unit>

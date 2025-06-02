@@ -131,7 +131,7 @@ $tmp_usertools_columns = [
             'eval' => 'trim'
         ]
     ],
-   'password_token' => [
+    'password_token' => [
         'exclude' => false,
         'label' => 'LLL:EXT:usertools/Resources/Private/Language/locallang_db.xlf:tx_usertools_domain_model_frontendUser.password_token',
         'config' => [

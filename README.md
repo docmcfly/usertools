@@ -26,7 +26,7 @@ This extension contains a collection of user tools:
 ## Limitations
 
 **DEPENDENCIES:**  
-	- TYPO3 (13.4.0 - 13.4.99)
+	- TYPO3 (13.4.0 - 13.5.99)
 	- bootstrap_package (15.0.0 - 15.0.99)
 
 ## Installation

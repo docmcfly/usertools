@@ -13,7 +13,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'User tools',
-    'description' => 'Collection of user tools:  
+    'description' => 'Collection of user tools:
 - list all users
 - edit the profile (image, phone number, email address, visualisation properties etc.)
 - change your password
@@ -25,7 +25,7 @@ $EM_CONF[$_EXTKEY] = [
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '4.1.2',
+    'version' => '4.1.3',
     'autoload' => [
         'psr-4' => [
             'Cylancer\\Usertools\\' => 'Classes/',

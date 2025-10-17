@@ -1,5 +1,6 @@
 <?php
 use Cylancer\Usertools\Controller\ChangeEmailController;
+use Cylancer\Usertools\Controller\ChangePasswordController;
 use Cylancer\Usertools\Controller\ProfileController;
 use Cylancer\Usertools\Controller\ListController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
@@ -86,11 +87,11 @@ ExtensionUtility::configurePlugin(
     'Usertools',
     'ChangePassword',
     [
-        ProfileController::class => 'changePassword, doChangePassword'
+        ChangePasswordController::class => 'changePassword, doChangePassword'
     ],
     // non-cacheable actions
     [
-        ProfileController::class => 'changePassword,doChangePassword'
+        ChangePasswordController::class => 'changePassword,doChangePassword'
     ],
     ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );

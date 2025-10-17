@@ -12,6 +12,7 @@ This extension contains a collection of user tools:
 
 ## Change log
 
+* 4.1.4 :: FIX : The passwort change form works as expected.
 * 4.1.3 :: CLN : Cleaning fe_users integration
 * 4.1.2 :: UPD : Update (cleaning) TCA configuration
 * 4.1.1 :: FIX : Fix the upgrade wizzard.

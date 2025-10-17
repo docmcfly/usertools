@@ -84,6 +84,7 @@ class ChangePasswordController extends ActionController
         }
 
         if (!$validationResults->hasErrors()) {
+            /** @var \Cylancer\Usertools\Domain\Model\FrontendUser $user  */
             $user = $this->frontendUserRepository->findByUid($this->frontendUserService->getCurrentUserUid());
             $user->setPassword($this->getHashedPassword($password->getPassword()));
             $this->frontendUserRepository->update($user);
@@ -107,7 +108,7 @@ class ChangePasswordController extends ActionController
      */
     private function validatePassword(Password $password): array
     {
-        $errors = array();
+        $errors = [];
         $user = $this->frontendUserService->getCurrentUser();
         if ($this->checkPassword($password->getPassword(), $user->getPassword())) {
             $errors[] = 'newPasswordIsOldPassword';

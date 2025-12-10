@@ -64,9 +64,11 @@
 											id="image" title="{currentUser.portrait.originalResource.originalFile.name}"
 											alt="{currentUser.portrait.originalResource.originalFile.name}"
 											maxWidth="150" maxHeight="150" />
-										<f:link.action action="deletePortrait">
-											<f:translate key="editProfile.form.deletePortrait" />
-										</f:link.action>
+										<f:if condition="{userCanChangeImage}">
+											<f:link.action action="deletePortrait">
+												<f:translate key="editProfile.form.deletePortrait" />
+											</f:link.action>
+										</f:if>
 									</f:then>
 									<f:else>
 										<f:image class="border border-white rounded m-3"
@@ -79,14 +81,16 @@
 										</label>
 									</f:else>
 								</f:if>
-								<p>
-									<f:translate key="editProfile.form.imageNote" />
-								</p>
-								<label for="uploadedPortrait" id="uploadedPortraitLabel">
-									<f:translate key="editProfile.form.switchPortrait" />
-								</label>
-								<f:form.upload property="uploadedPortrait" additionalAttributes="{accept:'image/*'}"
-									class="form-input" id="uploadedPortrait" />
+								<f:if condition="{userCanChangeImage}">
+									<p>
+										<f:translate key="editProfile.form.imageNote" />
+									</p>
+									<label for="uploadedPortrait" id="uploadedPortraitLabel">
+										<f:translate key="editProfile.form.switchPortrait" />
+									</label>
+									<f:form.upload property="uploadedPortrait" additionalAttributes="{accept:'image/*'}"
+										class="form-input" id="uploadedPortrait" />
+								</f:if>
 							</div>
 						</div>
 					</div>

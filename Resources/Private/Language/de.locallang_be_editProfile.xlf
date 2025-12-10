@@ -24,6 +24,15 @@
 				<target state="tanslated">Sichtbare Webnutzergruppen</target>
 			</trans-unit>
 
+			<trans-unit id="flexforms_general.settings.userCanChangeImage">
+				<source>User can change the own image</source>
+				<target state="tanslated">Der Nutzer kann sein Bild selbst ändern</target>
+			</trans-unit>
+			<trans-unit id="flexforms_general.settings.userCanChangeImage.value.label">
+				<source>User can change the own image</source>
+				<target state="tanslated">Der Nutzer kann sein Bild selbst ändern</target>
+			</trans-unit>
+
 			<trans-unit id="flexforms_general.settings.userImageFolder">
 				<source>Storage folder for the user image</source>
 				<target state="tanslated">Speicherort für die Nutzerbilder</target>

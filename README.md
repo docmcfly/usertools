@@ -12,6 +12,8 @@ This extension contains a collection of user tools:
 
 ## Change log
 
+* 4.2.1 :: FIX : Email change tutorial fixed.
+* 4.2.0 :: ADD : When editing the profile, you can restrict the user's right to change their image.
 * 4.1.4 :: FIX : The passwort change form works as expected.
 * 4.1.3 :: CLN : Cleaning fe_users integration
 * 4.1.2 :: UPD : Update (cleaning) TCA configuration
@@ -53,6 +55,7 @@ In the second step you have to add the plugin to the TypoScript. To do this, you
 #### Frontend plugin: user profiles preferences
 
 * **Visbible frontend user groups** :: The plugin displays the group membership of the user, but only the selected groups.
+* **User can change the own image** :: Is the user allowed to change their image? (Replace or delete)
 * **Storage folder for the user image** :: All user pictures are saved in specified folder.
 
 #### Frontend plugin: Email address change form

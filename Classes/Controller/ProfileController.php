@@ -34,6 +34,7 @@ class ProfileController extends ActionController
 
 
     private const CURRENT_USER = 'currentUser';
+    private const USER_CAN_CHANGE_IMAGE = 'userCanChangeImage';
 
     private const EMAIL = 'email';
 
@@ -105,9 +106,9 @@ class ProfileController extends ActionController
         }
 
         if (!$validationResults->hasErrors()) {
-
-            $this->updatePortrait($currentUser);
-
+            if ($this->settings['userCanChangeImage'] ?? true) {
+                $this->updatePortrait($currentUser);
+            }
             $this->frontendUserRepository->update($currentUser);
             $validationResults->addInfo('savingSuccessful');
         }
@@ -147,19 +148,21 @@ class ProfileController extends ActionController
     {
         /** @var ValidationResults $validationResults **/
         $validationResults = $this->getValidationResults();
+        if ($this->settings['userCanChangeImage'] ?? true) {
 
-        if (!$this->frontendUserService->isLogged()) {
-            $validationResults->addError('notLogged');
-        }
-        $frontendUser = $this->frontendUserService->getCurrentUser();
-        $portrait = $frontendUser->getPortrait();
-        if (!$validationResults->hasErrors() && $portrait != null) {
+            if (!$this->frontendUserService->isLogged()) {
+                $validationResults->addError('notLogged');
+            }
+            $frontendUser = $this->frontendUserService->getCurrentUser();
+            $portrait = $frontendUser->getPortrait();
+            if (!$validationResults->hasErrors() && $portrait != null) {
 
-            $frontendUser->setPortrait(null);
-            $fileResource = $this->resourceFactory->getFileReferenceObject($portrait->getUid());
-            $fileResource->getOriginalFile()->delete();
+                $frontendUser->setPortrait(null);
+                $fileResource = $this->resourceFactory->getFileReferenceObject($portrait->getUid());
+                $fileResource->getOriginalFile()->delete();
 
-            $this->frontendUserRepository->update($frontendUser);
+                $this->frontendUserRepository->update($frontendUser);
+            }
         }
         return GeneralUtility::makeInstance(ForwardResponse::class, 'editProfile')->withArguments([
             ProfileController::VALIDATIOPN_RESULTS => $validationResults
@@ -179,7 +182,7 @@ class ProfileController extends ActionController
             $frontendUser = $this->frontendUserService->getCurrentUser();
             $this->view->assign(ProfileController::CURRENT_USER, $frontendUser);
             $this->view->assign(ProfileController::VISIBLE_FE_GROUPS, GeneralUtility::intExplode(',', $this->settings['visibleFeGroups']));
-
+            $this->view->assign(ProfileController::USER_CAN_CHANGE_IMAGE, $this->settings['userCanChangeImage'] ?? true);
 
             // migration from usertools 3.x (for TYPO3 12) to 4.x (for TYPO3 13)
             // Moves the first image to the portait, if the filename is equals with the username. 

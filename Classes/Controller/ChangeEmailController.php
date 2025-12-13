@@ -26,6 +26,8 @@ class ChangeEmailController extends ActionController
 
     private const EMAIL_KEY = 'email';
 
+    private const SEND_CHANGE_CONFIRMATION_LINK_2_CUURENT_MAIL =  'sendChangeConfirmationLink2currentMail';
+
     private const CURRENT_USER = 'currentUser';
     private const CONFIRM_EMAIL_CHANGE_PAGE = 'confirmEmailChangePage';
 
@@ -62,6 +64,7 @@ class ChangeEmailController extends ActionController
         }
         $this->view->assign(ChangeEmailController::EMAIL_KEY, $email);
         $this->view->assign(ChangeEmailController::CURRENT_USER, $user);
+        $this->view->assign(ChangeEmailController::SEND_CHANGE_CONFIRMATION_LINK_2_CUURENT_MAIL, $this->settings['sendChangeConfirmationLink2currentMail']);
         $this->view->assign(ChangeEmailController::VALIDATIOPN_RESULTS, $validationResults);
         return $this->htmlResponse();
     }
@@ -81,7 +84,7 @@ class ChangeEmailController extends ActionController
                 $errors[] = 'newEmailInvalid';
             } elseif ($email->getEmail() === $user->getEmail()) {
                 $errors[] = 'newEmailIsOldEmail';
-            } elseif (count($this->frontendUserRepository->findByEmail($email->getEmail())) > 0) {
+            } elseif ($this->frontendUserRepository->count(['email' => $email->getEmail(), 'disable' => false]) > 0 ) {
                 $errors[] = 'newEmailExists';
             }
         } else {

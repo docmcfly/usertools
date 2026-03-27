@@ -25,7 +25,7 @@ $EM_CONF[$_EXTKEY] = [
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '4.2.2',
+    'version' => '4.3.0',
     'autoload' => [
         'psr-4' => [
             'Cylancer\\Usertools\\' => 'Classes/',
@@ -35,7 +35,7 @@ $EM_CONF[$_EXTKEY] = [
     'constraints' => [
         'depends' => [
             'typo3' => '13.4.0-13.4.99',
-            'bootstrap_package' => '14.0.0-15.0.99'
+            'bootstrap_package' => '14.0.0-16.0.99'
         ],
         'conflicts' => [],
         'suggests' => [],

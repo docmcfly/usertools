@@ -12,6 +12,7 @@ This extension contains a collection of user tools:
 
 ## Change log
 
+* 4.3.0 :: CHK : User tools works with boostrap_package version 16.
 * 4.2.2 :: FIX : Email change tutorial fixed - now for real.
 * 4.2.1 :: FIX : Email change tutorial fixed.
 * 4.2.0 :: ADD : When editing the profile, you can restrict the user's right to change their image.

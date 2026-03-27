@@ -50,13 +50,13 @@
 								<f:if condition="{currentUser.email} && {sendChangeConfirmationLink2currentMail}">
 									<f:then>
 										<f:format.raw>
-											{f:translate( key:'changeEmail.form.note.noneUserEmailExists') ->
+											{f:translate( key:'changeEmail.form.note.userEmailExists') ->
 											f:format.nl2br()}
 										</f:format.raw>
 									</f:then>
 									<f:else>
 										<f:format.raw>
-											{f:translate( key:'changeEmail.form.note.userEmailExists') ->
+											{f:translate( key:'changeEmail.form.note.noneUserEmailExists') ->
 											f:format.nl2br()}
 										</f:format.raw>
 									</f:else>

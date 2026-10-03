@@ -6,3 +6,10 @@ services:
 
   Cylancer\Usertools\:
     resource: '../Classes/*'
+  
+  Cylancer\Usertools\Upgrades\UsertoolsUpgradeCTypeWizard:
+    tags:
+      - name: install.upgradewizard
+  Cylancer\Usertools\Upgrades\UsertoolsUpgradeWizard:
+    tags:
+      - name: install.upgradewizard      

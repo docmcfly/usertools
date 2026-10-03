@@ -33,8 +33,6 @@ final class UsertoolsUpgradeWizard implements UpgradeWizardInterface
 
     private FrontendUserRepository $frontendUserRepository;
 
-    private PersistenceManager $persistentManager;
-
     private ResourceFactory $resourceFactory;
 
     public function __construct()
@@ -43,7 +41,6 @@ final class UsertoolsUpgradeWizard implements UpgradeWizardInterface
         $settings = GeneralUtility::makeInstance(Typo3QuerySettings::class);
         $settings->setRespectStoragePage(false);
         $this->frontendUserRepository->setDefaultQuerySettings($settings);
-        $this->persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
         $this->resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
     }
 
@@ -65,12 +62,11 @@ final class UsertoolsUpgradeWizard implements UpgradeWizardInterface
         return GeneralUtility::makeInstance(LocalDriver::class)->sanitizeFileName($frontendUser->getUsername() . '.' . $extension) === $file->getName();
     }
 
-
-
     public function executeUpdate(): bool
     {
 
         $found = false;
+        /** @var FrontendUser $frontendUser **/
         foreach ($this->frontendUserRepository->findAll() as $frontendUser) {
             if ($frontendUser->getImage()->count() > 0 && $frontendUser->getPortrait() == null) {
                 $firstFileReference = $frontendUser->getImage()->getArray()[0];
@@ -91,7 +87,7 @@ final class UsertoolsUpgradeWizard implements UpgradeWizardInterface
 
                     $frontendUser->setPortrait($fileReferenceObject);
 
-                    // delete the first image... 
+                    // delete the first image...
                     $frontendUser->getImage()->detach($firstFileReference);
                     $this->frontendUserRepository->update($frontendUser);
                     $found = true;
@@ -105,16 +101,9 @@ final class UsertoolsUpgradeWizard implements UpgradeWizardInterface
         return true;
     }
 
-    /**
-     * Is an update necessary?
-     *
-     * Is used to determine whether a wizard needs to be run.
-     * Check if data for migration exists.
-     *
-     * @return bool Whether an update is required (TRUE) or not (FALSE)
-     */
     public function updateNecessary(): bool
     {
+        /** @var FrontendUser $frontendUser **/
         foreach ($this->frontendUserRepository->findAll() as $frontendUser) {
             if ($frontendUser->getImage()->count() > 0 && $frontendUser->getPortrait() == null) {
                 $firstFileReference = $frontendUser->getImage()->getArray()[0];
@@ -126,14 +115,6 @@ final class UsertoolsUpgradeWizard implements UpgradeWizardInterface
         return false;
     }
 
-    /**
-     * Returns an array of class names of prerequisite classes
-     *
-     * This way a wizard can define dependencies like "database up-to-date" or
-     * "reference index updated"
-     *
-     * @return string[]
-     */
     public function getPrerequisites(): array
     {
         return [];

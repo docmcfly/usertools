@@ -9,7 +9,6 @@
 				<type>array</type>
 				<el>
 					<settings.confirmNewEmailPage>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_confirmEmailChange.xlf:flexforms_general.confirmNewEmailPage.label</label>
 						<config>
 							<required>1</required>
@@ -23,7 +22,6 @@
 						</config>
 					</settings.confirmNewEmailPage>
 					<settings.senderName>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_confirmEmailChange.xlf:flexforms_general.senderName.label</label>
 						<config>
 							<type>input</type>
@@ -33,7 +31,6 @@
 						</config>
 					</settings.senderName>
 					<settings.sender>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_confirmEmailChange.xlf:flexforms_general.sender.label</label>
 						<config>
 							<type>input</type>

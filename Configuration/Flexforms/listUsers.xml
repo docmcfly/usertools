@@ -10,7 +10,6 @@
 				<type>array</type>
 				<el>
 					<settings.canViewPhoneNumbers>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_listUsers.xlf:flexforms_general.settings.canViewPhoneNumbers
 						</label>
 						<config>
@@ -22,7 +21,6 @@
 						</config>
 					</settings.canViewPhoneNumbers>
 					<settings.canViewCurrentlyOffDuty>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_listUsers.xlf:flexforms_general.settings.canViewCurrentlyOffDuty
 						</label>
 						<config>
@@ -33,7 +31,6 @@
 						</config>
 					</settings.canViewCurrentlyOffDuty>
 					<settings.visibleFeGroups>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_listUsers.xlf:flexforms_general.settings.visbleFeGroups
 						</label>
 						<config>
@@ -44,7 +41,6 @@
 						</config>
 					</settings.visibleFeGroups>
 					<settings.alternativEmailLink>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_listUsers.xlf:flexforms_general.settings.alternativEmailLink
 						</label>
 						<config>

@@ -10,7 +10,6 @@
 				<type>array</type>
 				<el>
 					<settings.visibleFeGroups>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_editProfile.xlf:flexforms_general.settings.visbleFeGroups
 						</label>
 						<config>
@@ -21,7 +20,6 @@
 						</config>
 					</settings.visibleFeGroups>
 					<settings.userCanChangeImage>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_editProfile.xlf:flexforms_general.settings.userCanChangeImage
 						</label>
 						<config>
@@ -37,7 +35,6 @@
 						</config>
 					</settings.userCanChangeImage>
 					<settings.userImageFolder>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_editProfile.xlf:flexforms_general.settings.userImageFolder
 						</label>
 						<config>
@@ -49,8 +46,6 @@
 							<size>1</size>
 						</config>
 					</settings.userImageFolder>
-					<!-- end of settings -->
-
 				</el>
 			</ROOT>
 		</sDEF>

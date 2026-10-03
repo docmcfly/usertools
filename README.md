@@ -12,6 +12,8 @@ This extension contains a collection of user tools:
 
 ## Change log
 
+* 4.3.2 :: RMV : Removes unused exclude tags in the flexforms definitions.
+* 4.3.1 :: FIX : Adds a extension wizzard for change the plugin type from list/list_type to CType.
 * 4.3.0 :: CHK : User tools works with boostrap_package version 16.
 * 4.2.2 :: FIX : Email change tutorial fixed - now for real.
 * 4.2.1 :: FIX : Email change tutorial fixed.

@@ -9,7 +9,6 @@
 				<type>array</type>
 				<el>
 					<settings.confirmEmailChangePage>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_changeEmail.xlf:flexforms_general.confirmEmailChangePage.label</label>
 						<config>
 							<required>1</required>
@@ -23,7 +22,6 @@
 						</config>
 					</settings.confirmEmailChangePage>
 					<settings.confirmNewEmailPage>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_changeEmail.xlf:flexforms_general.confirmNewEmailPage.label</label>
 						<config>
 							<required>1</required>
@@ -37,7 +35,6 @@
 						</config>
 					</settings.confirmNewEmailPage>
 					<settings.senderName>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_changeEmail.xlf:flexforms_general.senderName.label</label>
 						<config>
 							<type>input</type>
@@ -47,7 +44,6 @@
 						</config>
 					</settings.senderName>
 					<settings.sender>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_changeEmail.xlf:flexforms_general.sender.label</label>
 						<config>
 							<type>input</type>
@@ -57,7 +53,6 @@
 						</config>
 					</settings.sender>
 					<settings.sendChangeConfirmationLink2currentMail>
-						<exclude>1</exclude>
 						<label>LLL:EXT:usertools/Resources/Private/Language/locallang_be_changeEmail.xlf:flexforms_general.sendChangeConfirmationLink2currentMail.label</label>
 						<config>
 							<type>check</type>
